@@ -1,41 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Xirui Hu | Portfolio</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file if applicable -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+  <title>Xirui Hu — CV</title>
+  <style>
+
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Xirui Hu</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+  <section id="cv" aria-labelledby="cv-name">
+    <div class="cv-wrap">
+
+      <header class="title" id="cv-name">
+        <div class="contact-info">
+          <div>
+            <span>huxirui24@gmail.com</span>
+            <span>250-891-2179</span>
+          </div>
+          <div>
+            <a class="social" href="https://www.linkedin.com/in/xirui-hu-185546170/" target="_blank"
+              rel="noopener noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="row" role="main">
+        <!-- Left Side -->
+        <section class="col-left">
+          <div class="horizontal-line"></div>
+          
+          <h2>UX / UI DESIGNER</h2>
+          <h1>XIRUI</h1>
+          <div id="lastName">
+            <h1>HU</h1>
+            <span>'S PORTFOLIO</span>
+          </div>
+        </section>
+        <!-- Middle -->
+        <section class="col-middle">
+          <div class="card" aria-label="Profile and experience">
+            <h3>Profile</h3>
+            <p>
+              Art &amp; Design graduate experienced in building visual systems that strengthen digital communication.
+              Since 2015, I’ve developed a versatile portfolio through collaborations with brands, media platforms, and
+              cross-industry design projects.
+            </p>
+
+            <h3>Education</h3>
+            <dl>
+              <dt>Current</dt>
+              <dd>UX Design Certificate, Emily Carr University of Art + Design</dd>
+            </dl>
+
+            <dl>
+              <dt>Past</dt>
+              <dd>Interactive Media Developer Certificate, Camosun College</dd>
+              <dd>Bachelor of Literature, Art &amp; Design, Wuhan Textile University</dd>
+            </dl>
+
+            <h3>Professional Experience</h3>
+            <dl>
+              <dt>Graphic Designer | Jul 2020 – Jul 2023</dt>
+              <dd>Designed wireframes and mockups to support branding and marketing campaigns; collaborated with
+                marketing teams to refine concepts and enhance visual impact.</dd>
+              <dd>Developed and pitched design proposals tailored to client objectives, contributing to successful brand
+                acquisitions and expanded market presence.</dd>
+              <dt>Freelance Designer | 2018 – 2023</dt>
+              <dd>Partnered with food and beverage brands, delivery apps, restaurants, and local businesses to create
+                cohesive visual identities and seasonal campaign assets.</dd>
+              <dd>Designed marketing collateral (flyers, posters, packaging) and worked directly with clients to
+                translate briefs into polished deliverables.</dd>
+            </dl>
+
+            <h3>Design Projects</h3>
+
+            <dl>
+              <dt class="project-title">Bakery Online Ordering Redesign</dt>
+              <dd class="project-meta">2025 | Camosun College</dd>
+              <dd>Redesigned a local bakery’s online ordering experience to improve clarity and brand warmth. Conducted
+                user research, heuristic evaluation, and iterative UI design. Final Figma prototype features a
+                minimalist, playful interface that improves usability and encourages confident ordering.</dd>
+
+              <dt class="project-title">App Prototyping</dt>
+              <dd class="project-meta">2024 | Camosun College</dd>
+              <dd>Designed an interactive mobile app prototype to educate users about cheese varieties. Conducted user
+                research and prototyping in Figma to optimize user flows and integrated features such as pairing tips,
+                cultural insights, and recipes.</dd>
+            </dl>
+          </div>
+        </section>
+
+        <!-- Right Side -->
+        <aside class="col-right" aria-label="Contact and skills">
+          <!-- <img src="images/xiruihu.jpg" alt="Xirui Hu portrait" class="profile-img"> -->
+          <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <ul class="skills-list">
+              <li>HTML & CSS</li>
+              <li>C#</li>
+              <li>Figma & Adobe XD</li>
+              <li>Photoshop, Illustrator, InDesign</li>
             </ul>
-        </nav>
-    </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>This is a brief introduction about me...</p>
-    </section>
+            <div class="section-title">Soft Skills</div>
+            <ul class="soft-list">
+              <li>Collaboration & Team Communication</li>
+              <li>Empathy & Active Listening</li>
+              <li>Adaptability & Open-mindedness</li>
+              <li>Creative Problem-solving</li>
+              <li>Attention to Detail</li>
+            </ul>
 
-    <section id="projects">
-        <h2>My Projects</h2>
-        <p>Here are some of the projects I’ve worked on...</p>
-    </section>
+            <div class="section-title">Personal Interests</div>
+            <ul class="interests-list">
+              <li>Drawing</li>
+              <li>Reading</li>
+              <li>Print Design</li>
+            </ul>
+          </div>
+        </aside>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to get in touch!</p>
-    </section>
+      </div><!-- .row -->
 
-    <footer>
-        <p>© 2025 Xirui Hu</p>
-    </footer>
+    </div><!-- .cv-wrap -->
+  </section>
 </body>
+
 </html>
