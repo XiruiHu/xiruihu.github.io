@@ -1,137 +1,726 @@
-<!doctype HTML>
-<HTML lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xirui Hu — Visual Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
-    rel="stylesheet">
-  <title>Xirui Hu — CV</title>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=VT323&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'LaoJieZhaoPai';
+      src: url('brand_assets/AaLaoJieZhaoPaiTi-2.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --blue:        #1F1FE6;
+      --blue-2:      #1517B8;
+      --ember:       #E27A2C;
+      --paper:       #EBE3D0;
+      --paper-soft:  #F4EEDC;
+      --paper-deep:  #DDD2B7;
+      --amber:       #C77840;
+      --ink:         #0E0E14;
+      --ink-soft:    #2A2A33;
+      --ink-mute:    #6B6358;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Fira Sans', sans-serif;
+      background: var(--blue);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── FIXED BACKGROUND ───────────────────────────────────────── */
+    #bg-fixed {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #bg-img {
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+      object-position: center 18%;
+      transform-origin: center 18%;
+    }
+
+    /* ── HERO ────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 56px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: var(--blue);
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+    .nav-links a:hover { opacity: 0.6; }
+
+    /* STAMP */
+    #stamp {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      text-align: center;
+      gap: 0;
+    }
+
+    .stamp-badge-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .stamp-name-s {
+      font-size: 49px;
+      vertical-align: top;
+    }
+
+    .stamp-center-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .stamp-text-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .stamp-icon {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+    }
+
+    .stamp-cn {
+      font-family: 'LaoJieZhaoPai', cursive;
+      font-size: 98px;
+      line-height: 1;
+      color: var(--blue);
+      display: inline-block;
+      transform: translateY(0.2em);
+    }
+
+    .stamp-name {
+      font-family: 'Jomhuria', serif;
+      font-size: 98px;
+      line-height: 0.72;
+      letter-spacing: 0.02em;
+      color: var(--blue);
+    }
+
+    /* SCROLL CTA */
+    #scroll-cta {
+      text-align: center;
+      padding-bottom: 36px;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .cta-cn {
+      font-family: 'LaoJieZhaoPai', cursive;
+      font-size: 22px;
+      display: block;
+      line-height: 1.2;
+      transform: translateY(0.1em);
+    }
+
+    .cta-label {
+      font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .cta-arrow {
+      display: inline-block;
+      font-size: 18px;
+      animation: arrowBounce 1.6s ease-in-out infinite;
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* ── MENU ────────────────────────────────────────────────────── */
+    #menu {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      padding: 0 48px;
+      margin-bottom: 8vh;
+    }
+
+    #menu-card {
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      width: 100%;
+      max-width: 720px;
+      padding: 40px 52px 64px;
+      box-shadow:
+        0 -16px 80px rgba(14, 14, 20, 0.55),
+        0 -2px 0 rgba(14, 14, 20, 0.8);
+      /* Paper grain via SVG filter */
+      position: relative;
+    }
+
+    /* Faint grain overlay on card */
+    #menu-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #menu-card > * { position: relative; z-index: 1; }
+
+    /* MENU HEADING */
+    .menu-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 44px;
+    }
+
+    .menu-icon {
+      width: 66px;
+      height: 66px;
+      object-fit: contain;
+    }
+
+    .menu-title {
+      font-family: 'Jomhuria', serif;
+      font-size: 98px;
+      line-height: 0.75;
+      letter-spacing: 0.02em;
+      color: var(--blue);
+      text-transform: uppercase;
+      transform: translateY(0.1em);
+    }
+
+    /* CATEGORY */
+    .cat-label {
+      font-family: 'Jomhuria', serif;
+      font-size: 62px;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      transform: translateY(0.1em);
+    }
+
+    .cat-rule {
+      border: none;
+      border-top: 5px dotted var(--blue);
+      margin-bottom: 32px;
+    }
+
+    /* PROJECT ROW */
+    .project {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 28px;
+      margin-bottom: 36px;
+      align-items: stretch;
+    }
+
+    .project-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+    }
+
+    .project-body {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .eyebrow {
+      font-family: "Fira Mono", monospace;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: var(--blue);
+      /* border-bottom: 2px solid var(--ember); */
+      display: inline;
+      padding-bottom: 1px;
+    }
+
+    .proj-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .proj-title {
+      font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+      font-size: 25px;
+      color: var(--blue);
+      line-height: 1.2;
+    }
+
+    .proj-price {
+      font-family: "Fira Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+      font-size: 25px;
+      color: var(--ember);
+      white-space: nowrap;
+    }
+
+    .proj-desc {
+      font-family: "Fira Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+      font-size: 13px;
+      color: var(--blue);
+    }
+
+    .proj-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .order-btn {
+      background: var(--blue);
+      color: var(--ember);
+      border: none;
+      border-radius: 999px;
+      padding: 10px 48px;
+      font-family: "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 0 var(--blue-2);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .order-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--blue-2);
+    }
+    .order-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 var(--blue-2);
+    }
+
+    /* ── PAGE-END GRADIENT ───────────────────────────────────────── */
+    #page-end {
+      position: relative;
+      z-index: 2;
+      height: 120vh;
+      /* background: linear-gradient(
+        180deg,
+        rgba(14, 14, 20, 0)   0%,
+        rgba(14, 14, 20, 0)   40%,
+        rgba(14, 14, 20, 1)   100%
+      ); */
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      transform: translateY(100%);
+      background: var(--ink);
+      color: var(--ember);
+      font-family: "Fira Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      padding: 20px 64px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      border-top: 1px solid rgba(107, 99, 88, 0.4);
+    }
+
+    footer .center {
+      color: var(--ember);
+      font-family: "Fira Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    footer .right { text-align: right; }
+
+    /* ── FOOTER LOGO MARK ────────────────────────────────────────── */
+    footer .logo-mark {
+      color: var(--blue);
+      font-family: "Fira Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── SCROLL OVERLAYS ─────────────────────────────────────────── */
+    #huan-img {
+      position: fixed;
+      z-index: 1;
+      top: 8vh;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'LaoJieZhaoPai', cursive;
+      font-size: 98px;
+      line-height: 1;
+      color: var(--blue);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    #chairs-img {
+      position: fixed;
+      z-index: 1;
+      bottom: 37vh;
+      right: 27vw;
+      width: 240px;
+      height: auto;
+      pointer-events: none;
+    }
+
+    #scroll-scene {
+      position: relative;
+      z-index: 1;
+      height: 200vh;
+      pointer-events: none;
+    }
+  </style>
 </head>
-
 <body>
-  <section id="cv" aria-labelledby="cv-name">
-    <div class="cv-wrap">
 
-      <header class="title" id="cv-name">
-        <div class="contact-info">
-          <div>
-            <span>huxirui24[at]gmail.com</span>
-            <span>25O-891-2179</span>
+<!-- FIXED RESTAURANT BACKGROUND -->
+<div id="bg-fixed">
+  <img id="bg-img" src="brand_assets/hf_20260428_200415_d39e0e72-0dc9-4eff-b00e-e8e32a6cd82f.png" alt="Restaurant interior">
+</div>
+
+<!-- SCROLL OVERLAY IMAGES -->
+<div id="huan-img">欢迎光临</div>
+<img id="chairs-img" src="brand_assets/redchairs.png" alt="">
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<section id="hero">
+  <nav>
+    <img class="nav-logo" src="brand_assets/newlogo.png" alt="XH">
+    <ul class="nav-links">
+      <li><a href="#menu">Work</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Resume</a></li>
+      <li><a href="mailto:huxirui24@gmail.com">Email Me</a></li>
+    </ul>
+  </nav>
+
+  <div id="stamp">
+    <!-- Curved arc text SVG — positioned absolutely, centered on stamp content -->
+    <svg class="stamp-badge-svg" width="480" height="480" viewBox="0 0 480 480" fill="none" aria-hidden="true">
+      <defs>
+        <!-- Top arc: left equator → CCW over top → right equator -->
+        <path id="stamp-top-arc" d="M 60,240 A 180,180 0 0,0 420,240"/>
+        <!-- Bottom arc: left equator → CW under bottom → right equator -->
+        <path id="stamp-bottom-arc" d="M 60,240 A 180,180 0 0,1 420,240"/>
+      </defs>
+      <!-- bottom-arc path renders text at the TOP of the stamp in browsers -->
+      <text font-family="Fira Sans, sans-serif" font-weight="700" font-size="31" fill="#1F1FE6" letter-spacing="8">
+        <textPath href="#stamp-bottom-arc" startOffset="50%" text-anchor="middle">VISUAL DESIGNER</textPath>
+      </text>
+      <!-- top-arc path renders text at the BOTTOM of the stamp in browsers -->
+      <text font-family="Fira Sans, sans-serif" font-weight="700" font-size="31" fill="#1F1FE6" letter-spacing="14">
+        <textPath href="#stamp-top-arc" startOffset="50%" text-anchor="middle">PORTFOLIO</textPath>
+      </text>
+    </svg>
+
+    <div class="stamp-center-row">
+      <img class="stamp-icon" src="brand_assets/Computerandphone2.png" alt="">
+      <div class="stamp-text-block">
+        <span class="stamp-cn">胡希瑞</span>
+        <span class="stamp-name">XIRUI HU<span class="stamp-name-s">'s</span></span>
+      </div>
+      <img class="stamp-icon" src="brand_assets/Pencile2.png" alt="" style="transform: scaleX(-1);">
+    </div>
+  </div>
+
+  <div id="scroll-cta">
+    <span class="cta-cn">请进</span>
+    <span class="cta-label">Enter</span>
+    <span class="cta-arrow">↓</span>
+  </div>
+</section>
+
+<!-- ── SCROLL SCENE (overlay animations) ────────────────────────── -->
+<div id="scroll-scene"></div>
+
+<!-- ── MENU ──────────────────────────────────────────────────────── -->
+<section id="menu">
+  <div id="menu-card">
+    <!-- Heading -->
+    <div class="menu-title-row">
+      <img class="menu-icon" src="brand_assets/Chopstick_holding_phone.png" alt="">
+      <h2 class="menu-title">Menu</h2>
+      <img class="menu-icon" src="brand_assets/Chopstick_holding_phone.png" alt="" style="transform: scaleX(-1);">
+    </div>
+
+    <!-- UX/UI Category -->
+    <div>
+      <span class="cat-label">ITEM</span>
+      <hr class="cat-rule">
+
+      <!-- Project 1: Blink Box -->
+      <div class="project">
+        <img class="project-img" src="brand_assets/Project1.png" alt="Blink Box Tracking App">
+        <div class="project-body">
+          <span class="eyebrow">MOBILE APP</span>
+          <div class="proj-title-row">
+            <h3 class="proj-title">Blink Box Tracking App</h3>
           </div>
-          <div>
-            <a class="social" href="https://www.linkedin.com/in/xirui-hu-185546170/" target="_blank"
-              rel="noopener noreferrer">LinkedIn ↗</a>
+          <!-- <p class="proj-desc">Track, trade and show your blind box collection effortlessly.</p> -->
+          <div class="proj-action-row">
+            <span class="proj-price">$0</span>
+            <button class="order-btn">Order</button>
+            
           </div>
         </div>
-      </header>
+      </div>
 
-      <div class="row" role="main">
-        <!-- Left Side -->
-        <section class="col-left">
-          <div class="horizontal-line"></div>
-          
-          <h2>UX / UI DESIGNER</h2>
-          <h1>XIRUI</h1>
-          <div id="lastName">
-            <h1>HU</h1>
-            <span id="behance"> <a class="social" href="https://www.behance.net/gallery/165672011/PORTFOLIO-XIRUI-HU"  target="_blank"
-              rel="noopener noreferrer">'S PORTFOLIO</a></span>
+      <!-- Project 2: Where Food Travels -->
+       <hr class="cat-rule">
+      <div class="project">
+        <img class="project-img" src="brand_assets/Project2.png" alt="Where Food Travels">
+        <div class="project-body">
+          <span class="eyebrow">MOBILE APP</span>
+          <div class="proj-title-row">
+            <h3 class="proj-title">Where Food Travels</h3>
           </div>
-        </section>
-        <!-- Middle -->
-        <section class="col-middle">
-          <div class="card">
-            <h3>Profile</h3>
-            <p>
-              Art &amp; Design graduate experienced in building visual systems that strengthen digital communication.
-              Since 2015, I’ve developed a versatile portfolio through collaborations with brands, media platforms, and
-              cross-industry design projects.
-            </p>
-
-            <h3>Education</h3>
-            <dl>
-              <dt>Current</dt>
-              <dd>UX Design Certificate, Emily Carr University of Art + Design</dd>
-            </dl>
-
-            <dl>
-              <dt>Past</dt>
-              <dd>Interactive Media Developer Certificate, Camosun College</dd>
-              <dd>Bachelor of Literature, Art &amp; Design, Wuhan Textile University</dd>
-            </dl>
-
-            <h3>Professional Experience</h3>
-            <dl>
-              <dt>Graphic Designer | Jul 2021 – Jul 2023</dt>
-              <dd>Designed wireframes and mockups to support branding and marketing campaigns; collaborated with
-                marketing teams to refine concepts and enhance visual impact.</dd>
-              <dd>Developed and pitched design proposals tailored to client objectives, contributing to successful brand
-                acquisitions and expanded market presence.</dd>
-              <dt>Freelance Designer | 2020 – 2023</dt>
-              <dd>Partnered with food and beverage brands, delivery apps, restaurants, and local businesses to create
-                cohesive visual identities and seasonal campaign assets.</dd>
-              <dd>Designed marketing collateral (flyers, posters, packaging) and worked directly with clients to
-                translate briefs into polished deliverables.</dd>
-            </dl>
-
-            <h3>Design Projects</h3>
-
-            <dl>
-              <dt class="project-title">Bakery Online Ordering Redesign</dt>
-              <dd class="project-meta">2025 | Camosun College</dd>
-              <dd>Redesigned a local bakery’s online ordering experience to improve clarity and brand warmth. Conducted
-                user research, heuristic evaluation, and iterative UI design. Final Figma prototype features a
-                minimalist, playful interface that improves usability and encourages confident ordering.</dd>
-
-              <dt class="project-title">App Prototyping</dt>
-              <dd class="project-meta">2024 | Camosun College</dd>
-              <dd>Designed an interactive mobile app prototype to educate users about cheese varieties. Conducted user
-                research and prototyping in Figma to optimize user flows and integrated features such as pairing tips,
-                cultural insights, and recipes.</dd>
-            </dl>
+          <!-- <p class="proj-desc">Track, trade and show your blind box collection effortlessly.</p> -->
+          <div class="proj-action-row">
+            <span class="proj-price">$0</span>
+            <button class="order-btn">Order</button>
           </div>
-        </section>
+        </div>
+      </div>
 
-        <!-- Right Side -->
-        <aside class="col-right" aria-label="Contact and skills">
-          <!-- <img src="images/xiruihu.jpg" alt="Xirui Hu portrait" class="profile-img"> -->
-          <div class="section">
-            <div class="section-title">Technical Skills</div>
-            <ul class="skills-list">
-              <li>HTML & CSS</li>
-              <li>C#</li>
-              <li>Figma & Adobe XD</li>
-              <li>Photoshop, Illustrator, InDesign</li>
-            </ul>
-
-            <div class="section-title">Soft Skills</div>
-            <ul class="soft-list">
-              <li>Collaboration & Team Communication</li>
-              <li>Empathy & Active Listening</li>
-              <li>Adaptability & Open-mindedness</li>
-              <li>Creative Problem-solving</li>
-              <li>Attention to Detail</li>
-            </ul>
-
-            <div class="section-title">Personal Interests</div>
-            <ul class="interests-list">
-              <li>Drawing</li>
-              <li>Reading</li>
-              <li>Print Design</li>
-            </ul>
+      <!-- Project 3: Monetization transparency research -->
+       <hr class="cat-rule">
+      <div class="project">
+        <img class="project-img" src="brand_assets/Project3.png" alt="Where Food Travels">
+        <div class="project-body">
+          <span class="eyebrow">WEB REDESIGN</span>
+          <div class="proj-title-row">
+            <h3 class="proj-title">Monetization Transparency Research</h3>
           </div>
-        </aside>
+          <!-- <p class="proj-desc">Track, trade and show your blind box collection effortlessly.</p> -->
+          <div class="proj-action-row">
+            <span class="proj-price">$0</span>
+            <button class="order-btn">Order</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      </div><!-- .row -->
+<div id="page-end"></div>
 
-    </div><!-- .cv-wrap -->
-  </section>
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<footer>
+  <span>Vancouver, Canada</span>
+  <span class="center">Let's build together</span>
+  <span class="right">© 2026 Xirui Hu</span>
+</footer>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── 1. Background zooms out from top as hero scrolls ── */
+  gsap.fromTo('#bg-img',
+    { scale: 2.8, borderRadius: '0px' },
+    {
+      scale: 0.42,
+      borderRadius: '14px',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      }
+    }
+  );
+
+  /* ── 2. Stamp shrinks with background zoom-out ───────────────── */
+  gsap.fromTo('#stamp',
+    { scale: 1 },
+    {
+      scale: 0.88,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      }
+    }
+  );
+
+  /* ── 3. Hero content fades as hero exits viewport ─────────────── */
+  gsap.to(['#stamp', 'nav', '#scroll-cta'], {
+    opacity: 0,
+    y: -20,
+    ease: 'power1.in',
+    scrollTrigger: {
+      trigger: '#hero',
+      start: '60% top',
+      end: 'bottom top',
+      scrub: 0.5,
+    }
+  });
+
+  /* ── 4. huanyingguanglin slides up from bottom ──────────────── */
+  gsap.fromTo('#huan-img',
+    { y: '100vh' },
+    {
+      y: 0,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#scroll-scene',
+        start: 'top top',
+        end: '50% top',
+        scrub: true,
+      }
+    }
+  );
+
+  /* ── 5. redchairs slides up from bottom to bg bottom-right ──── */
+  gsap.fromTo('#chairs-img',
+    { y: '100vh' },
+    {
+      y: 0,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#scroll-scene',
+        start: '50% top',
+        end: 'bottom top',
+        scrub: true,
+      }
+    }
+  );
+
+  /* ── 6. Menu slides up after scroll-scene ────────────────────── */
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '#menu',
+      start: 'top bottom',
+      end: 'top 15%',
+      scrub: 1,
+    }
+  })
+  .from('#menu',   { yPercent: 55, ease: 'none' }, 0);
+
+  /* ── 4. Footer slides up when scrolled to the bottom ─────────── */
+  gsap.to('footer', {
+    translateY: 0,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#page-end',
+      start: 'bottom bottom',
+      toggleActions: 'play none none reverse',
+    }
+  });
+</script>
 </body>
-
 </html>

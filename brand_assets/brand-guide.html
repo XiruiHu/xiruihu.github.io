@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Xirui Hu — Brand Guidelines v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=VT323&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     BRAND TOKENS — Xirui Hu Portfolio v1.0
+     ============================================================ */
+  :root {
+    --brand-blue:   #1F1FE6;
+    --brand-blue-2: #1517B8;
+    --ember:        #E27A2C;
+    --ember-soft:   #F4A66B;
+    --paper:        #EBE3D0;
+    --paper-deep:   #DDD2B7;
+    --paper-soft:   #F4EEDC;
+    --amber:        #C77840;
+    --amber-deep:   #6B3514;
+    --ink:          #0E0E14;
+    --ink-soft:     #2A2A33;
+    --ink-mute:     #6B6358;
+
+    --t-xs:   12px;  --t-sm:   14px;  --t-base: 16px;  --t-md:   20px;
+    --t-lg:   25px;  --t-xl:   31px;  --t-2xl:  39px;  --t-3xl:  49px;
+    --t-4xl:  61px;  --t-5xl:  76px;  --t-6xl:  95px;
+
+    --jh-md:  32px;  --jh-lg:  40px;  --jh-xl:  50px;  --jh-2xl: 62px;
+    --jh-3xl: 78px;  --jh-4xl: 98px;  --jh-5xl: 122px; --jh-6xl: 152px;
+
+    --s-1:  4px;  --s-2:  8px;  --s-3:  12px;  --s-4:  16px;  --s-6:  24px;
+    --s-8:  32px; --s-12: 48px; --s-16: 64px;  --s-24: 96px;  --s-32: 128px;
+
+    --r-pill: 999px;
+    --r-card: 4px;
+    --hairline: 1px solid var(--ink);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--paper); color: var(--ink); }
+  body {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: var(--t-base);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  @page {
+    size: 12in 22in;
+    margin: 0;
+  }
+
+  .page {
+    width: 12in;
+    min-height: 22in;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 4.6in;
+    background:
+      radial-gradient(ellipse at 30% 20%, #F0A872 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 30%, #E89556 0%, transparent 50%),
+      linear-gradient(180deg, #B86A38 0%, #7E3C16 100%);
+    overflow: hidden;
+    color: var(--brand-blue);
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px),
+      radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 3px 3px, 5px 5px;
+    background-position: 0 0, 1px 2px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: .6;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    padding: var(--s-12) var(--s-16);
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-content: space-between;
+  }
+  .hero-nav {
+    display: flex; gap: var(--s-12);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-sm);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hero-nav .nav-mark {
+    font-family: 'Jomhuria', serif;
+    font-size: var(--jh-md);
+    line-height: .7;
+    letter-spacing: .02em;
+  }
+  .hero-stamp {
+    grid-column: 1 / -1;
+    align-self: center;
+    text-align: center;
+    color: var(--brand-blue);
+  }
+  .hero-stamp .arc-top, .hero-stamp .arc-bot {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: var(--t-md);
+    letter-spacing: .35em;
+    text-transform: uppercase;
+  }
+  .hero-stamp .arc-top  { display: block; margin-bottom: var(--s-3); }
+  .hero-stamp .arc-bot  { display: block; margin-top:    var(--s-3); }
+  .hero-stamp .cn {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 96px;
+    line-height: 1;
+    display: inline-block;
+    margin: 0 var(--s-3);
+  }
+  .hero-stamp .name {
+    font-family: 'Jomhuria', serif;
+    font-size: var(--jh-5xl);
+    line-height: .7;
+    letter-spacing: .02em;
+    display: block;
+    margin-top: var(--s-2);
+  }
+  .hero-meta {
+    grid-column: 1 / -1;
+    display: flex; justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-sm);
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+  }
+
+  /* SECTIONS */
+  .body-wrap { padding: var(--s-16) var(--s-16) var(--s-12); }
+  .section { margin-bottom: var(--s-16); }
+  .section-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: end;
+    gap: var(--s-6);
+    border-bottom: var(--hairline);
+    padding-bottom: var(--s-3);
+    margin-bottom: var(--s-8);
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-md);
+    color: var(--ember);
+    font-weight: 600;
+    letter-spacing: .1em;
+  }
+  .section-title {
+    font-family: 'Jomhuria', serif;
+    color: var(--brand-blue);
+    font-size: var(--jh-3xl);
+    line-height: .8;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+  .section-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    color: var(--ink-mute);
+  }
+
+  /* 01 ESSENCE */
+  .essence-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s-12); }
+  .mission {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: var(--t-xl);
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .mission .accent { color: var(--brand-blue); font-weight: 700; }
+  .mission .ember-mark { color: var(--ember); }
+  .essence-words {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-3) var(--s-6);
+    align-content: start;
+  }
+  .essence-word {
+    font-family: 'Jomhuria', serif;
+    font-size: var(--jh-2xl);
+    line-height: .8;
+    color: var(--brand-blue);
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-2);
+  }
+  .essence-word::before {
+    content: "→";
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-md);
+    color: var(--ember);
+  }
+  .essence-word small {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--ink-mute);
+    margin-top: var(--s-2);
+  }
+
+  /* 02 SIGNATURE */
+  .sig-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--s-12); align-items: stretch; }
+  .sig-card {
+    background: var(--paper-soft);
+    border: var(--hairline);
+    padding: var(--s-8);
+    display: grid;
+    place-items: center;
+    color: var(--brand-blue);
+    text-align: center;
+    position: relative;
+  }
+  .sig-card::before, .sig-card::after {
+    content: "";
+    position: absolute;
+    inset: var(--s-3);
+    border: 1px dashed var(--ember);
+    pointer-events: none;
+  }
+  .sig-stack .top, .sig-stack .bot {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: var(--t-md);
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    display: block;
+  }
+  .sig-stack .top { margin-bottom: var(--s-3); }
+  .sig-stack .bot { margin-top:    var(--s-3); }
+  .sig-stack .lockup { display: flex; align-items: center; justify-content: center; gap: var(--s-3); }
+  .sig-stack .lockup .cn { font-family: 'Ma Shan Zheng', cursive; font-size: 80px; line-height: 1; }
+  .sig-stack .name {
+    font-family: 'Jomhuria', serif;
+    font-size: var(--jh-4xl);
+    line-height: .7;
+    letter-spacing: .02em;
+  }
+  .sig-rules { display: grid; gap: var(--s-4); font-size: var(--t-sm); color: var(--ink-soft); line-height: 1.5; }
+  .sig-rules h4 {
+    font-family: 'Jomhuria', serif;
+    color: var(--brand-blue);
+    font-size: var(--jh-xl);
+    line-height: .8;
+    margin-bottom: var(--s-1);
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+  .sig-rules .rule { display: grid; grid-template-columns: 12px 1fr; gap: var(--s-2); }
+  .sig-rules .rule b { color: var(--ember); font-family: 'IBM Plex Mono', monospace; font-weight: 600; }
+
+  /* 03 COLOR */
+  .color-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s-3); }
+  .swatch { border: var(--hairline); background: var(--paper-soft); overflow: hidden; display: flex; flex-direction: column; }
+  .swatch .chip { height: 1.6in; position: relative; }
+  .swatch .meta { padding: var(--s-3); font-family: 'IBM Plex Mono', monospace; font-size: var(--t-xs); line-height: 1.4; color: var(--ink); }
+  .swatch .name {
+    display: block;
+    font-family: 'Jomhuria', serif;
+    font-size: var(--jh-lg);
+    color: var(--brand-blue);
+    line-height: .8;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    margin-bottom: var(--s-2);
+  }
+  .swatch .role {
+    color: var(--ember);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    margin-bottom: var(--s-2);
+    display: block;
+  }
+  .swatch .hex   { color: var(--ink); }
+  .swatch .rgb   { color: var(--ink-mute); }
+
+  .pair-rules {
+    margin-top: var(--s-6);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--s-3);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-xs);
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .pair-rules .pair { border: var(--hairline); padding: var(--s-3); background: var(--paper-soft); }
+  .pair-rules .swatch-pair { display: flex; height: 24px; margin-bottom: var(--s-2); border: 1px solid var(--ink); }
+  .pair-rules .swatch-pair span { flex: 1; }
+  .pair-rules b {
+    display: block;
+    color: var(--brand-blue);
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    margin-bottom: var(--s-1);
+    font-size: var(--t-xs);
+  }
+
+  /* 04 TYPOGRAPHY */
+  .type-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-6); }
+  .type-card {
+    border: var(--hairline);
+    background: var(--paper-soft);
+    padding: var(--s-6);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--s-3);
+    min-height: 4.4in;
+  }
+  .type-card .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    color: var(--ember);
+  }
+  .type-card .specimen { color: var(--brand-blue); line-height: .85; overflow: hidden; }
+  .type-card .specimen.jomhuria { font-family: 'Jomhuria', serif; font-size: var(--jh-6xl); letter-spacing: .02em; line-height: .7; }
+  .type-card .specimen.vt { font-family: 'VT323', monospace; font-size: var(--t-4xl); color: var(--ink); line-height: 1; }
+  .type-card .specimen.cn { font-family: 'Ma Shan Zheng', cursive; font-size: 110px; line-height: 1; }
+  .type-card .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-xs);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    border-top: 1px dashed var(--ink-mute);
+    padding-top: var(--s-3);
+  }
+  .type-card .meta b { color: var(--ink); }
+
+  .jomhuria-callout {
+    margin-top: var(--s-6);
+    border: 2px solid var(--brand-blue);
+    background: var(--paper-soft);
+    padding: var(--s-6);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-6);
+    align-items: center;
+  }
+  .jomhuria-callout .big {
+    font-family: 'Jomhuria', serif;
+    color: var(--ember);
+    font-size: 140px;
+    line-height: .7;
+    letter-spacing: .02em;
+  }
+  .jomhuria-callout .copy h4 {
+    font-family: 'Jomhuria', serif;
+    color: var(--brand-blue);
+    font-size: var(--jh-xl);
+    line-height: .8;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    margin-bottom: var(--s-2);
+  }
+  .jomhuria-callout .copy p { font-size: var(--t-sm); line-height: 1.55; color: var(--ink-soft); }
+  .jomhuria-callout .copy code {
+    font-family: 'IBM Plex Mono', monospace;
+    background: rgba(31,31,230,.08);
+    color: var(--brand-blue);
+    padding: 2px 6px;
+    font-size: var(--t-xs);
+    border-radius: 2px;
+  }
+
+  /* 05 TYPE SCALE */
+  .scale-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--paper-soft);
+    border: var(--hairline);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-xs);
+  }
+  .scale-table th, .scale-table td {
+    text-align: left;
+    padding: var(--s-3) var(--s-4);
+    border-bottom: 1px dashed var(--ink-mute);
+    vertical-align: middle;
+  }
+  .scale-table th {
+    background: var(--paper-deep);
+    color: var(--brand-blue);
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    font-weight: 600;
+    font-size: var(--t-xs);
+    border-bottom: var(--hairline);
+  }
+  .scale-table tr:last-child td { border-bottom: none; }
+  .scale-table .token { color: var(--ember); font-weight: 600; }
+  .scale-table .num   { color: var(--ink); font-feature-settings: "tnum" on; }
+  .scale-table .use   { color: var(--ink-soft); font-family: 'IBM Plex Sans', sans-serif; font-size: var(--t-sm); }
+  .scale-table .Aa { font-family: 'IBM Plex Sans', sans-serif; color: var(--ink); line-height: .9; text-align: left; white-space: nowrap; }
+  .scale-table .jh-Aa { font-family: 'Jomhuria', serif; color: var(--brand-blue); line-height: .7; letter-spacing: .02em; text-align: left; white-space: nowrap; }
+
+  /* 06 SPACING */
+  .space-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s-12); align-items: start; }
+  .space-ladder { display: grid; gap: var(--s-2); }
+  .space-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 80px;
+    gap: var(--s-3);
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--t-xs);
+  }
+  .space-row .token { color: var(--ember); font-weight: 600; }
+  .space-row .bar  { background: var(--brand-blue); height: 14px; }
+  .space-row .px { text-align: right; color: var(--ink); }
+  .grid-note { font-size: var(--t-sm); color: var(--ink-soft); line-height: 1.55; }
+  .grid-note h4 {
+    font-family: 'Jomhuria', serif;
+    color: var(--brand-blue);
+    font-size: var(--jh-xl);
+    line-height: .8;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    margin-bottom: var(--s-3);
+  }
+  .grid-note ul { padding-left: var(--s-4); margin-top: var(--s-2); }
+  .grid-note ul li { margin-bottom: var(--s-1); }
+  .grid-note code {
+    font-family: 'IBM Plex Mono', monospace;
+    background: rgba(31,31,230,.08);
+    color: var(--brand-blue);
+    padding: 1px 5px;
+    font-size: var(--t-xs);
+  }
+
+  /* 07 COMPONENTS */
+  .components { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-6); }
+  .comp-card { border: var(--hairline); background: var(--paper-soft); padding: var(--s-6); display: grid; gap: var(--s-4); }
+  .comp-card h4 {
+    font-family: 'Jomhuria', serif;
+    color: var(--brand-blue);
+    font-size: var(--jh-xl);
+    line-height: .8;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+  }
+  .comp-card .demo {
+    background: var(--paper);
+    border: 1px dashed var(--ink-mute);
+    padding: var(--s-6) var(--s-4);
+    display: grid;
+    place-items: center;
+    min-height: 1.6in;
+  }
+  .comp-card .specs { font-family: 'IBM Plex Mono', monospace; font-size: var(--t-xs); color: var(--ink-soft); line-height: 1.55; }
+  .comp-card .specs b { color: var(--ember); }
+
+  .btn-pill {
+    background: var(--brand-blue);
+    color: #fff;
+    border: none;
+    border-radius: var(--r-pill);
+    padding: var(--s-3) var(--s-12);
+    font-family: 'VT323', monospace;
+    font-size: var(--t-md);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0 var(--brand-blue-2);
+  }
+  .label-tag {
+    font-family: 'VT323', monospace;
+    color: var(--ember);
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    font-size: var(--t-md);
+    border-bottom: 2px solid var(--ember);
+    padding-bottom: 2px;
+  }
+  .menu-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--s-4);
+    border-bottom: 2px dotted var(--brand-blue);
+    padding-bottom: var(--s-2);
+  }
+  .menu-row .title { font-family: 'IBM Plex Sans', sans-serif; font-weight: 700; color: var(--brand-blue); font-size: var(--t-md); }
+  .menu-row .price { font-family: 'VT323', monospace; color: var(--ember); font-size: var(--t-lg); }
+
+  /* 08 VOICE */
+  .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-6); }
+  .voice-card { border: var(--hairline); background: var(--paper-soft); padding: var(--s-6); }
+  .voice-card.dos { border-left: 6px solid var(--brand-blue); }
+  .voice-card.donts { border-left: 6px solid var(--ember); }
+  .voice-card h4 {
+    font-family: 'Jomhuria', serif;
+    color: var(--brand-blue);
+    font-size: var(--jh-xl);
+    line-height: .8;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    margin-bottom: var(--s-3);
+  }
+  .voice-card.donts h4 { color: var(--ember); }
+  .voice-card ul { list-style: none; display: grid; gap: var(--s-2); font-size: var(--t-sm); color: var(--ink-soft); line-height: 1.5; }
+  .voice-card li { display: grid; grid-template-columns: 16px 1fr; gap: var(--s-2); }
+  .voice-card.dos li::before { content: "✓"; color: var(--brand-blue); font-weight: 700; }
+  .voice-card.donts li::before { content: "×"; color: var(--ember); font-weight: 700; }
+
+  .tone-words { margin-top: var(--s-6); display: flex; flex-wrap: wrap; gap: var(--s-3); }
+  .tone-words span {
+    font-family: 'Jomhuria', serif;
+    color: var(--brand-blue);
+    font-size: var(--jh-2xl);
+    line-height: .7;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    border: 1px solid var(--brand-blue);
+    padding: var(--s-2) var(--s-4) 0 var(--s-4);
+  }
+
+  .foot {
+    margin-top: var(--s-12);
+    border-top: var(--hairline);
+    padding: var(--s-6) 0 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    font-family: 'VT323', monospace;
+    font-size: var(--t-md);
+    color: var(--ember);
+    letter-spacing: .12em;
+  }
+  .foot .center { color: var(--brand-blue); text-transform: uppercase; letter-spacing: .25em; font-size: var(--t-sm); }
+  .foot .right { text-align: right; }
+
+  /* Print helper banner — only visible on screen, hidden in PDF */
+  .print-banner {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: var(--brand-blue); color: #fff;
+    padding: 12px 20px; z-index: 999;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,.2);
+  }
+  .print-banner button {
+    background: var(--ember); color: #fff; border: none;
+    padding: 8px 18px; border-radius: 999px;
+    font-family: 'VT323', monospace; font-size: 16px;
+    letter-spacing: .12em; text-transform: uppercase;
+    cursor: pointer;
+  }
+  @media print {
+    .print-banner { display: none !important; }
+    body { background: var(--paper); }
+  }
+</style>
+</head>
+<body>
+<div class="print-banner">
+  <span>📄 Save as PDF — Cmd+P → Destination: "Save as PDF" → Paper: "12 × 22 in" (or use "Manage Custom Sizes") → Margins: None → ✓ Background graphics</span>
+  <button onclick="window.print()">Print to PDF</button>
+</div>
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <nav class="hero-nav">
+        <span class="nav-mark">XH</span>
+        <span>Brand · Guidelines · v1.0 · April 2026</span>
+      </nav>
+      <div class="hero-stamp">
+        <span class="arc-top">— Visual Designer —</span>
+        <div><span class="cn">胡希瑞</span></div>
+        <span class="name">XIRUI HU</span>
+        <span class="arc-bot">— Brand Guidelines —</span>
+      </div>
+      <div class="hero-meta">
+        <span>📍 Vancouver, Canada</span>
+        <span>The recipe behind the menu</span>
+        <span>One-pager · v1.0</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="body-wrap">
+
+    <!-- 01 ESSENCE -->
+    <section class="section">
+      <header class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Brand Essence</h2>
+        <span class="section-tag">Who · What · Why</span>
+      </header>
+      <div class="essence-grid">
+        <p class="mission">
+          I'm <span class="accent">Xirui Hu</span> — a visual designer plating up
+          <span class="ember-mark">thoughtful, hand-crafted interfaces</span> from Vancouver.
+          My portfolio is a restaurant: every project is a dish, every interaction is
+          a course, and the menu is curated with <span class="accent">extreme attention
+          to detail</span>. This guide is the recipe — the system that keeps every
+          page consistently on the same table.
+        </p>
+        <div class="essence-words">
+          <div class="essence-word">Crafted<small>· Made by hand, not by template</small></div>
+          <div class="essence-word">Warm<small>· Inviting like a corner restaurant</small></div>
+          <div class="essence-word">Precise<small>· Pixel grids · type scales · ratios</small></div>
+          <div class="essence-word">Playful<small>· Menu-as-portfolio · serve with joy</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 SIGNATURE -->
+    <section class="section">
+      <header class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Signature &amp; Mark</h2>
+        <span class="section-tag">Lockup · Clear space · Usage</span>
+      </header>
+      <div class="sig-grid">
+        <div class="sig-card">
+          <div class="sig-stack">
+            <span class="top">— Visual Designer —</span>
+            <div class="lockup"><span class="cn">胡希瑞</span></div>
+            <span class="name">XIRUI HU</span>
+            <span class="bot">— Portfolio —</span>
+          </div>
+        </div>
+        <div class="sig-rules">
+          <h4>Signature Rules</h4>
+          <div class="rule"><b>1</b><span><b>Clear space:</b> minimum 1× the cap-height of "X" on every side. Treat it like the rim of a plate — never crowd the food.</span></div>
+          <div class="rule"><b>2</b><span><b>Minimum size:</b> 88 px wide on screen, 24 mm in print. Below this, drop the arc text and use the wordmark only.</span></div>
+          <div class="rule"><b>3</b><span><b>Color:</b> always Brand Blue on Paper Cream or Warm Amber. Never on bright white, never inverted in white on blue (sacrifices contrast warmth).</span></div>
+          <div class="rule"><b>4</b><span><b>Lockup integrity:</b> the Chinese name 胡希瑞 sits above the romanization XIRUI HU. They are inseparable — never use one without the other.</span></div>
+          <div class="rule"><b>5</b><span><b>Don't:</b> recolor, outline, rotate beyond ±2°, stretch, or set on a photograph without a paper-cream backplate.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 COLOR -->
+    <section class="section">
+      <header class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Color System</h2>
+        <span class="section-tag">5 colors · Used with intention</span>
+      </header>
+      <div class="color-grid">
+        <article class="swatch">
+          <div class="chip" style="background:#1F1FE6"></div>
+          <div class="meta">
+            <span class="name">Brand Blue</span>
+            <span class="role">Primary · Type · CTA</span>
+            <span class="hex">#1F1FE6</span>
+            <span class="rgb">RGB 31 31 230</span>
+            <span class="rgb">CMYK 87 87 0 10</span>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="chip" style="background:#E27A2C"></div>
+          <div class="meta">
+            <span class="name">Ember Orange</span>
+            <span class="role">Accent · Labels · Price</span>
+            <span class="hex">#E27A2C</span>
+            <span class="rgb">RGB 226 122 44</span>
+            <span class="rgb">CMYK 0 46 81 11</span>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="chip" style="background:#EBE3D0"></div>
+          <div class="meta">
+            <span class="name">Paper Cream</span>
+            <span class="role">Surface · Menu · Page</span>
+            <span class="hex">#EBE3D0</span>
+            <span class="rgb">RGB 235 227 208</span>
+            <span class="rgb">CMYK 0 3 11 8</span>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="chip" style="background:#C77840"></div>
+          <div class="meta">
+            <span class="name">Warm Amber</span>
+            <span class="role">Ambient · Hero · Mood</span>
+            <span class="hex">#C77840</span>
+            <span class="rgb">RGB 199 120 64</span>
+            <span class="rgb">CMYK 0 40 68 22</span>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="chip" style="background:#0E0E14"></div>
+          <div class="meta">
+            <span class="name">Ink Black</span>
+            <span class="role">Body Text · Hairline</span>
+            <span class="hex">#0E0E14</span>
+            <span class="rgb">RGB 14 14 20</span>
+            <span class="rgb">CMYK 30 30 0 92</span>
+          </div>
+        </article>
+      </div>
+      <div class="pair-rules">
+        <div class="pair">
+          <div class="swatch-pair"><span style="background:#1F1FE6"></span><span style="background:#EBE3D0"></span></div>
+          <b>Hero pairing</b>
+          Brand Blue type on Paper Cream — the default voice. Use everywhere copy is read.
+        </div>
+        <div class="pair">
+          <div class="swatch-pair"><span style="background:#E27A2C"></span><span style="background:#EBE3D0"></span></div>
+          <b>Accent pairing</b>
+          Ember on Paper for labels, prices, eyebrows — never for body copy (low contrast).
+        </div>
+        <div class="pair">
+          <div class="swatch-pair"><span style="background:#1F1FE6"></span><span style="background:#C77840"></span></div>
+          <b>Restaurant pairing</b>
+          Brand Blue on Warm Amber — heroes &amp; section openers. The signature flavor.
+        </div>
+        <div class="pair">
+          <div class="swatch-pair"><span style="background:#0E0E14"></span><span style="background:#EBE3D0"></span></div>
+          <b>Editorial pairing</b>
+          Ink on Paper for long-form body copy where blue would tire the eye.
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 TYPOGRAPHY -->
+    <section class="section">
+      <header class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Typography</h2>
+        <span class="section-tag">Three voices · One system</span>
+      </header>
+      <div class="type-grid">
+        <article class="type-card">
+          <span class="label">Display · Headers</span>
+          <div class="specimen jomhuria">Aa Bb<br>Xirui</div>
+          <div class="meta">
+            <b>Jomhuria</b> · Google Fonts · 1 weight (Regular)<br>
+            Use for H1–H6, hero marks, section titles, callout numbers.<br>
+            <b>Watch:</b> renders ~62% of its set size optically — always size up.
+          </div>
+        </article>
+        <article class="type-card">
+          <span class="label">Body · UI · Mono</span>
+          <div class="specimen vt">Aa Bb<br>The recipe</div>
+          <div class="meta">
+            <b>VT323</b> · Google Fonts · 1 weight (Regular)<br>
+            Use for menu copy, captions, prices, button labels, footnotes — anything
+            that should feel like a printed receipt.
+          </div>
+        </article>
+        <article class="type-card">
+          <span class="label">CJK · Signature</span>
+          <div class="specimen cn">胡希瑞</div>
+          <div class="meta">
+            <b>Ma Shan Zheng</b> · Google Fonts · 1 weight (Regular)<br>
+            Reserved exclusively for the name 胡希瑞 in the signature lockup.
+            Never set running Chinese copy in this face.
+          </div>
+        </article>
+      </div>
+      <div class="jomhuria-callout">
+        <div class="big">Jh</div>
+        <div class="copy">
+          <h4>The Jomhuria Rule</h4>
+          <p>
+            Jomhuria is a tall, condensed display face. Its cap-height is roughly
+            <b>62%</b> of its set <code>font-size</code>, so a <code>font-size: 48px</code> Jomhuria header
+            looks like a <code>30px</code> header in any other typeface. To stay on the type scale,
+            <b>always set Jomhuria at ~1.6× the optical step.</b> Use the <code>--jh-*</code>
+            tokens in the next section — they're pre-multiplied. Never eyeball it; consistency
+            is the brand promise.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 TYPE SCALE -->
+    <section class="section">
+      <header class="section-head">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Type Scale</h2>
+        <span class="section-tag">Major Third · 1.25 · base 16 px</span>
+      </header>
+      <table class="scale-table">
+        <thead>
+          <tr>
+            <th style="width: 70px">Token</th>
+            <th style="width: 90px">Optical</th>
+            <th style="width: 90px">Set (general)</th>
+            <th style="width: 110px">Set (Jomhuria)</th>
+            <th style="width: 90px">Line-height</th>
+            <th style="width: 90px">Tracking</th>
+            <th>Sample · General</th>
+            <th>Sample · Jomhuria</th>
+            <th>Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="token">--t-xs</td><td class="num">12 px</td><td class="num">12 px</td><td class="num">—</td><td class="num">1.5</td><td class="num">+0.04em</td><td class="Aa" style="font-size:12px">Aa Bb 0123</td><td class="jh-Aa">—</td><td class="use">Caption, footnote, tag</td></tr>
+          <tr><td class="token">--t-sm</td><td class="num">14 px</td><td class="num">14 px</td><td class="num">—</td><td class="num">1.5</td><td class="num">+0.02em</td><td class="Aa" style="font-size:14px">Aa Bb 0123</td><td class="jh-Aa">—</td><td class="use">Small body, meta, labels</td></tr>
+          <tr><td class="token">--t-base</td><td class="num">16 px</td><td class="num">16 px</td><td class="num">—</td><td class="num">1.55</td><td class="num">0</td><td class="Aa" style="font-size:16px">Aa Bb 0123</td><td class="jh-Aa">—</td><td class="use">Body copy default</td></tr>
+          <tr><td class="token">--t-md</td><td class="num">20 px</td><td class="num">20 px</td><td class="num">32 px</td><td class="num">1.45</td><td class="num">0</td><td class="Aa" style="font-size:20px">Aa Bb 0123</td><td class="jh-Aa" style="font-size:32px">Aa Bb 0123</td><td class="use">Lead paragraph, nav</td></tr>
+          <tr><td class="token">--t-lg</td><td class="num">25 px</td><td class="num">25 px</td><td class="num">40 px</td><td class="num">1.3</td><td class="num">0</td><td class="Aa" style="font-size:25px">Aa Bb 0123</td><td class="jh-Aa" style="font-size:40px">Aa Bb 0123</td><td class="use">H6, sub-section</td></tr>
+          <tr><td class="token">--t-xl</td><td class="num">31 px</td><td class="num">31 px</td><td class="num">50 px</td><td class="num">1.25</td><td class="num">0</td><td class="Aa" style="font-size:31px">Aa Bb 0123</td><td class="jh-Aa" style="font-size:50px">Aa Bb 0123</td><td class="use">H5</td></tr>
+          <tr><td class="token">--t-2xl</td><td class="num">39 px</td><td class="num">39 px</td><td class="num">62 px</td><td class="num">1.15</td><td class="num">−0.005em</td><td class="Aa" style="font-size:39px">Aa Bb 0123</td><td class="jh-Aa" style="font-size:62px">Aa Bb 0123</td><td class="use">H4</td></tr>
+          <tr><td class="token">--t-3xl</td><td class="num">49 px</td><td class="num">49 px</td><td class="num">78 px</td><td class="num">1.1</td><td class="num">−0.01em</td><td class="Aa" style="font-size:49px">Aa Bb</td><td class="jh-Aa" style="font-size:78px">Aa Bb</td><td class="use">H3, section title</td></tr>
+          <tr><td class="token">--t-4xl</td><td class="num">61 px</td><td class="num">61 px</td><td class="num">98 px</td><td class="num">1.05</td><td class="num">−0.015em</td><td class="Aa" style="font-size:61px">Aa Bb</td><td class="jh-Aa" style="font-size:98px">Aa Bb</td><td class="use">H2</td></tr>
+          <tr><td class="token">--t-5xl</td><td class="num">76 px</td><td class="num">76 px</td><td class="num">122 px</td><td class="num">1.0</td><td class="num">−0.02em</td><td class="Aa" style="font-size:76px">Aa</td><td class="jh-Aa" style="font-size:122px">Aa</td><td class="use">H1, page title</td></tr>
+          <tr><td class="token">--t-6xl</td><td class="num">95 px</td><td class="num">95 px</td><td class="num">152 px</td><td class="num">.95</td><td class="num">−0.025em</td><td class="Aa" style="font-size:90px">Aa</td><td class="jh-Aa" style="font-size:140px">Aa</td><td class="use">Hero / Display</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 06 SPACING -->
+    <section class="section">
+      <header class="section-head">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Spacing &amp; Grid</h2>
+        <span class="section-tag">Base 8 px · 12-col layout</span>
+      </header>
+      <div class="space-grid">
+        <div class="space-ladder">
+          <div class="space-row"><span class="token">--s-1</span><div class="bar" style="width:4px"></div><span class="px">4 px</span></div>
+          <div class="space-row"><span class="token">--s-2</span><div class="bar" style="width:8px"></div><span class="px">8 px</span></div>
+          <div class="space-row"><span class="token">--s-3</span><div class="bar" style="width:12px"></div><span class="px">12 px</span></div>
+          <div class="space-row"><span class="token">--s-4</span><div class="bar" style="width:16px"></div><span class="px">16 px</span></div>
+          <div class="space-row"><span class="token">--s-6</span><div class="bar" style="width:24px"></div><span class="px">24 px</span></div>
+          <div class="space-row"><span class="token">--s-8</span><div class="bar" style="width:32px"></div><span class="px">32 px</span></div>
+          <div class="space-row"><span class="token">--s-12</span><div class="bar" style="width:48px"></div><span class="px">48 px</span></div>
+          <div class="space-row"><span class="token">--s-16</span><div class="bar" style="width:64px"></div><span class="px">64 px</span></div>
+          <div class="space-row"><span class="token">--s-24</span><div class="bar" style="width:96px"></div><span class="px">96 px</span></div>
+          <div class="space-row"><span class="token">--s-32</span><div class="bar" style="width:128px"></div><span class="px">128 px</span></div>
+        </div>
+        <div class="grid-note">
+          <h4>Grid &amp; Layout</h4>
+          <ul>
+            <li><b>Base unit:</b> <code>8 px</code>. Every margin, padding, gap and component dimension is a multiple of this — no orphan pixel values.</li>
+            <li><b>Max page width:</b> <code>1280 px</code> with <code>--s-16</code> (64 px) outer gutters on desktop, <code>--s-6</code> (24 px) on mobile.</li>
+            <li><b>Columns:</b> 12-column grid · <code>--s-6</code> (24 px) gutters · adaptive to 6 cols at 768 px and 4 cols at 480 px.</li>
+            <li><b>Card radius:</b> <code>--r-card: 4 px</code> for cards, <code>--r-pill: 999 px</code> for buttons. Two values, no exceptions.</li>
+            <li><b>Hairline:</b> <code>1 px solid Ink Black</code> at 100 % opacity — never use shadow as a divider.</li>
+            <li><b>Vertical rhythm:</b> baseline-aligned to 8 px. Section spacing = <code>--s-16</code> (64 px) min between blocks.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 COMPONENTS -->
+    <section class="section">
+      <header class="section-head">
+        <span class="section-num">07</span>
+        <h2 class="section-title">Core Components</h2>
+        <span class="section-tag">The recurring vocabulary</span>
+      </header>
+      <div class="components">
+        <div class="comp-card">
+          <h4>Order Button</h4>
+          <div class="demo"><button class="btn-pill">Order</button></div>
+          <div class="specs">
+            <b>BG:</b> #1F1FE6 · <b>FG:</b> #FFFFFF<br>
+            <b>Radius:</b> --r-pill (999 px)<br>
+            <b>Padding:</b> --s-3 / --s-12<br>
+            <b>Font:</b> VT323 / 20 px / +0.12em / UPPER<br>
+            <b>Drop:</b> 0 4px 0 #1517B8 (no blur)
+          </div>
+        </div>
+        <div class="comp-card">
+          <h4>Eyebrow Tag</h4>
+          <div class="demo"><span class="label-tag">Team Project</span></div>
+          <div class="specs">
+            <b>Color:</b> #E27A2C<br>
+            <b>Font:</b> VT323 / 20 px / +0.25em / UPPER<br>
+            <b>Underline:</b> 2 px solid Ember<br>
+            <b>Use:</b> above titles, never alone
+          </div>
+        </div>
+        <div class="comp-card">
+          <h4>Menu Row</h4>
+          <div class="demo">
+            <div class="menu-row">
+              <span class="title">Blink Box Tracking App</span>
+              <span class="price">$0</span>
+            </div>
+          </div>
+          <div class="specs">
+            <b>Title:</b> IBM Plex Sans 700 / 20 px / Blue<br>
+            <b>Price:</b> VT323 / 25 px / Ember<br>
+            <b>Divider:</b> 2 px dotted Brand Blue<br>
+            <b>Spacing:</b> --s-2 above, --s-4 below
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 VOICE -->
+    <section class="section">
+      <header class="section-head">
+        <span class="section-num">08</span>
+        <h2 class="section-title">Voice &amp; Detail</h2>
+        <span class="section-tag">How the brand speaks</span>
+      </header>
+      <div class="voice-grid">
+        <div class="voice-card dos">
+          <h4>Always Do</h4>
+          <ul>
+            <li>Write like a host welcoming you to a small restaurant — warm, knowledgeable, never stiff.</li>
+            <li>Use food metaphors sparingly — they're a flavor, not the whole meal.</li>
+            <li>Pair every claim with the receipt: numbers, screenshots, prototypes.</li>
+            <li>Keep paragraphs to ≤ 3 sentences. White space is the second course.</li>
+            <li>Run every page through the type-scale and 8 px grid before shipping.</li>
+          </ul>
+        </div>
+        <div class="voice-card donts">
+          <h4>Never Do</h4>
+          <ul>
+            <li>Don't use stock photography or generic gradients — every image is a deliberate prop.</li>
+            <li>Don't introduce new colors, fonts, or spacing values without updating this guide.</li>
+            <li>Don't set Jomhuria below 32 px — it loses legibility and breaks the optical scale.</li>
+            <li>Don't write "passionate", "innovative", "leverage" — generic brand-speak.</li>
+            <li>Don't ship a page where any value isn't a documented token. Detail is the brand.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tone-words">
+        <span>Considered</span>
+        <span>Specific</span>
+        <span>Warm</span>
+        <span>Witty</span>
+        <span>Precise</span>
+        <span>Generous</span>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span class="left">📍 Vancouver, Canada</span>
+      <span class="center">Let's build together</span>
+      <span class="right">© 2026 Xirui Hu · v1.0</span>
+    </footer>
+
+  </div>
+</main>
+</body>
+</html>
