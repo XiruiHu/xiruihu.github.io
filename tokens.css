@@ -1,0 +1,318 @@
+/*
+ * ============================================================
+ * XIRUI HU — Design System Tokens v2.0 · Hechalou Green
+ * Pulled from 鶴茶樓 label · forest green on warm cream
+ * ============================================================
+ */
+
+/* ── WEBFONTS ──────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jomhuria&family=VT323&family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fira+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'LaoJieZhaoPai';
+  src: url('./fonts/AaLaoJieZhaoPaiTi-2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+
+  /* ── BASE COLOR PALETTE ────────────────────────────────────── */
+  /* Hechalou Green · v2.0                                       */
+  --green:         #304830;   /* Brand Green — primary, type, CTA bg */
+  --green-2:       #263A26;   /* Brand Green dark — button rest shadow */
+  --green-deep:    #1C2C1C;   /* Brand Green deeper — button active bg */
+  --green-deep-2:  #0D140D;   /* Deepest green — active button shadow */
+  --green-light:   #728372;   /* Green lighter — tints, hover glows */
+  --green-tint:    #D1D7D1;   /* Very light green — subtle bg tints */
+
+  --cream:         #F2E6D6;   /* Warm cream — primary surface */
+  --cream-2:       #E6DACA;   /* Cream dim — secondary surface, soft cards */
+  --cream-soft:    #FAEFE0;   /* Cream light — page bg lift */
+
+  --white:         #FFFFFF;   /* Pure white — kept for utility (logos, etc) */
+  --border:        #D2C6B6;   /* Warm hairline — sits on cream */
+  --ink:           #0F1A0F;   /* Deep forest ink — footer bg, strong borders */
+  --ink-soft:      #2A3A2A;   /* Ink soft — body text */
+  --ink-mute:      #7A8676;   /* Ink muted — captions, meta */
+
+  /* ── SEMANTIC COLOR ALIASES ────────────────────────────────── */
+  --color-primary:       var(--green);
+  --color-primary-dark:  var(--green-2);
+  --color-primary-deep:  var(--green-deep);
+  --color-accent:        var(--green);       /* green IS the accent */
+  --color-accent-soft:   var(--green-tint);
+  --color-surface:       var(--cream);
+  --color-surface-soft:  var(--cream-soft);
+  --color-surface-deep:  var(--cream-2);
+  --color-bg:            var(--green);       /* page-level background */
+  --color-fg:            var(--green);       /* primary foreground on cream */
+  --color-fg-inverse:    var(--cream);       /* text on green bg */
+  --color-fg-body:       var(--ink-soft);    /* body copy */
+  --color-fg-mute:       var(--ink-mute);    /* captions, meta */
+  --color-border:        var(--border);      /* hairline borders */
+  --color-footer-bg:     var(--ink);
+  --color-footer-fg:     var(--cream);
+
+  /* ── FONT FAMILIES ─────────────────────────────────────────── */
+  --font-display:   'DM Serif Display', serif;       /* H1–H6, hero name, section titles */
+  --font-serif:     'Cormorant Garamond', serif;     /* Body serif, taglines, names */
+  --font-cn:        'LaoJieZhaoPai', cursive;        /* Chinese name — 胡希瑞 */
+  --font-body:      'Fira Sans', sans-serif;         /* UI, nav, buttons (still used for chrome) */
+  --font-mono:      'Fira Mono', monospace;          /* Prices, eyebrows, meta */
+  --font-receipt:   'VT323', monospace;              /* Button labels, tags, receipt feel */
+  --font-display-alt:'Jomhuria', serif;              /* Legacy hero face — kept for v1 callbacks */
+  --font-editorial: 'IBM Plex Sans', sans-serif;     /* Brand guide / doc surfaces */
+  --font-code:      'IBM Plex Mono', monospace;      /* Spec copy, code blocks */
+
+  /* ── TYPE SCALE (Major Third · 1.25 · base 16px) ─────────── */
+  --t-xs:   12px;
+  --t-sm:   14px;
+  --t-base: 16px;
+  --t-md:   20px;
+  --t-lg:   25px;
+  --t-xl:   31px;
+  --t-2xl:  39px;
+  --t-3xl:  49px;
+  --t-4xl:  61px;
+  --t-5xl:  76px;
+  --t-6xl:  95px;
+
+  /* ── JOMHURIA SCALE (pre-multiplied ×1.6 for optical match) ── */
+  --jh-md:   32px;
+  --jh-lg:   40px;
+  --jh-xl:   50px;
+  --jh-2xl:  62px;
+  --jh-3xl:  78px;
+  --jh-4xl:  98px;
+  --jh-5xl:  122px;
+  --jh-6xl:  152px;
+
+  /* ── SPACING (base 8px) ────────────────────────────────────── */
+  --s-1:   4px;
+  --s-2:   8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-6:  24px;
+  --s-8:  32px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-24: 96px;
+  --s-32: 128px;
+
+  /* ── BORDER RADIUS ─────────────────────────────────────────── */
+  --r-card: 4px;
+  --r-pill: 999px;
+
+  /* ── BORDERS ───────────────────────────────────────────────── */
+  --hairline: 1px solid var(--border);
+  --hairline-strong: 1px solid var(--ink);
+  --dot-rule: 3px dotted var(--green); /* dotted separator used in menu */
+
+  /* ── SHADOWS ───────────────────────────────────────────────── */
+  --shadow-btn:        0 4px 0 var(--green-2);
+  --shadow-btn-hover:  0 6px 0 var(--green-2);
+  --shadow-btn-press:  0 1px 0 var(--green-deep-2);
+  --shadow-card:       0 -16px 80px rgba(15,26,15,0.18), 0 -1px 0 rgba(15,26,15,0.12);
+
+  /* ── LINE HEIGHTS ──────────────────────────────────────────── */
+  --lh-tight:    0.72;   /* Jomhuria display */
+  --lh-snug:     1.0;
+  --lh-normal:   1.5;
+  --lh-relaxed:  1.55;
+
+  /* ── LETTER SPACING ────────────────────────────────────────── */
+  --ls-wide:    0.15em;
+  --ls-wider:   0.25em;
+  --ls-widest:  0.35em;
+  --ls-tight:  -0.01em;
+  --ls-tighter:-0.02em;
+}
+
+/* ── SEMANTIC ELEMENT STYLES ───────────────────────────────── */
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: var(--jh-5xl);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.02em;
+  color: var(--color-fg);
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-size: var(--jh-4xl);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.02em;
+  color: var(--color-fg);
+  text-transform: uppercase;
+}
+
+h3, .h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--t-lg);
+  line-height: 1.2;
+  color: var(--color-fg);
+}
+
+h4, .h4 {
+  font-family: var(--font-display);
+  font-size: var(--jh-xl);
+  line-height: 0.8;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+}
+
+p, .body {
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-fg-body);
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--t-md);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-fg-body);
+}
+
+caption, .caption, .meta {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--color-fg-mute);
+  letter-spacing: 0.04em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--t-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: var(--color-primary);
+}
+
+.label-tag {
+  font-family: var(--font-receipt);
+  font-size: var(--t-md);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 2px;
+}
+
+.nav-item {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: opacity 0.15s ease, color 0.1s ease, transform 0.1s ease;
+}
+.nav-item:hover { opacity: 0.6; }
+
+code, .code {
+  font-family: var(--font-code);
+  font-size: var(--t-xs);
+  background: rgba(48,72,48,0.10);
+  color: var(--color-primary);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+/* ── COMPONENT BASE STYLES ─────────────────────────────────── */
+
+/* Primary CTA — solid green pill (e.g. "Order") */
+.btn-order {
+  background: var(--green);
+  color: var(--cream);
+  border: none;
+  border-radius: var(--r-pill);
+  padding: var(--s-3) var(--s-12);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+.btn-order:hover  { transform: translateY(-2px); box-shadow: var(--shadow-btn-hover); }
+.btn-order:active { background: var(--green-deep); transform: translateY(2px); box-shadow: var(--shadow-btn-press); transition: none; }
+
+/* Secondary — outlined pill (cream bg, green border) — same press family */
+.btn-secondary {
+  background: var(--cream);
+  color: var(--green);
+  border: 2px solid var(--green);
+  border-radius: var(--r-pill);
+  padding: calc(var(--s-3) - 2px) calc(var(--s-12) - 2px);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--green);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, color 0.1s ease, border-color 0.1s ease, background 0.1s ease;
+}
+.btn-secondary:hover  { transform: translateY(-2px); box-shadow: 0 6px 0 var(--green); }
+.btn-secondary:active { color: var(--cream); background: var(--green-deep); border-color: var(--green-deep); transform: translateY(2px); box-shadow: 0 1px 0 var(--green-deep-2); transition: none; }
+
+/* Ghost — text-only, no chrome — deep-green press feedback */
+.btn-ghost {
+  background: transparent;
+  color: var(--green);
+  border: none;
+  border-radius: var(--r-pill);
+  padding: var(--s-2) var(--s-6);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.1s ease, transform 0.1s ease, opacity 0.1s ease;
+}
+.btn-ghost:hover  { opacity: 0.72; }
+.btn-ghost:active { color: var(--green-deep); transform: translateY(1px); opacity: 1; transition: none; }
+
+/* Nav links — text link press feedback (no chrome change, just color shift) */
+.nav-item:active { color: var(--green-deep); opacity: 1; transition: none; }
+
+/* Scroll-CTA — Hero "请进 / Enter ↓" — press feels like a soft pull-down */
+.scroll-cta {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  color: var(--cream);
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+.scroll-cta:hover  { opacity: 0.78; }
+.scroll-cta:active { opacity: 1; transform: translateY(2px); color: var(--green-tint); transition: none; }
+
+.card-menu {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  padding: var(--s-8) var(--s-12);
+  box-shadow: var(--shadow-card);
+}
+
+.cn-name {
+  font-family: var(--font-cn);
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.stamp-name {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  line-height: var(--lh-tight);
+  color: var(--color-primary);
+}

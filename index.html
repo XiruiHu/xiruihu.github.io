@@ -1,726 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xirui Hu — Visual Designer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xirui Hu — Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=VT323&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     @font-face {
-      font-family: 'LaoJieZhaoPai';
-      src: url('brand_assets/AaLaoJieZhaoPaiTi-2.ttf') format('truetype');
+      font-family: 'GuDianKeBen';
+      src: url('./brand_assests/AaGuDianKeBenSongYouMoBan/AaGuDianKeBenSongYouMoBan-2.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
-  </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <style>
-    :root {
-      --blue:        #1F1FE6;
-      --blue-2:      #1517B8;
-      --ember:       #E27A2C;
-      --paper:       #EBE3D0;
-      --paper-soft:  #F4EEDC;
-      --paper-deep:  #DDD2B7;
-      --amber:       #C77840;
-      --ink:         #0E0E14;
-      --ink-soft:    #2A2A33;
-      --ink-mute:    #6B6358;
+    @font-face {
+      font-family: 'Angela';
+      src: url('./brand_assests/AaGuDianKeBenSongYouMoBan/angela.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'SanJiHuaChao';
+      src: url('./brand_assests/AaGuDianKeBenSongYouMoBan/Assets/SanJiHuaChaoTi-Cu-2.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'AlternateGothic';
+      src: url('./brand_assests/Alternate Gothic No3 D Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Fira Sans', sans-serif;
-      background: var(--blue);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: linear-gradient(to bottom, #EFCB01 0%, #EFCB01 3%, #E6DACA 10%, #E6DACA 100%);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      color: #2A3A2A;
     }
 
-    /* ── FIXED BACKGROUND ───────────────────────────────────────── */
-    #bg-fixed {
+    #curtain-overlay {
       position: fixed;
-      inset: 0;
-      z-index: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 9999;
+      background: #E6DACA;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-
-    #bg-img {
-      width: 100%;
-      height: 100%;
-      flex-shrink: 0;
-      object-fit: cover;
-      object-position: center 18%;
-      transform-origin: center 18%;
-    }
-
-    /* ── HERO ────────────────────────────────────────────────────── */
-    #hero {
-      position: relative;
-      z-index: 1;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* NAV */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 56px;
-      flex-shrink: 0;
-    }
-
-    .nav-logo {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-      font-family: "Fira Sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .nav-links a {
-      color: var(--blue);
-      text-decoration: none;
-      transition: opacity 0.15s ease;
-    }
-    .nav-links a:hover { opacity: 0.6; }
-
-    /* STAMP */
-    #stamp {
-      position: relative;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--blue);
-      text-align: center;
-      gap: 0;
-    }
-
-    .stamp-badge-svg {
+    #curtain-canvas {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      overflow: visible;
+      top: 0; left: 0;
     }
 
-    .stamp-name-s {
-      font-size: 49px;
-      vertical-align: top;
-    }
-
-    .stamp-center-row {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .stamp-text-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .stamp-icon {
-      width: 96px;
-      height: 96px;
-      object-fit: contain;
-    }
-
-    .stamp-cn {
-      font-family: 'LaoJieZhaoPai', cursive;
-      font-size: 98px;
-      line-height: 1;
-      color: var(--blue);
-      display: inline-block;
-      transform: translateY(0.2em);
-    }
-
-    .stamp-name {
-      font-family: 'Jomhuria', serif;
-      font-size: 98px;
-      line-height: 0.72;
-      letter-spacing: 0.02em;
-      color: var(--blue);
-    }
-
-    /* SCROLL CTA */
-    #scroll-cta {
-      text-align: center;
-      padding-bottom: 36px;
-      color: var(--blue);
-      flex-shrink: 0;
-    }
-
-    .cta-cn {
-      font-family: 'LaoJieZhaoPai', cursive;
-      font-size: 22px;
-      display: block;
-      line-height: 1.2;
-      transform: translateY(0.1em);
-    }
-
-    .cta-label {
-      font-family: "Fira Sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      display: block;
-      margin-top: 4px;
-      margin-bottom: 8px;
-    }
-
-    .cta-arrow {
-      display: inline-block;
-      font-size: 18px;
-      animation: arrowBounce 1.6s ease-in-out infinite;
-    }
-
-    @keyframes arrowBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-
-    /* ── MENU ────────────────────────────────────────────────────── */
-    #menu {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      padding: 0 48px;
-      margin-bottom: 8vh;
-    }
-
-    #menu-card {
-      background: var(--paper);
-      border: 1px solid var(--ink);
-      border-bottom: none;
-      border-radius: 4px 4px 0 0;
-      width: 100%;
-      max-width: 720px;
-      padding: 40px 52px 64px;
-      box-shadow:
-        0 -16px 80px rgba(14, 14, 20, 0.55),
-        0 -2px 0 rgba(14, 14, 20, 0.8);
-      /* Paper grain via SVG filter */
-      position: relative;
-    }
-
-    /* Faint grain overlay on card */
-    #menu-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      background-size: 300px 300px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    #menu-card > * { position: relative; z-index: 1; }
-
-    /* MENU HEADING */
-    .menu-title-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 44px;
-    }
-
-    .menu-icon {
-      width: 66px;
-      height: 66px;
-      object-fit: contain;
-    }
-
-    .menu-title {
-      font-family: 'Jomhuria', serif;
-      font-size: 98px;
-      line-height: 0.75;
-      letter-spacing: 0.02em;
-      color: var(--blue);
-      text-transform: uppercase;
-      transform: translateY(0.1em);
-    }
-
-    /* CATEGORY */
-    .cat-label {
-      font-family: 'Jomhuria', serif;
-      font-size: 62px;
-      text-transform: uppercase;
-      color: var(--blue);
-      display: block;
-      transform: translateY(0.1em);
-    }
-
-    .cat-rule {
-      border: none;
-      border-top: 5px dotted var(--blue);
-      margin-bottom: 32px;
-    }
-
-    /* PROJECT ROW */
-    .project {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 28px;
-      margin-bottom: 36px;
-      align-items: stretch;
-    }
-
-    .project-img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      display: block;
-      border-radius: 2px;
-    }
-
-    .project-body {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .eyebrow {
-      font-family: "Fira Mono", monospace;
-      font-weight: 700;
-      font-style: normal;
-      font-size: 15px;
-      text-transform: uppercase;
-      color: var(--blue);
-      /* border-bottom: 2px solid var(--ember); */
-      display: inline;
-      padding-bottom: 1px;
-    }
-
-    .proj-title-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .proj-title {
-      font-family: "Fira Sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-      font-size: 25px;
-      color: var(--blue);
-      line-height: 1.2;
-    }
-
-    .proj-price {
-      font-family: "Fira Mono", monospace;
-  font-weight: 700;
-  font-style: normal;
-      font-size: 25px;
-      color: var(--ember);
-      white-space: nowrap;
-    }
-
-    .proj-desc {
-      font-family: "Fira Mono", monospace;
-  font-weight: 500;
-  font-style: normal;
-      font-size: 13px;
-      color: var(--blue);
-    }
-
-    .proj-action-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-      padding-top: 10px;
-    }
-
-    .order-btn {
-      background: var(--blue);
-      color: var(--ember);
-      border: none;
-      border-radius: 999px;
-      padding: 10px 48px;
-      font-family: "Fira Sans", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-      font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 4px 0 var(--blue-2);
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .order-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 0 var(--blue-2);
-    }
-    .order-btn:active {
-      transform: translateY(2px);
-      box-shadow: 0 1px 0 var(--blue-2);
-    }
-
-    /* ── PAGE-END GRADIENT ───────────────────────────────────────── */
-    #page-end {
-      position: relative;
-      z-index: 2;
-      height: 120vh;
-      /* background: linear-gradient(
-        180deg,
-        rgba(14, 14, 20, 0)   0%,
-        rgba(14, 14, 20, 0)   40%,
-        rgba(14, 14, 20, 1)   100%
-      ); */
-    }
-
-    /* ── FOOTER ──────────────────────────────────────────────────── */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      transform: translateY(100%);
-      background: var(--ink);
-      color: var(--ember);
-      font-family: "Fira Mono", monospace;
-  font-weight: 500;
-  font-style: normal;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      padding: 20px 64px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      border-top: 1px solid rgba(107, 99, 88, 0.4);
-    }
-
-    footer .center {
-      color: var(--ember);
-      font-family: "Fira Mono", monospace;
-  font-weight: 500;
-  font-style: normal;
-      font-size: 12px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    footer .right { text-align: right; }
-
-    /* ── FOOTER LOGO MARK ────────────────────────────────────────── */
-    footer .logo-mark {
-      color: var(--blue);
-      font-family: "Fira Mono", monospace;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 12px;
-      line-height: 1;
-      letter-spacing: 0.02em;
-    }
-
-    /* ── SCROLL OVERLAYS ─────────────────────────────────────────── */
-    #huan-img {
-      position: fixed;
-      z-index: 1;
-      top: 8vh;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'LaoJieZhaoPai', cursive;
-      font-size: 98px;
-      line-height: 1;
-      color: var(--blue);
-      white-space: nowrap;
-      pointer-events: none;
-    }
-
-    #chairs-img {
-      position: fixed;
-      z-index: 1;
-      bottom: 37vh;
-      right: 27vw;
-      width: 240px;
-      height: auto;
-      pointer-events: none;
-    }
-
-    #scroll-scene {
-      position: relative;
-      z-index: 1;
-      height: 200vh;
-      pointer-events: none;
-    }
   </style>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- UI Kit Components -->
+  <script type="text/babel" src="Frame.jsx"></script>
+  <script type="text/babel" src="Nav.jsx"></script>
+  <script type="text/babel" src="Hero.jsx"></script>
+  <script type="text/babel" src="MenuCard.jsx"></script>
+  <script type="text/babel" src="Footer.jsx"></script>
 </head>
 <body>
 
-<!-- FIXED RESTAURANT BACKGROUND -->
-<div id="bg-fixed">
-  <img id="bg-img" src="brand_assets/hf_20260428_200415_d39e0e72-0dc9-4eff-b00e-e8e32a6cd82f.png" alt="Restaurant interior">
+<!-- ── BEAD CURTAIN OVERLAY ── -->
+<div id="curtain-overlay">
+  <canvas id="curtain-canvas"></canvas>
 </div>
 
-<!-- SCROLL OVERLAY IMAGES -->
-<div id="huan-img">欢迎光临</div>
-<img id="chairs-img" src="brand_assets/redchairs.png" alt="">
+<div id="root"></div>
 
-<!-- ── HERO ─────────────────────────────────────────────────────── -->
-<section id="hero">
-  <nav>
-    <img class="nav-logo" src="brand_assets/newlogo.png" alt="XH">
-    <ul class="nav-links">
-      <li><a href="#menu">Work</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Resume</a></li>
-      <li><a href="mailto:huxirui24@gmail.com">Email Me</a></li>
-    </ul>
-  </nav>
+<script type="text/babel">
+  const { useState, useEffect, useRef } = React;
 
-  <div id="stamp">
-    <!-- Curved arc text SVG — positioned absolutely, centered on stamp content -->
-    <svg class="stamp-badge-svg" width="480" height="480" viewBox="0 0 480 480" fill="none" aria-hidden="true">
-      <defs>
-        <!-- Top arc: left equator → CCW over top → right equator -->
-        <path id="stamp-top-arc" d="M 60,240 A 180,180 0 0,0 420,240"/>
-        <!-- Bottom arc: left equator → CW under bottom → right equator -->
-        <path id="stamp-bottom-arc" d="M 60,240 A 180,180 0 0,1 420,240"/>
-      </defs>
-      <!-- bottom-arc path renders text at the TOP of the stamp in browsers -->
-      <text font-family="Fira Sans, sans-serif" font-weight="700" font-size="31" fill="#1F1FE6" letter-spacing="8">
-        <textPath href="#stamp-bottom-arc" startOffset="50%" text-anchor="middle">VISUAL DESIGNER</textPath>
-      </text>
-      <!-- top-arc path renders text at the BOTTOM of the stamp in browsers -->
-      <text font-family="Fira Sans, sans-serif" font-weight="700" font-size="31" fill="#1F1FE6" letter-spacing="14">
-        <textPath href="#stamp-top-arc" startOffset="50%" text-anchor="middle">PORTFOLIO</textPath>
-      </text>
-    </svg>
+  /* ── About Section ──────────────────────────────────────── */
+  function AboutSection() {
+    return (
+      <section id="about" style={aboutStyles.section}>
+        <div style={aboutStyles.inner}>
+          <div style={aboutStyles.grid}>
+            {/* Left: text */}
+            <div style={aboutStyles.textCol}>
+              <div style={aboutStyles.eyebrow}>About</div>
+              <h2 style={aboutStyles.title}>A little<br />about me.</h2>
+              <p style={aboutStyles.body}>
+                A visual designer working at the intersection of Chinese visual
+                heritage and contemporary brand-making — with a love for cultural
+                depth, a playful creative process and storytelling that makes a difference.
+              </p>
+              <p style={aboutStyles.body}>
+                Currently open to freelance and full-time opportunities.
+              </p>
+              <a href="mailto:huxirui24@gmail.com" style={aboutStyles.cta}>
+                Get in touch →
+              </a>
+            </div>
 
-    <div class="stamp-center-row">
-      <img class="stamp-icon" src="brand_assets/Computerandphone2.png" alt="">
-      <div class="stamp-text-block">
-        <span class="stamp-cn">胡希瑞</span>
-        <span class="stamp-name">XIRUI HU<span class="stamp-name-s">'s</span></span>
-      </div>
-      <img class="stamp-icon" src="brand_assets/Pencile2.png" alt="" style="transform: scaleX(-1);">
-    </div>
-  </div>
-
-  <div id="scroll-cta">
-    <span class="cta-cn">请进</span>
-    <span class="cta-label">Enter</span>
-    <span class="cta-arrow">↓</span>
-  </div>
-</section>
-
-<!-- ── SCROLL SCENE (overlay animations) ────────────────────────── -->
-<div id="scroll-scene"></div>
-
-<!-- ── MENU ──────────────────────────────────────────────────────── -->
-<section id="menu">
-  <div id="menu-card">
-    <!-- Heading -->
-    <div class="menu-title-row">
-      <img class="menu-icon" src="brand_assets/Chopstick_holding_phone.png" alt="">
-      <h2 class="menu-title">Menu</h2>
-      <img class="menu-icon" src="brand_assets/Chopstick_holding_phone.png" alt="" style="transform: scaleX(-1);">
-    </div>
-
-    <!-- UX/UI Category -->
-    <div>
-      <span class="cat-label">ITEM</span>
-      <hr class="cat-rule">
-
-      <!-- Project 1: Blink Box -->
-      <div class="project">
-        <img class="project-img" src="brand_assets/Project1.png" alt="Blink Box Tracking App">
-        <div class="project-body">
-          <span class="eyebrow">MOBILE APP</span>
-          <div class="proj-title-row">
-            <h3 class="proj-title">Blink Box Tracking App</h3>
-          </div>
-          <!-- <p class="proj-desc">Track, trade and show your blind box collection effortlessly.</p> -->
-          <div class="proj-action-row">
-            <span class="proj-price">$0</span>
-            <button class="order-btn">Order</button>
-            
+            {/* Right: skills */}
+            <div style={aboutStyles.skillsOuter}>
+              <div style={aboutStyles.skillsGrid}>
+                <div style={aboutStyles.skillCol}>
+                  <h4 style={aboutStyles.skillHead}>Disciplines</h4>
+                  <ul style={aboutStyles.skillList}>
+                    {["Brand Identity","UI / UX Design","Motion & Animation","Editorial Design","Front-end Dev"].map(s =>
+                      <li key={s} style={aboutStyles.skillItem}>{s}</li>
+                    )}
+                  </ul>
+                </div>
+                <div style={aboutStyles.skillCol}>
+                  <h4 style={aboutStyles.skillHead}>Tools</h4>
+                  <ul style={aboutStyles.skillList}>
+                    {["Figma","After Effects","HTML / CSS / JS","Illustrator","Photoshop"].map(s =>
+                      <li key={s} style={aboutStyles.skillItem}>{s}</li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+    );
+  }
 
-      <!-- Project 2: Where Food Travels -->
-       <hr class="cat-rule">
-      <div class="project">
-        <img class="project-img" src="brand_assets/Project2.png" alt="Where Food Travels">
-        <div class="project-body">
-          <span class="eyebrow">MOBILE APP</span>
-          <div class="proj-title-row">
-            <h3 class="proj-title">Where Food Travels</h3>
+  const aboutStyles = {
+    section: {
+      padding: "80px 40px 80px",
+      display: "flex",
+      justifyContent: "center",
+    },
+    inner: {
+      position: "relative",
+      width: "100%",
+      maxWidth: 1200,
+      background: "#E6DACA",
+      border: "2px solid #b62824",
+      padding: "64px 80px",
+    },
+    grid: {
+      display: "grid",
+      gridTemplateColumns: "1.2fr 1fr",
+      gap: 80,
+      alignItems: "start",
+    },
+    textCol: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 20,
+    },
+    eyebrow: {
+      fontFamily: "'Cormorant Garamond', serif",
+      fontWeight: 600,
+      fontSize: 13,
+      letterSpacing: "0.32em",
+      paddingLeft: "0.32em",
+      textTransform: "uppercase",
+      color: "rgba(182,40,36,0.55)",
+    },
+    title: {
+      fontFamily: "'Angela', serif",
+      fontWeight: 400,
+      fontSize: "clamp(40px, 5vw, 64px)",
+      lineHeight: 1,
+      color: "#b62824",
+      margin: 0,
+    },
+    body: {
+      fontFamily: "'Cormorant Garamond', serif",
+      fontSize: 20,
+      lineHeight: 1.65,
+      color: "#2A3A2A",
+    },
+    cta: {
+      display: "inline-block",
+      fontFamily: "'Cormorant Garamond', serif",
+      fontWeight: 600,
+      fontSize: 16,
+      letterSpacing: "0.18em",
+      textTransform: "uppercase",
+      color: "#b62824",
+      textDecoration: "none",
+      borderBottom: "1.5px solid #b62824",
+      paddingBottom: 3,
+      marginTop: 4,
+      transition: "opacity 0.15s ease",
+    },
+    skillsOuter: {
+      paddingTop: 8,
+    },
+    skillsGrid: {
+      display: "flex",
+      gap: 52,
+    },
+    skillCol: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 16,
+    },
+    skillHead: {
+      fontFamily: "'Cormorant Garamond', serif",
+      fontWeight: 600,
+      fontSize: 13,
+      letterSpacing: "0.28em",
+      textTransform: "uppercase",
+      color: "rgba(182,40,36,0.55)",
+    },
+    skillList: {
+      listStyle: "none",
+      display: "flex",
+      flexDirection: "column",
+      gap: 10,
+    },
+    skillItem: {
+      fontFamily: "'Cormorant Garamond', serif",
+      fontSize: 19,
+      color: "#2A3A2A",
+      lineHeight: 1.3,
+    },
+  };
+
+
+  /* ── Checkout / Contact Section ────────────────────────── */
+  function CheckoutSection() {
+    const [btnHov, setBtnHov] = React.useState(false);
+    return (
+      <section style={{ position: "relative", padding: "0 40px 120px", overflow: "visible" }}>
+        <div style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "stretch",
+          gap: 60,
+        }}>
+
+          {/* Left column: form */}
+          <div style={{ flex: "0 0 40%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <h2 style={{
+              fontFamily: "'Angela', serif",
+              fontWeight: 400,
+              fontSize: "clamp(34px, 4vw, 56px)",
+              lineHeight: 1.0,
+              color: "#b62824",
+              margin: "0 0 44px",
+            }}>Let's cook<br />something<br />together.</h2>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+              <div style={{ borderBottom: "1.5px solid rgba(182,40,36,0.3)", paddingBottom: 8, marginBottom: 28 }}>
+                <label style={coStyles.label}>Name</label>
+                <input type="text" placeholder="your name" style={coStyles.input} />
+              </div>
+              <div style={{ borderBottom: "1.5px solid rgba(182,40,36,0.3)", paddingBottom: 8, marginBottom: 40 }}>
+                <label style={coStyles.label}>Email</label>
+                <input type="email" placeholder="your@email.com" style={coStyles.input} />
+              </div>
+              <button
+                style={{
+                  ...coStyles.btn,
+                  transform: btnHov ? "translateY(-2px)" : "none",
+                  boxShadow: btnHov ? "0 6px 0 rgba(0,0,0,0.15)" : "0 4px 0 rgba(0,0,0,0.15)",
+                }}
+                onMouseEnter={() => setBtnHov(true)}
+                onMouseLeave={() => setBtnHov(false)}
+              >
+                Contact me
+              </button>
+            </div>
           </div>
-          <!-- <p class="proj-desc">Track, trade and show your blind box collection effortlessly.</p> -->
-          <div class="proj-action-row">
-            <span class="proj-price">$0</span>
-            <button class="order-btn">Order</button>
+
+          {/* Right: Check out sign — same height as form column */}
+          <div style={{ flex: 1, display: "flex", alignItems: "stretch" }}>
+            <img
+              src="./brand_assests/AaGuDianKeBenSongYouMoBan/Assets/CheckOut--%402x.png"
+              alt=""
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                objectPosition: "left center",
+                pointerEvents: "none",
+                display: "block",
+              }}
+            />
           </div>
         </div>
-      </div>
+      </section>
+    );
+  }
 
-      <!-- Project 3: Monetization transparency research -->
-       <hr class="cat-rule">
-      <div class="project">
-        <img class="project-img" src="brand_assets/Project3.png" alt="Where Food Travels">
-        <div class="project-body">
-          <span class="eyebrow">WEB REDESIGN</span>
-          <div class="proj-title-row">
-            <h3 class="proj-title">Monetization Transparency Research</h3>
-          </div>
-          <!-- <p class="proj-desc">Track, trade and show your blind box collection effortlessly.</p> -->
-          <div class="proj-action-row">
-            <span class="proj-price">$0</span>
-            <button class="order-btn">Order</button>
-            
-          </div>
+  const coStyles = {
+    label: {
+      fontFamily: "'Cormorant Garamond', serif",
+      fontWeight: 600,
+      fontSize: 11,
+      letterSpacing: "0.34em",
+      textTransform: "uppercase",
+      color: "rgba(182,40,36,0.55)",
+      display: "block",
+      marginBottom: 8,
+    },
+    input: {
+      fontFamily: "'Cormorant Garamond', serif",
+      fontSize: 20,
+      lineHeight: 1.4,
+      color: "#2A3A2A",
+      background: "transparent",
+      border: "none",
+      outline: "none",
+      width: "100%",
+      padding: 0,
+    },
+    btn: {
+      alignSelf: "flex-start",
+      background: "#b62824",
+      color: "#FAEFE0",
+      border: "none",
+      borderRadius: 999,
+      padding: "12px 32px",
+      fontFamily: "'Cormorant Garamond', serif",
+      fontWeight: 600,
+      fontSize: 15,
+      letterSpacing: "0.2em",
+      textTransform: "uppercase",
+      cursor: "pointer",
+      transition: "transform 0.1s ease, box-shadow 0.1s ease",
+    },
+  };
+
+  /* ── App ────────────────────────────────────────────────── */
+  function App() {
+    const [footerVisible, setFooterVisible] = useState(false);
+    const menuRef  = useRef(null);
+    const aboutRef = useRef(null);
+
+    const scrollTo = (ref, offset = 12) => {
+      if (ref.current) {
+        const top = ref.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    };
+
+    const handleSection = (name) => {
+      if (name === "Work")  scrollTo(menuRef);
+      if (name === "About") scrollTo(aboutRef);
+      if (name === "Email Me") window.location.href = "mailto:huxirui24@gmail.com";
+    };
+
+    useEffect(() => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const onScroll = () => {
+        const scrollBottom = window.scrollY + window.innerHeight;
+        const docHeight    = document.documentElement.scrollHeight;
+        setFooterVisible(scrollBottom >= docHeight - 80);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+        ScrollTrigger.getAll().forEach(t => t.kill());
+      };
+    }, []);
+
+    return (
+      <>
+        <Nav onSection={handleSection} />
+        <Hero onEnter={() => scrollTo(menuRef)} />
+
+        <div id="about-section" ref={aboutRef}>
+          <AboutSection />
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<div id="page-end"></div>
+        <div id="menu-section" ref={menuRef}>
+          <MenuCard />
+        </div>
 
-<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
-<footer>
-  <span>Vancouver, Canada</span>
-  <span class="center">Let's build together</span>
-  <span class="right">© 2026 Xirui Hu</span>
-</footer>
+        <CheckoutSection />
 
+        <Footer visible={footerVisible} />
+      </>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+<!-- ── CURTAIN SCRIPT ── -->
 <script>
-  gsap.registerPlugin(ScrollTrigger);
+(function () {
+  const overlay = document.getElementById('curtain-overlay');
+  const canvas  = document.getElementById('curtain-canvas');
+  const ctx     = canvas.getContext('2d');
 
-  /* ── 1. Background zooms out from top as hero scrolls ── */
-  gsap.fromTo('#bg-img',
-    { scale: 2.8, borderRadius: '0px' },
-    {
-      scale: 0.42,
-      borderRadius: '14px',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
+  let W = window.innerWidth;
+  let H = window.innerHeight;
+  canvas.width  = W;
+  canvas.height = H;
+
+  // Circular bead matching nav style (8px diameter)
+  const BEAD_R  = 4;
+  const GAP     = 3;
+  const UNIT    = BEAD_R * 2 + GAP;   // 11px per slot
+  const ROWS    = Math.ceil(H / UNIT) + 2;
+  const STR_W   = 13;
+  const NUM_STR = Math.floor(W / STR_W);
+
+  // Brand colours
+  const RED    = '#b62824';
+  const THREAD = '#2a1a18';
+  const SHINE  = 'rgba(255,255,255,0.45)';
+
+  function makeStrings() {
+    return Array.from({ length: NUM_STR }, (_, i) => {
+      const side = i < NUM_STR / 2 ? -1 : 1;
+      const dist = side === -1 ? (NUM_STR / 2 - 1 - i) : (i - NUM_STR / 2);
+      return { x: (i + 0.5) * STR_W, side, dist, swingAngle: 0, sweepX: 0, opacity: 1, started: false };
+    });
+  }
+
+  let strings     = makeStrings();
+  let rafId       = null;
+  let globalStart = null;
+
+  const OPEN_DUR    = 2200;
+  const SWEEP_DELAY = 1400;
+  const SWEEP_DUR   = 1600;
+  const MAX_ANGLE   = 1.05;
+
+  const easeOutCubic   = t => 1 - Math.pow(1 - t, 3);
+  const easeInCubic    = t => t * t * t;
+  const easeInOutQuart = t => t < 0.5 ? 8*t*t*t*t : 1 - Math.pow(-2*t+2,4)/2;
+
+  function drawBead(x, y, color, alpha) {
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.beginPath();
+    ctx.arc(x, y, BEAD_R, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+    // Specular highlight
+    ctx.beginPath();
+    ctx.arc(x - BEAD_R * 0.28, y - BEAD_R * 0.28, BEAD_R * 0.28, 0, Math.PI * 2);
+    ctx.fillStyle = SHINE;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawString(s) {
+    if (s.opacity <= 0) return;
+    const bx0 = s.x + s.sweepX;
+    for (let r = 0; r < ROWS; r++) {
+      const frac  = r / (ROWS - 1);
+      const angle = s.swingAngle * frac * frac;
+      const cy    = r * UNIT + BEAD_R;
+      const bx    = bx0 + Math.sin(angle) * cy;
+      drawBead(bx, cy, RED, s.opacity);
+      if (r < ROWS - 1) {
+        const nf  = (r + 1) / (ROWS - 1);
+        const na  = s.swingAngle * nf * nf;
+        const ncy = (r + 1) * UNIT + BEAD_R;
+        const nbx = bx0 + Math.sin(na) * ncy;
+        ctx.save();
+        ctx.globalAlpha = s.opacity * 0.6;
+        ctx.beginPath();
+        ctx.moveTo(bx, cy + BEAD_R);
+        ctx.lineTo(nbx, ncy - BEAD_R);
+        ctx.strokeStyle = THREAD;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.restore();
       }
     }
-  );
+  }
 
-  /* ── 2. Stamp shrinks with background zoom-out ───────────────── */
-  gsap.fromTo('#stamp',
-    { scale: 1 },
-    {
-      scale: 0.88,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
+  function render() {
+    ctx.clearRect(0, 0, W, H);
+    for (const s of strings) drawString(s);
+  }
+
+  function tick(ts) {
+    if (!globalStart) globalStart = ts;
+    const elapsed  = ts - globalStart;
+    let anyVisible = false;
+
+    for (const s of strings) {
+      if (!s.started) { anyVisible = true; continue; }
+      if (s.opacity <= 0) continue;
+      anyVisible = true;
+
+      s.swingAngle = s.side * MAX_ANGLE * easeOutCubic(Math.min(1, elapsed / OPEN_DUR));
+
+      if (elapsed > SWEEP_DELAY) {
+        const t  = Math.min(1, (elapsed - SWEEP_DELAY) / SWEEP_DUR);
+        s.sweepX  = s.side * (W * 0.7 + s.dist * 10) * easeInCubic(t);
+        s.opacity = 1 - easeInOutQuart(t);
       }
     }
-  );
 
-  /* ── 3. Hero content fades as hero exits viewport ─────────────── */
-  gsap.to(['#stamp', 'nav', '#scroll-cta'], {
-    opacity: 0,
-    y: -20,
-    ease: 'power1.in',
-    scrollTrigger: {
-      trigger: '#hero',
-      start: '60% top',
-      end: 'bottom top',
-      scrub: 0.5,
+    render();
+
+    if (anyVisible) {
+      rafId = requestAnimationFrame(tick);
+    } else {
+      overlay.style.transition = 'opacity 0.35s ease';
+      overlay.style.opacity    = '0';
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 380);
     }
+  }
+
+  function startCurtain() {
+    document.body.style.overflow = 'hidden';
+    globalStart = null;
+    strings.forEach(s => {
+      const delay = s.dist * 50 + Math.random() * 30;
+      setTimeout(() => { s.started = true; }, delay);
+    });
+    setTimeout(() => { rafId = requestAnimationFrame(tick); }, 20);
+  }
+
+  window.addEventListener('load', () => {
+    render();
+    setTimeout(startCurtain, 300);
   });
 
-  /* ── 4. huanyingguanglin slides up from bottom ──────────────── */
-  gsap.fromTo('#huan-img',
-    { y: '100vh' },
-    {
-      y: 0,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#scroll-scene',
-        start: 'top top',
-        end: '50% top',
-        scrub: true,
-      }
-    }
-  );
-
-  /* ── 5. redchairs slides up from bottom to bg bottom-right ──── */
-  gsap.fromTo('#chairs-img',
-    { y: '100vh' },
-    {
-      y: 0,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#scroll-scene',
-        start: '50% top',
-        end: 'bottom top',
-        scrub: true,
-      }
-    }
-  );
-
-  /* ── 6. Menu slides up after scroll-scene ────────────────────── */
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: '#menu',
-      start: 'top bottom',
-      end: 'top 15%',
-      scrub: 1,
-    }
-  })
-  .from('#menu',   { yPercent: 55, ease: 'none' }, 0);
-
-  /* ── 4. Footer slides up when scrolled to the bottom ─────────── */
-  gsap.to('footer', {
-    translateY: 0,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '#page-end',
-      start: 'bottom bottom',
-      toggleActions: 'play none none reverse',
-    }
+  window.addEventListener('resize', () => {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width  = W;
+    canvas.height = H;
   });
+})();
 </script>
 </body>
 </html>

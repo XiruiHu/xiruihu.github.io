@@ -1,0 +1,259 @@
+/* ============================================================
+ * style.css — Portfolio layout built on tokens.css
+ * ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-surface-soft);
+  color: var(--color-fg-body);
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  line-height: var(--lh-relaxed);
+  overflow-x: hidden;
+}
+
+/* ── NAV ───────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-4) var(--s-12);
+  background: var(--color-surface-soft);
+  border-bottom: var(--hairline);
+  backdrop-filter: blur(8px);
+  animation: fadeDown 0.6s ease both;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  gap: var(--s-8);
+}
+
+/* ── HERO ──────────────────────────────────────────────────── */
+.hero {
+  min-height: 100svh;
+  background: var(--green);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--s-32) var(--s-12) var(--s-16);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '鶴茶樓';
+  font-family: var(--font-cn);
+  font-size: 40vw;
+  line-height: 1;
+  color: rgba(255,255,255,0.04);
+  position: absolute;
+  top: -5%;
+  right: -5%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__eyebrow {
+  color: var(--green-tint);
+  margin-bottom: var(--s-4);
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(var(--t-5xl), 14vw, var(--jh-6xl));
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin-bottom: var(--s-8);
+  animation: fadeUp 0.7s 0.35s ease both;
+}
+
+.hero__tagline {
+  color: var(--cream);
+  opacity: 0.75;
+  max-width: 520px;
+  margin-bottom: var(--s-8);
+  animation: fadeUp 0.7s 0.5s ease both;
+}
+
+.hero__cta {
+  align-self: flex-start;
+  animation: fadeUp 0.7s 0.65s ease both;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: var(--s-8);
+  right: var(--s-12);
+  animation: fadeUp 0.7s 0.9s ease both;
+}
+
+/* ── SECTIONS ──────────────────────────────────────────────── */
+.section {
+  padding: var(--s-24) var(--s-12);
+  background: var(--color-surface-soft);
+}
+
+.section--green {
+  background: var(--green);
+}
+
+.section__header {
+  margin-bottom: var(--s-12);
+}
+
+.section__header h2 {
+  margin-top: var(--s-3);
+}
+
+/* ── GRID ──────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--s-6);
+}
+
+/* ── PROJECT CARD ──────────────────────────────────────────── */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 -16px 80px rgba(15,26,15,0.22), 0 -1px 0 rgba(15,26,15,0.14);
+}
+
+.project-card__tag {
+  align-self: flex-start;
+}
+
+.project-card__title {
+  margin-top: var(--s-2);
+}
+
+.project-card__desc {
+  flex: 1;
+  opacity: 0.75;
+}
+
+/* ── ABOUT ─────────────────────────────────────────────────── */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-16);
+  align-items: start;
+  max-width: 1100px;
+}
+
+.about__text h2 {
+  margin-top: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+
+.about__skills {
+  display: flex;
+  gap: var(--s-12);
+  padding-top: var(--s-12);
+}
+
+.skill-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-top: 0;
+}
+
+/* ── CONTACT ───────────────────────────────────────────────── */
+.contact {
+  max-width: 700px;
+}
+
+.contact h2 {
+  margin-top: var(--s-3);
+}
+
+.contact__links {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+
+/* ── FOOTER ────────────────────────────────────────────────── */
+.footer {
+  background: var(--color-footer-bg);
+  padding: var(--s-12);
+  border-top: var(--hairline-strong);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.footer__name {
+  display: flex;
+  align-items: baseline;
+}
+
+/* ── ANIMATIONS ────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SCROLL REVEAL ─────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav { padding: var(--s-4) var(--s-6); }
+  .nav__links { gap: var(--s-4); }
+
+  .hero { padding: var(--s-24) var(--s-6) var(--s-12); }
+
+  .section { padding: var(--s-16) var(--s-6); }
+
+  .about { grid-template-columns: 1fr; gap: var(--s-8); }
+  .about__skills { flex-direction: column; gap: var(--s-6); padding-top: 0; }
+
+  .grid { grid-template-columns: 1fr; }
+
+  .contact__links { flex-direction: column; align-items: flex-start; }
+
+  .hero__scroll { display: none; }
+}
