@@ -4,77 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xirui Hu — Portfolio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    @font-face {
-      font-family: 'GuDianKeBen';
-      src: url('./brand_assests/AaGuDianKeBenSongYouMoBan/AaGuDianKeBenSongYouMoBan-2.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Angela';
-      src: url('./brand_assests/AaGuDianKeBenSongYouMoBan/angela.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'SanJiHuaChao';
-      src: url('./brand_assests/AaGuDianKeBenSongYouMoBan/Assets/SanJiHuaChaoTi-Cu-2.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'AlternateGothic';
-      src: url('./brand_assests/Alternate Gothic No3 D Regular.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      background: linear-gradient(to bottom, #EFCB01 0%, #EFCB01 3%, #E6DACA 10%, #E6DACA 100%);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      color: #2A3A2A;
-    }
-
-    #curtain-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 9999;
-      background: #E6DACA;
-      overflow: hidden;
-    }
-    #curtain-canvas {
-      position: absolute;
-      top: 0; left: 0;
-    }
-
-  </style>
-
-  <!-- React + Babel -->
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-  <!-- UI Kit Components -->
-  <script type="text/babel" src="Frame.jsx"></script>
-  <script type="text/babel" src="Nav.jsx"></script>
-  <script type="text/babel" src="Hero.jsx"></script>
-  <script type="text/babel" src="MenuCard.jsx"></script>
-  <script type="text/babel" src="Footer.jsx"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -83,323 +13,203 @@
   <canvas id="curtain-canvas"></canvas>
 </div>
 
-<div id="root"></div>
+<!-- ── NAV (desktop strands injected by main.js) ── -->
+<nav id="nav">
+  <div class="nav-blur-bg"></div>
+  <img
+    class="nav-logo"
+    src="./brand_assests/AaGuDianKeBenSongYouMoBan/NewNewNewLogo.png"
+    alt="Xirui Hu"
+  >
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
 
-<script type="text/babel">
-  const { useState, useEffect, useRef } = React;
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu-nav">
+    <a href="#" class="mobile-menu-link" data-section="Work">Work</a>
+    <a href="#" class="mobile-menu-link" data-section="About">About</a>
+    <a href="#" class="mobile-menu-link" data-section="Resume">Resume</a>
+    <a href="#" class="mobile-menu-link" data-section="Email Me">Email Me</a>
+  </nav>
+</div>
 
-  /* ── About Section ──────────────────────────────────────── */
-  function AboutSection() {
-    return (
-      <section id="about" style={aboutStyles.section}>
-        <div style={aboutStyles.inner}>
-          <div style={aboutStyles.grid}>
-            {/* Left: text */}
-            <div style={aboutStyles.textCol}>
-              <div style={aboutStyles.eyebrow}>About</div>
-              <h2 style={aboutStyles.title}>A little<br />about me.</h2>
-              <p style={aboutStyles.body}>
-                A visual designer working at the intersection of Chinese visual
-                heritage and contemporary brand-making — with a love for cultural
-                depth, a playful creative process and storytelling that makes a difference.
-              </p>
-              <p style={aboutStyles.body}>
-                Currently open to freelance and full-time opportunities.
-              </p>
-              <a href="mailto:huxirui24@gmail.com" style={aboutStyles.cta}>
-                Get in touch →
-              </a>
-            </div>
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-subtitle">UX/UI, VISUAL DESIGNER</div>
 
-            {/* Right: skills */}
-            <div style={aboutStyles.skillsOuter}>
-              <div style={aboutStyles.skillsGrid}>
-                <div style={aboutStyles.skillCol}>
-                  <h4 style={aboutStyles.skillHead}>Disciplines</h4>
-                  <ul style={aboutStyles.skillList}>
-                    {["Brand Identity","UI / UX Design","Motion & Animation","Editorial Design","Front-end Dev"].map(s =>
-                      <li key={s} style={aboutStyles.skillItem}>{s}</li>
-                    )}
-                  </ul>
-                </div>
-                <div style={aboutStyles.skillCol}>
-                  <h4 style={aboutStyles.skillHead}>Tools</h4>
-                  <ul style={aboutStyles.skillList}>
-                    {["Figma","After Effects","HTML / CSS / JS","Illustrator","Photoshop"].map(s =>
-                      <li key={s} style={aboutStyles.skillItem}>{s}</li>
-                    )}
-                  </ul>
-                </div>
-              </div>
-            </div>
+    <img class="hero-img hero-xirui-hu"      src="./brand_assests/Assets/XIRUI%20HU@2x.png"                                   alt="XIRUI HU">
+    <img class="hero-img hero-profile-photo" src="./brand_assests/Assets/Middle%20Profile%20Photo@2x.png"                    alt="Xirui Hu">
+    <img class="hero-img hero-chinese-name"  src="./brand_assests/Assets/Chinese%20Name@2x.png"                              alt="胡希瑞">
+    <img class="hero-img hero-pay-first"     src="./brand_assests/Assets/Four%20Vertical%20Chinese%20Characters@2x.png"      alt="" data-parallax="shrink">
+    <img class="hero-img hero-no-smoking"    src="./brand_assests/Assets/No%20Smoking%20Sign@2x.png"                         alt="" data-parallax="shrink">
+    <img class="hero-img hero-table-l"       src="./brand_assests/Assets/Left%20Side%20Table%20and%20Chairs@2x.png"          alt="" data-parallax="shrink">
+    <img class="hero-img hero-sticker"       src="./brand_assests/Assets/Portfolio%20Sticker@2x.png"                         alt="" data-parallax="shrink">
+    <img class="hero-img hero-table-r"       src="./brand_assests/Assets/Right%20side%20Table%20and%20Chairs@2x.png"         alt="" data-parallax="shrink">
+
+    <div class="hero-order-label" id="hero-order">
+      <span class="hero-order-text">Check out my UX menu</span>
+      <span class="hero-arrow">
+        <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
+          <line x1="7" y1="0" x2="7" y2="15" stroke="#b62824" stroke-width="1.5" stroke-linecap="round"/>
+          <polyline points="2,10 7,16 12,10" fill="none" stroke="#b62824" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── MENU ── -->
+<section id="menu">
+  <div class="menu-card">
+
+    <!-- Row 1: Today's Special -->
+    <div class="menu-row-special">
+      <img class="menu-cover-special" src="./brand_assests/Home_Page04.png" alt="Where Food Travels">
+      <div class="menu-special-text">
+        <div class="menu-today-header">
+          <div class="menu-today-label">TODAY'S SPECIAL</div>
+          <div class="menu-today-underline"></div>
+        </div>
+        <div class="menu-special-bottom">
+          <div class="menu-project-body">
+            <span class="menu-eyebrow">MOBILE APP</span>
+            <h3 class="menu-proj-title">Where Food Travels</h3>
+            <p class="menu-blurb">Discover the origin stories of dishes around the world.</p>
+          </div>
+          <div class="menu-action-row">
+            <span class="menu-price">Free Sample →</span>
+            <a href="./cooking-case-study.html" class="menu-order-btn">View Ingredients</a>
           </div>
         </div>
-      </section>
-    );
-  }
+      </div>
+    </div>
 
-  const aboutStyles = {
-    section: {
-      padding: "80px 40px 80px",
-      display: "flex",
-      justifyContent: "center",
-    },
-    inner: {
-      position: "relative",
-      width: "100%",
-      maxWidth: 1200,
-      background: "#E6DACA",
-      border: "2px solid #b62824",
-      padding: "64px 80px",
-    },
-    grid: {
-      display: "grid",
-      gridTemplateColumns: "1.2fr 1fr",
-      gap: 80,
-      alignItems: "start",
-    },
-    textCol: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 20,
-    },
-    eyebrow: {
-      fontFamily: "'Cormorant Garamond', serif",
-      fontWeight: 600,
-      fontSize: 13,
-      letterSpacing: "0.32em",
-      paddingLeft: "0.32em",
-      textTransform: "uppercase",
-      color: "rgba(182,40,36,0.55)",
-    },
-    title: {
-      fontFamily: "'Angela', serif",
-      fontWeight: 400,
-      fontSize: "clamp(40px, 5vw, 64px)",
-      lineHeight: 1,
-      color: "#b62824",
-      margin: 0,
-    },
-    body: {
-      fontFamily: "'Cormorant Garamond', serif",
-      fontSize: 20,
-      lineHeight: 1.65,
-      color: "#2A3A2A",
-    },
-    cta: {
-      display: "inline-block",
-      fontFamily: "'Cormorant Garamond', serif",
-      fontWeight: 600,
-      fontSize: 16,
-      letterSpacing: "0.18em",
-      textTransform: "uppercase",
-      color: "#b62824",
-      textDecoration: "none",
-      borderBottom: "1.5px solid #b62824",
-      paddingBottom: 3,
-      marginTop: 4,
-      transition: "opacity 0.15s ease",
-    },
-    skillsOuter: {
-      paddingTop: 8,
-    },
-    skillsGrid: {
-      display: "flex",
-      gap: 52,
-    },
-    skillCol: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 16,
-    },
-    skillHead: {
-      fontFamily: "'Cormorant Garamond', serif",
-      fontWeight: 600,
-      fontSize: 13,
-      letterSpacing: "0.28em",
-      textTransform: "uppercase",
-      color: "rgba(182,40,36,0.55)",
-    },
-    skillList: {
-      listStyle: "none",
-      display: "flex",
-      flexDirection: "column",
-      gap: 10,
-    },
-    skillItem: {
-      fontFamily: "'Cormorant Garamond', serif",
-      fontSize: 19,
-      color: "#2A3A2A",
-      lineHeight: 1.3,
-    },
-  };
+    <div class="menu-row-divider"></div>
 
-
-  /* ── Checkout / Contact Section ────────────────────────── */
-  function CheckoutSection() {
-    const [btnHov, setBtnHov] = React.useState(false);
-    return (
-      <section style={{ position: "relative", padding: "0 40px 120px", overflow: "visible" }}>
-        <div style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          display: "flex",
-          alignItems: "stretch",
-          gap: 60,
-        }}>
-
-          {/* Left column: form */}
-          <div style={{ flex: "0 0 40%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            <h2 style={{
-              fontFamily: "'Angela', serif",
-              fontWeight: 400,
-              fontSize: "clamp(34px, 4vw, 56px)",
-              lineHeight: 1.0,
-              color: "#b62824",
-              margin: "0 0 44px",
-            }}>Let's cook<br />something<br />together.</h2>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-              <div style={{ borderBottom: "1.5px solid rgba(182,40,36,0.3)", paddingBottom: 8, marginBottom: 28 }}>
-                <label style={coStyles.label}>Name</label>
-                <input type="text" placeholder="your name" style={coStyles.input} />
-              </div>
-              <div style={{ borderBottom: "1.5px solid rgba(182,40,36,0.3)", paddingBottom: 8, marginBottom: 40 }}>
-                <label style={coStyles.label}>Email</label>
-                <input type="email" placeholder="your@email.com" style={coStyles.input} />
-              </div>
-              <button
-                style={{
-                  ...coStyles.btn,
-                  transform: btnHov ? "translateY(-2px)" : "none",
-                  boxShadow: btnHov ? "0 6px 0 rgba(0,0,0,0.15)" : "0 4px 0 rgba(0,0,0,0.15)",
-                }}
-                onMouseEnter={() => setBtnHov(true)}
-                onMouseLeave={() => setBtnHov(false)}
-              >
-                Contact me
-              </button>
-            </div>
-          </div>
-
-          {/* Right: Check out sign — same height as form column */}
-          <div style={{ flex: 1, display: "flex", alignItems: "stretch" }}>
-            <img
-              src="./brand_assests/AaGuDianKeBenSongYouMoBan/Assets/CheckOut--%402x.png"
-              alt=""
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "contain",
-                objectPosition: "left center",
-                pointerEvents: "none",
-                display: "block",
-              }}
-            />
+    <!-- Row 2: Two projects in columns -->
+    <div class="menu-row-side">
+      <div class="menu-side-card">
+        <img class="menu-cover-side" src="./brand_assests/Boxdex Cover Image.png" alt="Blink Box Tracking App">
+        <div class="menu-side-body">
+          <span class="menu-eyebrow">MOBILE APP</span>
+          <h3 class="menu-proj-title menu-proj-title--sm">Blink Box Tracking App</h3>
+          <p class="menu-blurb">Track, trade and show your blind box collection effortlessly.</p>
+          <div class="menu-action-row">
+            <span class="menu-price">Free</span>
+            <a href="./blink-box-case-study.html" class="menu-order-btn">View Ingredients</a>
           </div>
         </div>
-      </section>
-    );
-  }
+      </div>
 
-  const coStyles = {
-    label: {
-      fontFamily: "'Cormorant Garamond', serif",
-      fontWeight: 600,
-      fontSize: 11,
-      letterSpacing: "0.34em",
-      textTransform: "uppercase",
-      color: "rgba(182,40,36,0.55)",
-      display: "block",
-      marginBottom: 8,
-    },
-    input: {
-      fontFamily: "'Cormorant Garamond', serif",
-      fontSize: 20,
-      lineHeight: 1.4,
-      color: "#2A3A2A",
-      background: "transparent",
-      border: "none",
-      outline: "none",
-      width: "100%",
-      padding: 0,
-    },
-    btn: {
-      alignSelf: "flex-start",
-      background: "#b62824",
-      color: "#FAEFE0",
-      border: "none",
-      borderRadius: 999,
-      padding: "12px 32px",
-      fontFamily: "'Cormorant Garamond', serif",
-      fontWeight: 600,
-      fontSize: 15,
-      letterSpacing: "0.2em",
-      textTransform: "uppercase",
-      cursor: "pointer",
-      transition: "transform 0.1s ease, box-shadow 0.1s ease",
-    },
-  };
+      <div class="menu-divider-v"></div>
 
-  /* ── App ────────────────────────────────────────────────── */
-  function App() {
-    const [footerVisible, setFooterVisible] = useState(false);
-    const menuRef  = useRef(null);
-    const aboutRef = useRef(null);
-
-    const scrollTo = (ref, offset = 12) => {
-      if (ref.current) {
-        const top = ref.current.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: "smooth" });
-      }
-    };
-
-    const handleSection = (name) => {
-      if (name === "Work")  scrollTo(menuRef);
-      if (name === "About") scrollTo(aboutRef);
-      if (name === "Email Me") window.location.href = "mailto:huxirui24@gmail.com";
-    };
-
-    useEffect(() => {
-      gsap.registerPlugin(ScrollTrigger);
-
-      const onScroll = () => {
-        const scrollBottom = window.scrollY + window.innerHeight;
-        const docHeight    = document.documentElement.scrollHeight;
-        setFooterVisible(scrollBottom >= docHeight - 80);
-      };
-      window.addEventListener("scroll", onScroll, { passive: true });
-
-      return () => {
-        window.removeEventListener("scroll", onScroll);
-        ScrollTrigger.getAll().forEach(t => t.kill());
-      };
-    }, []);
-
-    return (
-      <>
-        <Nav onSection={handleSection} />
-        <Hero onEnter={() => scrollTo(menuRef)} />
-
-        <div id="about-section" ref={aboutRef}>
-          <AboutSection />
+      <div class="menu-side-card">
+        <img class="menu-cover-side" src="./brand_assests/Home_Page01.png" alt="Monetization Transparency Research">
+        <div class="menu-side-body">
+          <span class="menu-eyebrow">WEB REDESIGN</span>
+          <h3 class="menu-proj-title menu-proj-title--sm">Monetization Transparency Research</h3>
+          <p class="menu-blurb">Untangling how monetization choices shape user trust.</p>
+          <div class="menu-action-row">
+            <span class="menu-price">Free</span>
+            <a href="./monetization-case-study.html" class="menu-order-btn">View Ingredients</a>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div id="menu-section" ref={menuRef}>
-          <MenuCard />
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text-col">
+      <div class="about-eyebrow">About</div>
+      <h2 class="about-title">A little<br>about me.</h2>
+      <p class="about-body">
+        A visual designer working at the intersection of Chinese visual
+        heritage and contemporary brand-making — with a love for cultural
+        depth, a playful creative process and storytelling that makes a difference.
+      </p>
+      <p class="about-body">Currently open to freelance and full-time opportunities.</p>
+      <div class="about-skills-outer">
+        <div class="about-skills-grid">
+          <div class="about-skill-col">
+            <h4 class="about-skill-head">Disciplines</h4>
+            <ul class="about-skill-list">
+              <li>Visual Design</li>
+              <li>UI / UX</li>
+              <li>Interaction &amp; Motion</li>
+              <li>Illustration</li>
+              <li>Brand Identity</li>
+            </ul>
+          </div>
+          <div class="about-skill-col">
+            <h4 class="about-skill-head">Tools</h4>
+            <ul class="about-skill-list">
+              <li>Figma</li>
+              <li>After Effects</li>
+              <li>HTML / CSS / JS</li>
+              <li>Illustrator</li>
+              <li>Photoshop</li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <CheckoutSection />
+<!-- ── CHECKOUT / CONTACT ── -->
+<section id="checkout">
+  <div class="checkout-inner">
 
-        <Footer visible={footerVisible} />
-      </>
-    );
-  }
+    <div class="checkout-form-col">
+      <h2 class="checkout-title">Let's cook<br>something<br>together.</h2>
+      <form id="contact-form" novalidate>
+        <div data-fs-success class="checkout-success"></div>
+        <div data-fs-error class="checkout-form-error"></div>
+        <div class="checkout-fields">
+          <div class="checkout-field">
+            <label class="checkout-label" for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="your name" class="checkout-input" data-fs-field>
+            <span data-fs-error="name" class="checkout-field-error"></span>
+          </div>
+          <div class="checkout-field checkout-field--last">
+            <label class="checkout-label" for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" class="checkout-input" data-fs-field>
+            <span data-fs-error="email" class="checkout-field-error">Please enter a valid email address (e.g. name@example.com).</span>
+          </div>
+          <button type="submit" class="checkout-btn" data-fs-submit-btn>Contact me</button>
+        </div>
+      </form>
+    </div>
 
-  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-</script>
+    <div class="checkout-img-col">
+      <img src="./brand_assests/Assets/CheckOut--%402x.png" alt="" class="checkout-img">
+    </div>
 
-<!-- ── CURTAIN SCRIPT ── -->
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer id="footer">
+  <span class="footer-left">Vancouver · Canada</span>
+  <span class="footer-right">© 2026 Xirui Hu</span>
+</footer>
+
+<!-- ── GSAP ── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- ── CURTAIN (must run before main.js, no GSAP dependency) ── -->
 <script>
 (function () {
   const overlay = document.getElementById('curtain-overlay');
@@ -411,15 +221,13 @@
   canvas.width  = W;
   canvas.height = H;
 
-  // Circular bead matching nav style (8px diameter)
   const BEAD_R  = 4;
   const GAP     = 3;
-  const UNIT    = BEAD_R * 2 + GAP;   // 11px per slot
+  const UNIT    = BEAD_R * 2 + GAP;
   const ROWS    = Math.ceil(H / UNIT) + 2;
   const STR_W   = 13;
   const NUM_STR = Math.floor(W / STR_W);
 
-  // Brand colours
   const RED    = '#b62824';
   const THREAD = '#2a1a18';
   const SHINE  = 'rgba(255,255,255,0.45)';
@@ -452,7 +260,6 @@
     ctx.arc(x, y, BEAD_R, 0, Math.PI * 2);
     ctx.fillStyle = color;
     ctx.fill();
-    // Specular highlight
     ctx.beginPath();
     ctx.arc(x - BEAD_R * 0.28, y - BEAD_R * 0.28, BEAD_R * 0.28, 0, Math.PI * 2);
     ctx.fillStyle = SHINE;
@@ -548,5 +355,13 @@
   });
 })();
 </script>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'mzdyyaln' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<script src="main.js"></script>
 </body>
 </html>
