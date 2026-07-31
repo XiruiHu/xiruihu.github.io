@@ -7,10 +7,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="cooking-case-study.css" />
 </head>
-<body>
+<body class="cs-theme-boxdex">
 
   <!-- ── NAV ── -->
   <nav class="cs-nav">
@@ -21,319 +22,602 @@
     <a href="./index.html" class="cs-back">Exit</a>
   </nav>
 
+  <div class="cs-layout">
+  <div class="cs-main">
+
   <!-- ── HERO ── -->
   <section class="cs-hero">
     <div class="cs-hero-text">
-      <span class="cs-tag">BOXDEX &nbsp;·&nbsp; Solo Project &nbsp;·&nbsp; UX/UI &nbsp;·&nbsp; 10 Weeks</span>
-      <h1 class="cs-hero-title">Blink Box<br>Tracking App.</h1>
+      <img src="brand_assests/Boxdex Logo.png" alt="Boxdex logo" class="cs-hero-logo" />
       <div class="cs-hero-sub">
-        <p>Boxdex is a mobile app that gives blind box collectors a single place to track, trade, and show off their collections.</p>
-        <p>Blind box culture is deeply social — collectors hunt limited drops, swap duplicates, and take pride in rare finds. Yet there is no dedicated tool that captures that energy. Boxdex fills that gap.</p>
-        <p>By combining a personal inventory, a community marketplace, and a digital showcase, Boxdex turns a scattered hobby into a connected experience.</p>
+        <p>Designing a scalable collector platform from concept to product strategy in the emerging blind box market.</p>
       </div>
+      <div class="meta-bar">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Product Strategy</span>
+          <span class="meta-value">Brand Identity</span>
+          <span class="meta-value">Market Research</span>
+          <span class="meta-value">Business Model</span>
+          <span class="meta-value">Go-to-Market Strategy</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Team</span>
+          <span class="meta-value">3 Designers</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Project Type</span>
+          <span class="meta-value">University Group Project</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Tools</span>
+          <span class="meta-value">Figma</span>
+          <span class="meta-value">Miro</span>
+          <span class="meta-value">Google Stitch</span>
+          <span class="meta-value">Claude</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Platforms</span>
+          <span class="meta-value">iOS Mobile App</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Timeline</span>
+          <span class="meta-value">12 Weeks</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Constraints</span>
+          <span class="meta-value">Hypothetical business assumptions</span>
+          <span class="meta-value">Scope limited to an MVP</span>
+        </div>
+      </div>
+    </div>
+    <div class="cs-hero-img">
+      <img src="brand_assests/Boxdex Cover 2.png" alt="Boxdex app collection screen surrounded by fuzzy BOXDEX letter mascots" />
     </div>
   </section>
 
-  <!-- ── META BAR ── -->
-  <div class="meta-bar">
-    <div class="meta-item">
-      <span class="meta-label">Role</span>
-      <span class="meta-value">UX/UI Designer</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Responsibilities</span>
-      <span class="meta-value">Research · Visual Design · Prototyping</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Project Type</span>
-      <span class="meta-value">Solo Project</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Tools</span>
-      <span class="meta-value">Figma &nbsp;·&nbsp; Miro</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Platforms</span>
-      <span class="meta-value">iOS Mobile App</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Timeline</span>
-      <span class="meta-value">10 Weeks</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Constraints</span>
-      <span class="meta-value">Solo · No existing brand</span>
-    </div>
-  </div>
+  <!-- ── 01 THE OPPORTUNITY ── -->
+  <section class="cs-section" id="opportunity">
+    <span class="cs-tag">01 &nbsp;·&nbsp; The Opportunity</span>
+    <h2 class="cs-h2">A booming market with an overlooked digital opportunity.</h2>
+    <p class="section-intro section-intro--full">The blind box market is growing rapidly, fueled by an engaged collector community and strong repeat purchasing behavior. Yet while the physical hobby has evolved, the digital experience has lagged behind—creating an opportunity for a dedicated collector platform.</p>
 
-  <!-- ── TOC SIDEBAR ── -->
-  <nav class="toc-sidebar" aria-label="Page outline">
-    <a href="#problem"    class="toc-item"><span class="toc-num">01</span><span class="toc-label">Problem</span></a>
-    <a href="#research"   class="toc-item"><span class="toc-num">02</span><span class="toc-label">Research</span></a>
-    <a href="#insights"   class="toc-item"><span class="toc-num">03</span><span class="toc-label">Insights</span></a>
-    <a href="#user-flow"  class="toc-item"><span class="toc-num">04</span><span class="toc-label">User Flow</span></a>
-    <a href="#brand"      class="toc-item"><span class="toc-num">05</span><span class="toc-label">Brand</span></a>
-    <a href="#wireframes" class="toc-item"><span class="toc-num">06</span><span class="toc-label">Wireframes</span></a>
-    <a href="#prototype"  class="toc-item"><span class="toc-num">07</span><span class="toc-label">Prototype</span></a>
-    <a href="#solution"   class="toc-item"><span class="toc-num">08</span><span class="toc-label">Solution</span></a>
-    <a href="#reflection" class="toc-item"><span class="toc-num">09</span><span class="toc-label">Reflection</span></a>
-  </nav>
-
-  <!-- ── 01 THE PROBLEM ── -->
-  <section class="cs-section cs-section--split" id="problem">
-    <div class="cs-split-content">
-      <span class="cs-tag">01 &nbsp;·&nbsp; Problem</span>
-      <h2 class="cs-h2">Three gaps. One hobby ignored.</h2>
-
-      <div class="problems-grid">
-        <div class="problem-card">
-          <span class="problem-num">01</span>
-          <h3>No Inventory</h3>
-          <p>Collectors resort to spreadsheets and photo rolls to track what they own — there is no purpose-built tool for logging blind box figures and their variants.</p>
+    <span class="sub-tag">Market Overview</span>
+    <div class="stat-block">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="block-label">Market Size</span>
+          <span class="stat-value">$14–15B <small>USD</small></span>
+          <p>Global blind box market (2025).</p>
         </div>
-        <div class="problem-card">
-          <span class="problem-num">02</span>
-          <h3>Duplicate Dead-ends</h3>
-          <p>Duplicate pulls are common but trading is scattered across Discord, Reddit, and Instagram DMs — fragmented, unsafe, and hard to search.</p>
+        <div class="stat-card">
+          <span class="block-label">Collector Base</span>
+          <span class="stat-value">400M+</span>
+          <p>Gen Z &amp; Millennial collectors worldwide.</p>
         </div>
-        <div class="problem-card">
-          <span class="problem-num">03</span>
-          <h3>No Showcase</h3>
-          <p>Collectors are proud of their shelves, but generic social apps don't give collections the visual treatment they deserve.</p>
+        <div class="stat-card">
+          <span class="block-label">Growth Rate</span>
+          <span class="stat-value">~6–8%</span>
+          <p>Annual growth, year over year.</p>
         </div>
       </div>
 
-      <div class="insight-bar">
-        Collectors are not struggling to <em>find</em> figures — they are struggling to <em>manage</em> and <em>share</em> them.
+      <div class="stat-finding">
+        <span class="finding-tag">Why It Matters</span>
+        <p>A significant portion of spending comes from repeat collectors, indicating an engaged audience with ongoing collection needs.</p>
       </div>
     </div>
 
-    <div class="cs-split-img">
-      <img src="brand_assests/Boxdex Cover Image.png" alt="Blind box collection" />
-      <span class="cs-split-caption">The blind box community is large, passionate, and completely underserved by existing apps.</span>
-    </div>
-  </section>
-
-  <!-- ── 02 RESEARCH ── -->
-  <section class="cs-section" id="research">
-    <span class="cs-tag">02 &nbsp;·&nbsp; Research</span>
-    <h2 class="cs-h2">Getting inside the collector mindset.</h2>
-
-    <div class="contribution-row">
-      <div class="contribution-block">
-        <span class="block-label">My contribution</span>
-        <p>I conducted all research, synthesised findings, defined the product direction, and led the end-to-end design from discovery through to high-fidelity prototype.</p>
+    <span class="sub-tag">Key Market Trends</span>
+    <div class="trend-grid">
+      <div class="trend-item">
+        <p><strong>Unboxing culture transformed collecting into a social experience.</strong> TikTok, YouTube, and Instagram have turned blind box discovery into shareable content.</p>
       </div>
-      <div class="contribution-block">
-        <span class="block-label">Project scope</span>
-        <p>Solo project — responsible for user research, information architecture, interaction design, visual design, and brand identity from scratch.</p>
+      <div class="trend-item">
+        <p><strong>Premium collectibles are becoming lifestyle products.</strong> Brands like POP MART demonstrate growing demand for designer collectibles beyond traditional toys.</p>
+      </div>
+      <div class="trend-item">
+        <p><strong>Growing collections create management problems.</strong> As collectors accumulate more figures, tracking duplicates and organizing collections becomes increasingly difficult.</p>
+      </div>
+      <div class="trend-item">
+        <p><strong>Collectors are moving toward digital-first experiences.</strong> Collection tracking, discovery, and community features are becoming valuable extensions of physical collecting.</p>
       </div>
     </div>
 
-    <div class="research-grid">
-      <div class="research-card">
-        <span class="research-num">01</span>
-        <h4>User Interviews</h4>
-        <p>Spoke with active blind box collectors about their collecting habits, frustrations, and what they wish existed to manage their hobby.</p>
+    <span class="sub-tag">Market Gap</span>
+    <div class="gap-grid">
+      <div class="gap-main">
+        <h3>Collectors are flying blind.</h3>
+        <p>The blind box market has exploded, but the tools haven't kept up. Collectors spend thousands without knowing their odds, end up with stacks of duplicates, and have no easy way to trade, track, or show off their progress.</p>
       </div>
-      <div class="research-card">
-        <span class="research-num">02</span>
-        <h4>Competitive Analysis</h4>
-        <p>Evaluated general collection apps, resale platforms like StockX and Whatnot, and community tools to understand what already exists and what falls short.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">03</span>
-        <h4>Community Research</h4>
-        <p>Observed collector communities on Reddit, Discord, and TikTok to understand language, culture, pain points, and what moments collectors value most.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">04</span>
-        <h4>Persona Development</h4>
-        <p>Built three core collector personas — the casual unboxer, the serious trader, and the display-focused curator — to guide design decisions.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">05</span>
-        <h4>Survey</h4>
-        <p>Distributed a survey to blind box communities to quantify pain points and validate that fragmentation was the dominant frustration.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">06</span>
-        <h4>Heuristic Evaluation</h4>
-        <p>Ran heuristic evaluations on the closest competitors to identify usability gaps and patterns worth borrowing or avoiding.</p>
-      </div>
-    </div>
-
-    <blockquote class="pull-quote">
-      "I have a spreadsheet, a notes app, and three Instagram chats going just to manage my duplicates."
-    </blockquote>
-  </section>
-
-  <!-- ── 03 INSIGHTS ── -->
-  <section class="cs-section cs-section--alt" id="insights">
-    <span class="cs-tag">03 &nbsp;·&nbsp; Insights</span>
-    <h2 class="cs-h2">What the research actually told us.</h2>
-
-    <div class="insights-grid">
-      <div class="insight-card">
-        <span class="insight-stat">8</span>
-        <p>user interviews conducted across casual collectors and serious traders to map the full spectrum of collecting behaviour.</p>
-      </div>
-      <div class="insight-card">
-        <span class="insight-stat">↑</span>
-        <p>Strong desire for a trusted trading space — most collectors had been burned by scams or ghosted on generic resale platforms.</p>
-      </div>
-      <div class="insight-card">
-        <span class="insight-stat">↓</span>
-        <p>No existing app was purpose-built for blind boxes. Collectors adapted general-purpose tools, all imperfectly.</p>
-      </div>
-      <div class="insight-card">
-        <span class="insight-stat">→</span>
-        <p>The showcase dimension was underestimated by competitors — collectors wanted to <em>display</em> as much as track and trade.</p>
+      <div class="gap-list">
+        <div class="gap-item">
+          <div>
+            <h4>Duplicate Pile-Up</h4>
+            <p>No simple way to log, trade, or sell repeated figures.</p>
+          </div>
+        </div>
+        <div class="gap-item">
+          <div>
+            <h4>Zero Collection Tools</h4>
+            <p>Collectors track everything in notes apps or spreadsheets.</p>
+          </div>
+        </div>
+        <div class="gap-item">
+          <div>
+            <h4>Fragmented Community</h4>
+            <p>Trading happens across Reddit, Discord, and Instagram with no trust layer.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 04 USER FLOW ── -->
-  <section class="cs-section" id="user-flow">
-    <span class="cs-tag">04 &nbsp;·&nbsp; User Flow</span>
-    <h2 class="cs-h2">Mapping the collector journey.</h2>
-    <p class="section-intro">The three core flows — Log, Trade, and Showcase — were designed to feel distinct but deeply connected, so a collector could move between them without losing context.</p>
+  <!-- ── 02 UNDERSTANDING USERS ── -->
+  <section class="cs-section cs-section--alt" id="users">
+    <span class="cs-tag">02 &nbsp;·&nbsp; Experiencing Blind Box Culture Firsthand</span>
+    <h2 class="cs-h2">Going In-Store to Understand the Experience</h2>
+    <p class="section-intro">To better understand blind box culture and the collector experience, I organized a field visit for the team. By observing the browsing ritual, the anticipation of unboxing, and the emotional highs and lows of each pull, we gained firsthand insights that grounded our product decisions in real collector behaviors.</p>
 
-    <div class="flow-diagram">
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">01</span>
-        <span class="flow-step-label">Unbox<br>&amp; Log</span>
+    <div class="field-visit-marquee">
+      <div class="field-visit-track">
+        <figure class="field-visit-item">
+          <img src="brand_assests/Branding Exploration - BoxDex (Copy).png" alt="Pop Mart, a major Beijing-based blind box seller of original IP" />
+          <figcaption>Pop Mart - Major blind box seller of original IP - Beijing Based</figcaption>
+        </figure>
+        <figure class="field-visit-item">
+          <img src="brand_assests/2Branding Exploration - BoxDex (Copy).png" alt="Blind box opening experience — unboxing Pop Mart and Sixbao figures at a mall" />
+          <figcaption>Blind box opening experience</figcaption>
+        </figure>
+        <figure class="field-visit-item">
+          <img src="brand_assests/3Branding Exploration - BoxDex (Copy).png" alt="ArtBox, a Vancouver-based Kpop/Kmakeup/stationery store expanding into blind boxes" />
+          <figcaption>ArtBox - Mainly Kpop/Kmakeup/Stationary store also expanding into blind boxes - Vancouver Based</figcaption>
+        </figure>
+        <figure class="field-visit-item">
+          <img src="brand_assests/4Branding Exploration - BoxDex (Copy).png" alt="Token, a Vancouver-based seller of fan merch and blind boxes, both original and third-party IP" />
+          <figcaption>Token - Seller of fan merch, and blind boxes, both original and 3rd party IP - Vancouver Based</figcaption>
+        </figure>
+        <figure class="field-visit-item" aria-hidden="true">
+          <img src="brand_assests/Branding Exploration - BoxDex (Copy).png" alt="" />
+          <figcaption>Pop Mart - Major blind box seller of original IP - Beijing Based</figcaption>
+        </figure>
+        <figure class="field-visit-item" aria-hidden="true">
+          <img src="brand_assests/2Branding Exploration - BoxDex (Copy).png" alt="" />
+          <figcaption>Blind box opening experience</figcaption>
+        </figure>
+        <figure class="field-visit-item" aria-hidden="true">
+          <img src="brand_assests/3Branding Exploration - BoxDex (Copy).png" alt="" />
+          <figcaption>ArtBox - Mainly Kpop/Kmakeup/Stationary store also expanding into blind boxes - Vancouver Based</figcaption>
+        </figure>
+        <figure class="field-visit-item" aria-hidden="true">
+          <img src="brand_assests/4Branding Exploration - BoxDex (Copy).png" alt="" />
+          <figcaption>Token - Seller of fan merch, and blind boxes, both original and 3rd party IP - Vancouver Based</figcaption>
+        </figure>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">02</span>
-        <span class="flow-step-label">Flag<br>Duplicates</span>
+    </div>
+
+  </section>
+
+  <!-- ── 03 PRODUCT STRATEGY ── -->
+  <section class="cs-section" id="strategy">
+    <span class="cs-tag">03 &nbsp;·&nbsp; Product Strategy</span>
+    <h2 class="cs-h2">Choosing who we're building for, what problems to solve, and how Boxodex stands apart.</h2>
+    <p class="section-intro">Based on our market research and field observations, we positioned Boxodex as a collector-first platform centered on collection management, discovery, and community. While the platform solves practical challenges like tracking and trading, it also recreates the excitement of unboxing digitally to celebrate the joy of collecting.</p>
+
+    <span class="sub-tag">Strategy Framework</span>
+
+    <div class="wwd-block">
+      <div class="tag-toggle-group" role="tablist">
+        <button class="tag-toggle active" type="button" data-tab="target-audiences" aria-selected="true">Target Audiences</button>
+        <button class="tag-toggle" type="button" data-tab="user-needs" aria-selected="false">User Needs</button>
+        <button class="tag-toggle" type="button" data-tab="product-positioning" aria-selected="false">Product Positioning</button>
+        <button class="tag-toggle" type="button" data-tab="value-proposition" aria-selected="false">Value Proposition</button>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">03</span>
-        <span class="flow-step-label">List<br>for Trade</span>
+
+      <div class="tag-panel active" data-panel="target-audiences">
+        <p class="section-intro">We approached this by identifying the audience with the strongest unmet needs and aligning the product around those priorities.</p>
+        <div class="research-grid">
+          <div class="research-card">
+            <span class="research-num">01</span>
+            <h4>Casual–Semi-Serious Buyers</h4>
+            <p>Buy 2–5 boxes per series.</p>
+          </div>
+          <div class="research-card">
+            <span class="research-num">02</span>
+            <h4>Heavy Completionists</h4>
+            <p>Chasing full-set ownership.</p>
+          </div>
+          <div class="research-card">
+            <span class="research-num">03</span>
+            <h4>Trade-Focused Collectors</h4>
+            <p>Reducing duplicates through trading.</p>
+          </div>
+          <div class="research-card">
+            <span class="research-num">04</span>
+            <h4>New Collectors</h4>
+            <p>Learning odds &amp; rarity systems.</p>
+          </div>
+        </div>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">04</span>
-        <span class="flow-step-label">Match<br>&amp; Chat</span>
+
+      <div class="tag-panel" data-panel="user-needs">
+        <p class="section-intro">Collectors need more than a place to buy. They need a way to manage, discover, and connect.</p>
+        <div class="needs-grid">
+          <div class="needs-card">
+            <h4>Track Collections</h4>
+            <p>Collectors need an easier way to organize their figures, monitor what they own, and identify missing pieces.</p>
+          </div>
+          <div class="needs-card">
+            <h4>Reduce Duplicates</h4>
+            <p>Collectors need better ways to manage duplicate figures and discover opportunities for trading.</p>
+          </div>
+          <div class="needs-card">
+            <h4>Connect with Collectors</h4>
+            <p>Collectors need a trusted space to share collections, exchange figures, and engage with the community.</p>
+          </div>
+        </div>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">05</span>
-        <span class="flow-step-label">Showcase<br>Collection</span>
+
+      <div class="tag-panel" data-panel="product-positioning">
+        <h3 class="panel-heading">The digital home for blind box collectors</h3>
+        <p class="section-intro">Boxodex is a collector-first platform built specifically for blind box culture. Unlike generic inventory apps, it combines collection tracking, rarity insights, and community features into one dedicated experience.</p>
+
+        <span class="block-label">Positioning Principles</span>
+        <ul class="panel-list">
+          <li class="panel-list-item">Built for collector culture, not generic inventory management</li>
+          <li class="panel-list-item">Rarity and discovery are central to the experience</li>
+          <li class="panel-list-item">Community comes before transactions</li>
+        </ul>
+      </div>
+
+      <div class="tag-panel" data-panel="value-proposition">
+        <h3 class="panel-heading">Turning blind box collecting into a more connected and rewarding experience</h3>
+
+        <span class="block-label">Boxodex Helps Collectors</span>
+        <ul class="panel-list">
+          <li class="panel-list-item">Organize and showcase their collections</li>
+          <li class="panel-list-item">Track every pull and celebrate rare finds</li>
+          <li class="panel-list-item">Trade duplicate figures with ease</li>
+          <li class="panel-list-item">Connect with fellow collectors through a dedicated community</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ── 05 BRAND IDENTITY ── -->
+  <!-- ── 04 BUSINESS MODEL ── -->
+  <section class="cs-section cs-section--alt" id="business-model">
+    <span class="cs-tag">04 &nbsp;·&nbsp; Business Model</span>
+    <p class="section-intro">Beyond solving a user problem, we explored how Boxdex could become a sustainable platform. We developed a business model that balances user value with long-term growth, beginning with an MVP and expanding through premium features, marketplace services, and strategic partnerships.</p>
+
+    <span class="sub-tag">Revenue Model</span>
+    <div class="revenue-grid">
+      <div class="revenue-card">
+        <h4>Freemium</h4>
+        <ul>
+          <li>Free collection tracking</li>
+          <li>Limited storage</li>
+        </ul>
+      </div>
+      <div class="revenue-card">
+        <h4>Premium Subscription</h4>
+        <ul>
+          <li>Unlimited collection storage</li>
+          <li>Advanced collection insights</li>
+          <li>Verified collector profile</li>
+        </ul>
+      </div>
+      <div class="revenue-card">
+        <h4>Marketplace Commission</h4>
+        <ul>
+          <li>Small fee on successful trades or sales</li>
+        </ul>
+      </div>
+      <div class="revenue-card">
+        <h4>Brand Partnerships</h4>
+        <ul>
+          <li>Retail collaborations</li>
+          <li>Sponsored campaigns</li>
+          <li>Affiliate opportunities</li>
+        </ul>
+      </div>
+    </div>
+
+    <span class="sub-tag">Growth Strategy</span>
+    <div class="channel-sequence">
+      <div class="channel-seq-step channel-seq-step--1">
+        <h4>Collector Communities</h4>
+        <p>Reach existing enthusiasts through social platforms and forums.</p>
+      </div>
+      <div class="channel-seq-step channel-seq-step--2">
+        <h4>Retail Partnerships</h4>
+        <p>Introduce Boxdex at the point of purchase.</p>
+      </div>
+      <div class="channel-seq-step channel-seq-step--3">
+        <h4>Creator Collaborations</h4>
+        <p>Build credibility through collector influencers.</p>
+      </div>
+      <div class="channel-seq-step channel-seq-step--4">
+        <h4>Word of Mouth</h4>
+        <p>Encourage organic growth through collection sharing and trading.</p>
+      </div>
+    </div>
+
+    <span class="sub-tag">Flywheel</span>
+    <p class="section-intro">The product grows because user activity feeds the ecosystem. Every loop through the cycle drives more collecting, sharing, and buying.</p>
+    <div class="flywheel">
+      <div class="flywheel-ring" aria-hidden="true"></div>
+      <div class="flywheel-center">
+        <span>The<br>Collector<br>Loop</span>
+      </div>
+
+      <div class="fw-node fw-node-1">
+        <img src="brand_assests/Frame 74.png" alt="" aria-hidden="true" class="fw-icon" />
+        <span class="fw-label">Buy Blind Box</span>
+      </div>
+      <div class="fw-node fw-node-2">
+        <img src="brand_assests/Frame 75.png" alt="" aria-hidden="true" class="fw-icon" />
+        <span class="fw-label">Track Collection</span>
+      </div>
+      <div class="fw-node fw-node-3">
+        <img src="brand_assests/Frame 76.png" alt="" aria-hidden="true" class="fw-icon" />
+        <span class="fw-label">Share Collection</span>
+      </div>
+      <div class="fw-node fw-node-4">
+        <img src="brand_assests/Frame 77.png" alt="" aria-hidden="true" class="fw-icon" />
+        <span class="fw-label">Trade Duplicates</span>
+      </div>
+      <div class="fw-node fw-node-5">
+        <img src="brand_assests/Frame 78.png" alt="" aria-hidden="true" class="fw-icon" />
+        <span class="fw-label">Discover New Series</span>
+      </div>
+
+      <span class="fw-arrow fw-arrow-1" aria-hidden="true"></span>
+      <span class="fw-arrow fw-arrow-2" aria-hidden="true"></span>
+      <span class="fw-arrow fw-arrow-3" aria-hidden="true"></span>
+      <span class="fw-arrow fw-arrow-4" aria-hidden="true"></span>
+      <span class="fw-arrow fw-arrow-5" aria-hidden="true"></span>
+    </div>
+
+    <span class="sub-tag">Cost Structure</span>
+    <div class="cost-grid">
+      <div class="cost-card">
+        <span class="block-label">Fixed Costs</span>
+        <ul>
+          <li>Product development</li>
+          <li>Backend infrastructure</li>
+          <li>UX/UI design</li>
+          <li>Research</li>
+        </ul>
+      </div>
+      <div class="cost-card">
+        <span class="block-label">Variable Costs</span>
+        <ul>
+          <li>Cloud storage</li>
+          <li>Payment processing</li>
+          <li>Moderation</li>
+          <li>Marketing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 MVP ROLLOUT STRATEGY ── -->
+  <section class="cs-section" id="gtm">
+    <span class="cs-tag">05 &nbsp;·&nbsp; MVP Rollout Strategy</span>
+    <h2 class="cs-h2">Getting Boxdex into collectors' hands.</h2>
+    <p class="section-intro">A phased roadmap to validate the core collector experience before investing in marketplace and community features.</p>
+
+    <div class="phase-grid">
+      <div class="phase-card">
+        <span class="phase-num">Phase 01</span>
+        <h3 class="phase-title">Validate <small>(MVP)</small></h3>
+        <ul class="phase-list">
+          <li>iOS &amp; Android MVP</li>
+          <li>Freemium model</li>
+          <li>Collection tracking</li>
+          <li>Rarity engine</li>
+          <li>Token &amp; POP MART integration</li>
+        </ul>
+        <span class="phase-stat">1,000 beta collectors</span>
+        <div class="phase-goal">
+          <span class="goal-tag">Goal</span>
+          <p>Validate product-market fit.</p>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <span class="phase-num">Phase 02</span>
+        <h3 class="phase-title">Expand</h3>
+        <ul class="phase-list">
+          <li>Marketplace</li>
+          <li>Trading</li>
+          <li>Influencer partnerships</li>
+        </ul>
+        <span class="phase-stat">10,000 users</span>
+        <div class="phase-goal">
+          <span class="goal-tag">Goal</span>
+          <p>Increase engagement and retention.</p>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <span class="phase-num">Phase 03</span>
+        <h3 class="phase-title">Scale</h3>
+        <ul class="phase-list">
+          <li>Brand collaborations</li>
+          <li>Community features</li>
+          <li>Leaderboards</li>
+          <li>Collection events</li>
+        </ul>
+        <span class="phase-stat">100,000+ collectors</span>
+        <div class="phase-goal">
+          <span class="goal-tag">Goal</span>
+          <p>Build network effects and diversify revenue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 06 INFORMATION ARCHITECTURE & UX ── -->
+  <section class="cs-section" id="ia-ux">
+    <span class="cs-tag">06 &nbsp;·&nbsp; Information Architecture &amp; UX</span>
+    <h2 class="cs-h2">Structuring the collector journey.</h2>
+    <p class="section-intro">Before visual design, we mapped how collectors would actually move through Boxdex, from a first-time download to the daily habit of logging, trading, and showing off a collection. This early structure leaned on our secondary research into collector psychology, including scarcity, uncertainty, and the desire for control, to identify which flows and features mattered most.</p>
+
+    <span class="sub-tag">Task Flow</span>
+    <p class="section-intro">We mapped the step-by-step screen actions behind two core tasks — adding a piece to a collection and buying more storage credits — to pressure-test the interface before any visual design began.</p>
+    <svg class="cs-full-img task-flow-svg" viewBox="0 0 4448 2048" role="img" aria-labelledby="task-flow-title" xmlns="http://www.w3.org/2000/svg">
+      <title id="task-flow-title">Boxdex task flow diagram: adding a piece to your online collection, and buying more credits for storage space</title>
+      <defs>
+        <marker id="tf-arrowhead" viewBox="0 0 10 10" refX="6.5" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+          <path d="M1.5,1 L8,5 L1.5,9" fill="none" stroke="#D7EC4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        </marker>
+      </defs>
+
+      <rect x="82" y="82" width="4283" height="1883" rx="52" fill="none" stroke="#D7EC4A" stroke-width="6" />
+
+      <text x="212" y="270" font-family="Poppins, sans-serif" font-size="62" font-weight="600" fill="#D7EC4A">Adding a piece to your online collection</text>
+      <text x="216" y="1140" font-family="Poppins, sans-serif" font-size="62" font-weight="600" fill="#D7EC4A">Buying more credits for storage space</text>
+
+      <!-- row 1 boxes -->
+      <g font-family="Poppins, sans-serif" font-size="34" font-weight="500" fill="#333333" text-anchor="middle">
+        <rect x="332" y="396" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="607.5" y="507">Open the app</text>
+
+        <rect x="1164" y="396" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="1439.5" y="507">Tap &#8216;Add Item&#8217;</text>
+
+        <rect x="1996" y="396" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="2271.5" y="507">Find the Series</text>
+
+        <rect x="2828" y="396" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="3103.5" y="507">Select the figure</text>
+
+        <rect x="3660" y="396" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="3935.5" y="507">Confirm Ownership</text>
+
+        <!-- loop-back row -->
+        <rect x="2828" y="748" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="3103.5" y="859">Return to collection view</text>
+
+        <rect x="3660" y="748" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="3935.5" y="859">System update collection</text>
+
+        <!-- row 2 boxes -->
+        <rect x="332" y="1268" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="607.5" y="1379">Go to home page</text>
+
+        <rect x="1164" y="1268" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="1439.5" y="1379">Tap &#8216;All&#8217; icon on the top right</text>
+
+        <rect x="1996" y="1268" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="2271.5" y="1379">Tap Profile Header</text>
+
+        <rect x="2828" y="1268" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="3103.5" y="1379">Identify low storage status</text>
+
+        <rect x="3660" y="1268" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="3935.5" y="1379">Tap &#8216;Buy&#8217; button</text>
+
+        <!-- membership box (two lines) -->
+        <rect x="3660" y="1626" width="551" height="199" rx="22" fill="#FFFFFF" stroke="#D7EC4A" stroke-width="7" />
+        <text x="3935.5" y="1701">Buy monthly membership for</text>
+        <text x="3935.5" y="1749">unlimited storage</text>
+      </g>
+
+      <!-- row 1 arrows -->
+      <g stroke="#D7EC4A" stroke-width="4" stroke-linecap="round" marker-end="url(#tf-arrowhead)">
+        <line x1="883" y1="495.5" x2="1134" y2="495.5" />
+        <line x1="1715" y1="495.5" x2="1966" y2="495.5" />
+        <line x1="2547" y1="495.5" x2="2798" y2="495.5" />
+        <line x1="3379" y1="495.5" x2="3630" y2="495.5" />
+
+        <!-- row1 col5 down to loop-back row -->
+        <line x1="3935.5" y1="595" x2="3935.5" y2="718" />
+        <!-- loop-back row leftward -->
+        <line x1="3660" y1="847.5" x2="3409" y2="847.5" />
+
+        <!-- row 2 arrows -->
+        <line x1="883" y1="1367" x2="1134" y2="1367" />
+        <line x1="1715" y1="1367" x2="1966" y2="1367" />
+        <line x1="2547" y1="1367" x2="2798" y2="1367" />
+        <line x1="3379" y1="1367" x2="3630" y2="1367" />
+
+        <!-- row2 col5 down to membership box -->
+        <line x1="3935.5" y1="1466" x2="3935.5" y2="1596" />
+      </g>
+    </svg>
+
+    <span class="sub-tag">User Flow</span>
+    <p class="section-intro">Zooming out from any single task, the user flow maps a new collector's broader path — from first hearing about Boxdex to forming a repeat habit around it.</p>
+    <img src="brand_assests/User Flow.png" alt="Boxdex user flow diagram" class="cs-full-img" />
+
+    <span class="sub-tag">Medium Fidelity Wireframes</span>
+    <p class="section-intro">Initial layout exploration for the core flow: app open → add item to collection.</p>
+    <img src="brand_assests/Wireframes.png" alt="Boxdex wireframes" class="cs-full-img" />
+  </section>
+
+  <!-- ── 07 BRAND IDENTITY ── -->
   <section class="cs-section cs-section--alt" id="brand">
-    <span class="cs-tag">05 &nbsp;·&nbsp; Brand Identity</span>
-    <h2 class="cs-h2">A brand built for the collector shelf.</h2>
-    <p class="section-intro" style="color: rgba(250,239,224,0.65);">The visual language borrows from collector culture — bold typography, clean grids, and just enough playfulness to honour the joy of the unbox moment.</p>
+    <img src="brand_assests/Frame 73.png" alt="Boxdex loading screen and collections screen shown on phone mockups" class="brand-frame-img" />
+    <span class="cs-tag">07 &nbsp;·&nbsp; Brand Identity</span>
+    <h2 class="cs-h2">Bringing the joy of collecting into the digital experience.</h2>
+    <p class="section-intro">Rather than treating Boxodex as a utility for tracking collections, we wanted it to capture the excitement that makes blind box collecting so engaging. Our market research and field observations revealed that the anticipation of opening a box, the thrill of discovering a rare figure, and the satisfaction of completing a collection are central to the collector experience.</p>
+    <p class="section-intro">To extend those emotions beyond the physical purchase, we invested heavily in the brand identity and visual design. Every element was designed to make the digital experience feel playful, rewarding, and unmistakably part of blind box culture.</p>
 
-    <img src="brand_assests/Boxdex Cover Image.png" alt="Boxdex brand identity" class="cs-full-img" />
-  </section>
+    <span class="block-label">Our Brand Identity Focused On</span>
+    <ul class="panel-list brand-values-list">
+      <li class="panel-list-item">
+        <span class="panel-list-num"><img src="brand_assests/Frame 74.png" alt="" /></span>
+        <span class="panel-list-text">A playful visual identity that reflects the excitement of collecting.</span>
+      </li>
+      <li class="panel-list-item">
+        <span class="panel-list-num"><img src="brand_assests/Frame 75.png" alt="" /></span>
+        <span class="panel-list-text">Bright, energetic colors that evoke surprise, joy, and celebration.</span>
+      </li>
+      <li class="panel-list-item">
+        <span class="panel-list-num"><img src="brand_assests/Frame 76.png" alt="" /></span>
+        <span class="panel-list-text">Meaningful motion and micro-interactions that recreate the anticipation and delight of unboxing.</span>
+      </li>
+      <li class="panel-list-item">
+        <span class="panel-list-num"><img src="brand_assests/Frame 77.png" alt="" /></span>
+        <span class="panel-list-text">A collector-first interface that encourages continued engagement long after the purchase.</span>
+      </li>
+    </ul>
 
-  <!-- ── 06 WIREFRAMES ── -->
-  <section class="cs-section" id="wireframes">
-    <span class="cs-tag">06 &nbsp;·&nbsp; Wireframes</span>
-    <h2 class="cs-h2">From sketch to screen.</h2>
-    <p class="section-intro">Wireframes focused on the three-tab structure — Collection, Trade, and Showcase — so users could always orient themselves within a single tap from any screen.</p>
-
-    <div class="wireframe-split">
-      <div class="wireframe-photo">
-        <img src="brand_assests/Design Process2.JPG" alt="Wireframe sketches" />
-      </div>
-      <div class="wireframe-notes">
-        <div class="wireframe-note">
-          <span class="note-tag">Navigation</span>
-          <p>Three-tab bottom bar — Collection, Trade, Showcase — with a floating action button for quick logging after an unbox.</p>
-        </div>
-        <div class="wireframe-note">
-          <span class="note-tag">Collection Grid</span>
-          <p>Card-based inventory with series grouping, rarity indicators, and a quick-flag for duplicates.</p>
-        </div>
-        <div class="wireframe-note">
-          <span class="note-tag">Trade Board</span>
-          <p>Filter-first discovery — search by series, figure, or condition — with in-app messaging to keep trades safe and accountable.</p>
-        </div>
-        <div class="wireframe-note">
-          <span class="note-tag">Showcase Mode</span>
-          <p>Full-bleed shelf layouts with custom backgrounds, drag-to-arrange, and a shareable link for social export.</p>
-        </div>
-      </div>
+    <span class="sub-tag">Identity Exploration</span>
+    <p class="section-intro">To move fast without sacrificing quality, each of us explored different AI tools, contributed ideas, and discussed pros and cons as a group before voting with the other designers to decide on a final design direction. I used Google Stitch to rapidly prototype the dark mode aesthetic before refining it into a solid design system of card components and button styles.</p>
+    <div class="identity-strip">
+      <button type="button" class="identity-strip-item is-active" aria-expanded="true">
+        <img src="brand_assests/Logo Ideation.png" alt="Boxdex logo ideation" class="identity-strip-media" />
+        <span class="note-tag identity-strip-label">Logo Ideation</span>
+      </button>
+      <button type="button" class="identity-strip-item" aria-expanded="false">
+        <img src="temporary screenshots/Color Style.png" alt="Boxdex visual system color exploration" class="identity-strip-media" />
+        <span class="note-tag identity-strip-label">Color Style Exploration</span>
+      </button>
+      <button type="button" class="identity-strip-item" aria-expanded="false">
+        <img src="brand_assests/AI Exploration.png" alt="AI-assisted exploration of the Boxdex collection and figure-scanning screens using Claude" class="identity-strip-media" />
+        <span class="note-tag identity-strip-label">AI Exploration</span>
+      </button>
+      <button type="button" class="identity-strip-item" aria-expanded="false">
+        <video src="brand_assests/Boxdex Branding.mp4" class="identity-strip-media" muted loop playsinline preload="metadata"></video>
+        <span class="note-tag identity-strip-label">Brand in Motion</span>
+      </button>
     </div>
+
+    <span class="sub-tag">Visual System</span>
+    <p class="section-intro">We focused on delivering the core collector experience as quickly as possible, prioritizing the essential features needed for an MVP. By launching with a strong visual foundation and clear brand identity, we can iterate on the product based on real user feedback while staying consistent with Boxdex's playful, collector-driven aesthetic.</p>
+    <img src="brand_assests/Boxdex Foundations.png" alt="Boxdex visual system foundations" class="cs-full-img" />
   </section>
+  <!-- ── 08 FINAL PRODUCT EXPERIENCE ── -->
+  <section class="cs-section" id="product-experience">
+    <span class="cs-tag">08 &nbsp;·&nbsp; Final Product Experience</span>
+    <h2 class="cs-h2">Bringing the interface to life.</h2>
+    <p class="section-intro">With the information architecture validated, we moved into high-fidelity screens — translating the wireframes and brand system into a polished, tappable interface.</p>
 
-  <!-- ── 07 PROTOTYPE ── -->
-  <section class="cs-section cs-section--alt" id="prototype">
-    <span class="cs-tag">07 &nbsp;·&nbsp; Prototype</span>
-    <h2 class="cs-h2">The hi-fi prototype.</h2>
-    <p class="section-intro">After usability testing and iteration, the high-fidelity prototype brought the collector experience to life — fast to log, easy to trade, beautiful to display.</p>
-
-    <div class="proto-layout">
-      <div class="proto-phone-col">
-        <img src="brand_assests/Home Screen.png" alt="Collection screen" class="proto-phone-img" />
-        <div class="proto-caption">
-          <strong>Collection</strong>
-          <p>Personal inventory organised by series, with rarity tags and duplicate flags always visible.</p>
-        </div>
-      </div>
-
-      <div class="proto-food-col">
-        <img src="brand_assests/Boxdex Cover Image.png" alt="Boxdex overview" class="proto-food-img" />
-      </div>
-
-      <div class="proto-phone-col">
-        <img src="brand_assests/Recipe INGREDIENTS HIFI - Default.png" alt="Trade screen" class="proto-phone-img" />
-        <div class="proto-caption">
-          <strong>Trade</strong>
-          <p>Community marketplace with in-app chat, verified listings, and a transparent trade history.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 08 SOLUTION ── -->
-  <section class="cs-section" id="solution">
-    <span class="cs-tag">08 &nbsp;·&nbsp; Solution</span>
-    <h2 class="cs-h2">The Solution.</h2>
-
-    <div class="solution-grid">
-      <div class="solution-card">
-        <span class="sol-num">01</span>
-        <h4>Smart Collection Log</h4>
-        <p>Scan or search to log figures instantly. Auto-detect series, mark variants, and track completeness across every set you own.</p>
-      </div>
-      <div class="solution-card">
-        <span class="sol-num">02</span>
-        <h4>Duplicate Matching</h4>
-        <p>Flag duplicates and get matched with collectors who need what you have — based on wish-list data, not just manual search.</p>
-      </div>
-      <div class="solution-card">
-        <span class="sol-num">03</span>
-        <h4>Safe Trade Hub</h4>
-        <p>In-app messaging, trade verification, and community reputation scores keep every trade transparent and accountable.</p>
-      </div>
-      <div class="solution-card">
-        <span class="sol-num">04</span>
-        <h4>Showcase Builder</h4>
-        <p>Build a visual shelf, arrange figures, pick a backdrop, and share your collection as a shareable page or social export.</p>
-      </div>
-    </div>
+    <span class="sub-tag">Hi-Fi Prototype</span>
+    <img src="brand_assests/FINAL UIV2.png" alt="Boxdex final UI screens" class="cs-full-img final-ui-img" />
   </section>
 
   <!-- ── 09 REFLECTION ── -->
@@ -343,37 +627,62 @@
 
     <div class="reflection-grid">
       <div class="reflection-card">
-        <span class="reflection-label">More Trader Interviews</span>
-        <p>The trade flow was the most complex to design — earlier and deeper conversations with frequent traders would have surfaced edge cases sooner and reduced late iteration.</p>
+        <span class="reflection-label">Prioritize Domain Expertise Sooner</span>
+        <p>Early on, I relied heavily on academic literature to shape our design direction, and that research made certain choices feel obvious. But our teammate Ashley is a genuine blind box collector, and her firsthand knowledge repeatedly challenged assumptions the research seemed to support. Academic studies establish patterns at scale, but they can't fully capture the nuance of lived experience.</p>
+        <p>Next time, I'd bring domain experts into the process from the start, not just as a gut check afterward.</p>
       </div>
       <div class="reflection-card">
-        <span class="reflection-label">Trust by Design</span>
-        <p>Safety and trust signals needed more attention earlier — the community reputation system was added late and would have benefitted from more structured thinking at the wireframe stage.</p>
-      </div>
-      <div class="reflection-card">
-        <span class="reflection-label">Onboarding First</span>
-        <p>The first-run experience for new collectors needed its own dedicated design sprint — onboarding that sets up the log correctly from day one is critical to long-term retention.</p>
+        <span class="reflection-label">Check My Own Bias Before Designing</span>
+        <p>I sometimes defaulted to my own preferences instead of considering how others might feel; the profile page is a good example.</p>
+        <p>Next time, I'd step back and think about the most unbiased approach before designing point-blank.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
-  <footer class="cs-footer">
-    <div class="footer-item">
-      <span>Vancouver, Canada</span>
+  <!-- ── OTHER PROJECTS ── -->
+  <section class="cs-section other-projects" id="other-projects">
+    <span class="cs-tag">View Other Projects</span>
+    <div class="other-projects-grid">
+      <a href="./cooking-case-study.html" class="other-project-card">
+        <img src="./brand_assests/Home_Page04.png" alt="Where Food Travels cover" class="other-project-cover" />
+        <div class="other-project-body">
+          <span class="other-project-eyebrow">Mobile App</span>
+          <h3 class="other-project-title">Where Food Travels</h3>
+          <p class="other-project-blurb">Discover the origin stories of dishes around the world.</p>
+        </div>
+      </a>
+      <a href="./monetization-case-study.html" class="other-project-card">
+        <img src="./brand_assests/Home_Page01.png" alt="Monetization Transparency Research cover" class="other-project-cover" />
+        <div class="other-project-body">
+          <span class="other-project-eyebrow">Web Redesign</span>
+          <h3 class="other-project-title">Monetization Transparency Research</h3>
+          <p class="other-project-blurb">Untangling how monetization choices shape user trust.</p>
+        </div>
+      </a>
     </div>
-    <div class="footer-item">
-      <span>Let's build together</span>
-    </div>
-    <div class="footer-item">
-      <span>©2026 Xirui Hu</span>
-    </div>
-  </footer>
+  </section>
+
+  </div>
+
+  <!-- ── TOC SIDEBAR ── -->
+  <nav class="toc-sidebar" aria-label="Page outline">
+    <a href="#opportunity"        class="toc-item"><span class="toc-num">01</span><span class="toc-label">Opportunity</span></a>
+    <a href="#users"              class="toc-item"><span class="toc-num">02</span><span class="toc-label">Experiencing Blind Box Culture</span></a>
+    <a href="#strategy"           class="toc-item"><span class="toc-num">03</span><span class="toc-label">Product Strategy</span></a>
+    <a href="#business-model"     class="toc-item"><span class="toc-num">04</span><span class="toc-label">Business Model</span></a>
+    <a href="#gtm"                class="toc-item"><span class="toc-num">05</span><span class="toc-label">MVP Rollout</span></a>
+    <a href="#ia-ux"              class="toc-item"><span class="toc-num">06</span><span class="toc-label">IA &amp; UX</span></a>
+    <a href="#brand"              class="toc-item"><span class="toc-num">07</span><span class="toc-label">Brand Identity</span></a>
+    <a href="#product-experience" class="toc-item"><span class="toc-num">08</span><span class="toc-label">Final Product</span></a>
+    <a href="#reflection"         class="toc-item"><span class="toc-num">09</span><span class="toc-label">Reflection</span></a>
+  </nav>
+
+  </div>
 
   <script>
     (function () {
       const tocItems = document.querySelectorAll('.toc-item');
-      const sectionIds = ['problem','research','insights','user-flow','brand','wireframes','prototype','solution','reflection'];
+      const sectionIds = ['opportunity','users','strategy','business-model','gtm','ia-ux','brand','product-experience','reflection'];
       const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
       function update() {
@@ -389,7 +698,56 @@
 
       window.addEventListener('scroll', update, { passive: true });
       update();
+
+      const hero = document.querySelector('.cs-hero');
+      const tocSidebar = document.querySelector('.toc-sidebar');
+      if (hero && tocSidebar && 'IntersectionObserver' in window) {
+        const heroObserver = new IntersectionObserver(([entry]) => {
+          tocSidebar.classList.toggle('toc-visible', !entry.isIntersecting);
+        }, { threshold: 0 });
+        heroObserver.observe(hero);
+      }
     })();
   </script>
+
+  <script>
+    (function () {
+      document.querySelectorAll('.tag-toggle-group').forEach(group => {
+        const toggles = group.querySelectorAll('.tag-toggle');
+        const panels = group.parentElement.querySelectorAll('.tag-panel');
+        toggles.forEach(toggle => {
+          toggle.addEventListener('click', () => {
+            toggles.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+            panels.forEach(p => p.classList.remove('active'));
+            toggle.classList.add('active');
+            toggle.setAttribute('aria-selected', 'true');
+            group.parentElement.querySelector(`.tag-panel[data-panel="${toggle.dataset.tab}"]`).classList.add('active');
+          });
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const items = document.querySelectorAll('.identity-strip-item');
+      items.forEach(item => {
+        item.addEventListener('click', () => {
+          if (item.classList.contains('is-active')) return;
+          items.forEach(i => {
+            i.classList.remove('is-active');
+            i.setAttribute('aria-expanded', 'false');
+            const v = i.querySelector('video');
+            if (v) { v.pause(); v.currentTime = 0; }
+          });
+          item.classList.add('is-active');
+          item.setAttribute('aria-expanded', 'true');
+          const video = item.querySelector('video');
+          if (video) video.play().catch(() => {});
+        });
+      });
+    })();
+  </script>
+
 </body>
 </html>

@@ -650,7 +650,7 @@ body {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   z-index: 10;
-  background: #8a1e1b;
+  background: #b62824;
   color: #F2E6D6;
   font-family: 'EB Garamond', serif;
   font-weight: 500;
@@ -659,7 +659,7 @@ body {
   text-transform: uppercase;
   padding: 14px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   border-top: 1px solid rgba(168,54,45,0.55);
   transform: translateY(100%);
