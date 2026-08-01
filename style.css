@@ -476,8 +476,8 @@ body {
 }
 
 .menu-proj-title {
-  font-family: 'AlternateGothic', sans-serif;
-  font-weight: 400;
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
   font-size: clamp(26px, 7vw, 35px);
   color: #FAEFE0;
   line-height: 1.1;
@@ -488,8 +488,8 @@ body {
 
 .menu-blurb {
   font-family: 'EB Garamond', serif;
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 19px;
   line-height: 1.45;
   color: #FAEFE0;
 }

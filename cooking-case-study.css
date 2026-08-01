@@ -146,7 +146,7 @@ body.cs-theme-boxdex .solution-card:nth-child(3) { background: #8C2F5C; }
 body.cs-theme-boxdex .section-intro { font-size: 16px; }
 
 body {
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
   line-height: 1;
@@ -315,16 +315,19 @@ body.cs-theme-boxdex .cs-hero-text .meta-value {
 }
 
 .cs-tag {
-  display: block;
+  display: inline-block;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.30em;
   text-transform: uppercase;
-  color: rgba(var(--accent-rgb), 0.50);
+  color: var(--inv);
+  background: var(--bg-red);
+  border-radius: 4px;
+  padding: 5px 12px;
   margin-bottom: 20px;
 }
-.cs-section--alt .cs-tag { color: rgba(250, 239, 224, 0.42); }
+.cs-section--alt .cs-tag { background: var(--inv); color: var(--bg-red); }
 
 .cs-hero-title {
   font-family: var(--font-accent);
@@ -345,39 +348,100 @@ body.cs-theme-boxdex .cs-hero-text .meta-value {
 .cs-hero-sub p { margin: 0; }
 .cs-hero-sub p + p { margin-top: 1em; }
 
+/* cooking case study only — swaps the shared heading font for EB
+   Garamond, so section titles match the EB Garamond body copy.
+   --font-accent is left alone so the hero title ("Where Food
+   Travels.") stays in Angela.
+   Scoped to this page's body class so the other pages sharing this
+   stylesheet (monetization, resume) keep their own heading font */
+body.cs-centered-layout {
+  --font-heading: 'EB Garamond', serif;
+}
+/* section titles in the brand red — var(--text-red) already flips to
+   a light cream in .cs-section--alt (red-background) sections, so this
+   stays readable there instead of red-on-red */
+body.cs-centered-layout .cs-h2,
+body.cs-centered-layout .pivot-title {
+  color: var(--text-red);
+}
+body.cs-centered-layout .cs-nav-label {
+  font-weight: 600;
+}
+
+/* full-bleed, centered hero — matches the boxdex page's hero
+   margin/padding (structure only, no color/font changes). No
+   forced min-height here: boxdex's 100vh comes from a phone-mockup
+   image filling the space below its text, which this hero doesn't
+   have, so the section instead sizes naturally from the padding
+   below, same as boxdex's text block does on its own.
+   The width:100vw breakout re-centers on the viewport since
+   cs-main is now centered rather than pinned to the left edge */
+body.cs-centered-layout .cs-hero {
+  min-height: 0;
+  border-bottom: none;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+body.cs-centered-layout .cs-hero-text {
+  align-items: center;
+  text-align: center;
+  padding: 72px var(--px) 56px;
+}
+body.cs-centered-layout .cs-hero-sub {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 /* ─────────────────────────────────────────
    META BAR
 ───────────────────────────────────────── */
 .meta-bar {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  column-gap: 24px;
   padding: 0 var(--px);
   border-bottom: 1px solid var(--border);
+}
+
+/* boxdex-style background card for the meta-bar — same treatment as
+   .cs-hero-text .meta-bar on the boxdex page (card background + full
+   border instead of just a bottom divider) */
+body.cs-centered-layout .meta-bar {
+  margin: 0;
+  padding: 40px 48px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+body.cs-centered-layout .meta-label {
+  padding: 5px 12px;
+}
+body.cs-centered-layout .meta-item {
+  padding: 0;
 }
 
 .meta-item {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
   padding: 28px 0;
   flex: 1;
 }
 
-.meta-divider {
-  width: 1px;
-  height: 32px;
-  background: var(--border);
-  flex-shrink: 0;
-  margin: 0 28px;
-}
-
 .meta-label {
+  display: inline-block;
   font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: rgba(var(--accent-rgb), 0.50);
+  letter-spacing: 0.18em;
+  background: var(--inv);
+  color: var(--bg-red);
+  border-radius: 4px;
+  padding: 5px 12px;
 }
 
 .meta-value {
@@ -430,6 +494,8 @@ body.cs-theme-boxdex .cs-hero-text .meta-value {
   max-width: none;
 }
 
+body.cs-centered-layout .section-intro { font-size: 19px; }
+
 /* ─────────────────────────────────────────
    SPLIT SECTION
 ───────────────────────────────────────── */
@@ -467,61 +533,17 @@ body.cs-theme-boxdex .cs-hero-text .meta-value {
   color: var(--muted);
 }
 
-/* ─────────────────────────────────────────
-   01 — PROBLEMS
-───────────────────────────────────────── */
-.problems-grid {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  gap: 8px;
-  margin-bottom: 20px;
+#problem .cs-split-img {
+  justify-content: center;
 }
-
-.problem-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 28px 24px;
-}
-
-.problem-num {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(var(--accent-rgb), 0.42);
-  margin-bottom: 14px;
-}
-
-.problem-card h3 {
-  font-family: var(--font-heading);
-  font-size: 26px;
-  font-weight: 400;
-  color: var(--text);
-  margin-bottom: 10px;
-}
-
-.problem-card p {
-  font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--muted);
-}
-
-.insight-bar {
+.problem-statement-quote {
   background: var(--card);
   border-left: 2px solid var(--text-red);
   padding: 16px 20px;
-  font-family: var(--font-body);
-  font-size: 19px;
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 2.4vw, 28px);
   font-style: italic;
-  line-height: 1.6;
-  color: var(--muted);
-}
-.insight-bar em {
-  font-style: normal;
-  font-weight: 600;
+  line-height: 1.5;
   color: var(--text);
 }
 
@@ -2320,6 +2342,35 @@ body.cs-theme-boxdex .cs-hero-text .meta-value {
 @media (max-width: 900px) {
   .toc-sidebar { display: none; }
   .cs-main { flex: 1 1 100%; }
+}
+
+/* ─────────────────────────────────────────
+   CENTERED LAYOUT — cs-main centered in the
+   viewport, toc-sidebar as a fixed overlay in
+   the freed-up right margin instead of a
+   reserved flex column (layout only, matches
+   the boxdex page's structure, no theme colors)
+───────────────────────────────────────── */
+body.cs-centered-layout .cs-layout {
+  justify-content: center;
+}
+body.cs-centered-layout .toc-sidebar {
+  flex: 0 0 auto;
+  position: fixed;
+  top: 56px;
+  right: 0;
+  width: 7.5%;
+  max-height: calc(100vh - 56px);
+}
+body.cs-centered-layout .toc-item {
+  padding: 6px 10px;
+}
+body.cs-centered-layout .toc-num {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+body.cs-centered-layout .toc-label {
+  font-size: 11px;
 }
 
 /* ─────────────────────────────────────────
