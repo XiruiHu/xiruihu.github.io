@@ -9,9 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="cooking-case-study.css" />
+  <link rel="stylesheet" href="blink-box-case-study.css" />
 </head>
-<body class="cs-theme-boxdex">
+<body class="cs-theme-boxdex veil-active">
+
+  <!-- ── PAGE TRANSITION VEIL ── -->
+  <div id="page-veil" aria-hidden="true"></div>
 
   <!-- ── NAV ── -->
   <nav class="cs-nav">
@@ -19,7 +22,10 @@
       <img src="./brand_assests/AaGuDianKeBenSongYouMoBan/NewNewNewLogo.png" alt="Xirui Hu" />
     </a>
     <span class="cs-nav-label">Blink Box Tracking App</span>
-    <a href="./index.html" class="cs-back">Exit</a>
+    <a href="./index.html?skipIntro=1" class="cs-back">
+      <span class="cs-back-en">Exit</span>
+      <span class="cs-back-cn">退出</span>
+    </a>
   </nav>
 
   <div class="cs-layout">
@@ -109,18 +115,30 @@
     </div>
 
     <span class="sub-tag">Key Market Trends</span>
-    <div class="trend-grid">
-      <div class="trend-item">
-        <p><strong>Unboxing culture transformed collecting into a social experience.</strong> TikTok, YouTube, and Instagram have turned blind box discovery into shareable content.</p>
+    <div class="trend-collage">
+      <div class="trend-tile">
+        <span class="trend-num">01</span>
+        <span class="trend-pill">Social</span>
+        <p class="trend-lead">Unboxing culture transformed collecting into a social experience.</p>
+        <p>TikTok, YouTube, and Instagram have turned blind box discovery into shareable content.</p>
       </div>
-      <div class="trend-item">
-        <p><strong>Premium collectibles are becoming lifestyle products.</strong> Brands like POP MART demonstrate growing demand for designer collectibles beyond traditional toys.</p>
+      <div class="trend-tile">
+        <span class="trend-num">02</span>
+        <span class="trend-pill">Lifestyle</span>
+        <p class="trend-lead">Premium collectibles are becoming lifestyle products.</p>
+        <p>Brands like POP MART demonstrate growing demand for designer collectibles beyond traditional toys.</p>
       </div>
-      <div class="trend-item">
-        <p><strong>Growing collections create management problems.</strong> As collectors accumulate more figures, tracking duplicates and organizing collections becomes increasingly difficult.</p>
+      <div class="trend-tile trend-tile--highlight">
+        <span class="trend-num">03</span>
+        <span class="trend-pill">Pain Point</span>
+        <p class="trend-lead">Growing collections create management problems.</p>
+        <p>As collectors accumulate more figures, tracking duplicates and organizing collections becomes increasingly difficult.</p>
       </div>
-      <div class="trend-item">
-        <p><strong>Collectors are moving toward digital-first experiences.</strong> Collection tracking, discovery, and community features are becoming valuable extensions of physical collecting.</p>
+      <div class="trend-tile">
+        <span class="trend-num">04</span>
+        <span class="trend-pill">Digital</span>
+        <p class="trend-lead">Collectors are moving toward digital-first experiences.</p>
+        <p>Collection tracking, discovery, and community features are becoming valuable extensions of physical collecting.</p>
       </div>
     </div>
 
@@ -216,25 +234,25 @@
 
       <div class="tag-panel active" data-panel="target-audiences">
         <p class="section-intro">We approached this by identifying the audience with the strongest unmet needs and aligning the product around those priorities.</p>
-        <div class="research-grid">
-          <div class="research-card">
-            <span class="research-num">01</span>
-            <h4>Casual–Semi-Serious Buyers</h4>
+        <div class="trend-collage">
+          <div class="trend-tile">
+            <span class="trend-num">01</span>
+            <p class="trend-lead">Casual–Semi-Serious Buyers</p>
             <p>Buy 2–5 boxes per series.</p>
           </div>
-          <div class="research-card">
-            <span class="research-num">02</span>
-            <h4>Heavy Completionists</h4>
+          <div class="trend-tile">
+            <span class="trend-num">02</span>
+            <p class="trend-lead">Heavy Completionists</p>
             <p>Chasing full-set ownership.</p>
           </div>
-          <div class="research-card">
-            <span class="research-num">03</span>
-            <h4>Trade-Focused Collectors</h4>
+          <div class="trend-tile">
+            <span class="trend-num">03</span>
+            <p class="trend-lead">Trade-Focused Collectors</p>
             <p>Reducing duplicates through trading.</p>
           </div>
-          <div class="research-card">
-            <span class="research-num">04</span>
-            <h4>New Collectors</h4>
+          <div class="trend-tile">
+            <span class="trend-num">04</span>
+            <p class="trend-lead">New Collectors</p>
             <p>Learning odds &amp; rarity systems.</p>
           </div>
         </div>
@@ -242,17 +260,20 @@
 
       <div class="tag-panel" data-panel="user-needs">
         <p class="section-intro">Collectors need more than a place to buy. They need a way to manage, discover, and connect.</p>
-        <div class="needs-grid">
-          <div class="needs-card">
-            <h4>Track Collections</h4>
+        <div class="trend-collage trend-collage--3">
+          <div class="trend-tile">
+            <span class="trend-num">01</span>
+            <p class="trend-lead">Track Collections</p>
             <p>Collectors need an easier way to organize their figures, monitor what they own, and identify missing pieces.</p>
           </div>
-          <div class="needs-card">
-            <h4>Reduce Duplicates</h4>
+          <div class="trend-tile">
+            <span class="trend-num">02</span>
+            <p class="trend-lead">Reduce Duplicates</p>
             <p>Collectors need better ways to manage duplicate figures and discover opportunities for trading.</p>
           </div>
-          <div class="needs-card">
-            <h4>Connect with Collectors</h4>
+          <div class="trend-tile">
+            <span class="trend-num">03</span>
+            <p class="trend-lead">Connect with Collectors</p>
             <p>Collectors need a trusted space to share collections, exchange figures, and engage with the community.</p>
           </div>
         </div>
@@ -644,7 +665,7 @@
     <span class="cs-tag">View Other Projects</span>
     <div class="other-projects-grid">
       <a href="./cooking-case-study.html" class="other-project-card">
-        <img src="./brand_assests/Home_Page04.png" alt="Where Food Travels cover" class="other-project-cover" />
+        <img src="./brand_assests/COOKA New Cover.png" alt="Where Food Travels cover" class="other-project-cover" />
         <div class="other-project-body">
           <span class="other-project-eyebrow">Mobile App</span>
           <h3 class="other-project-title">Where Food Travels</h3>
@@ -748,6 +769,8 @@
       });
     })();
   </script>
+  <script src="lightbox.js"></script>
+  <script src="page-transitions.js"></script>
 
 </body>
 </html>

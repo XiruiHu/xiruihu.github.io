@@ -3,22 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Where Food Travels — Case Study</title>
+  <title>Where Food Travels: Case Study</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Unbounded:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="cooking-case-study.css" />
 </head>
-<body class="cs-centered-layout">
+<body class="cs-centered-layout veil-active">
+
+  <!-- ── PAGE TRANSITION VEIL ── -->
+  <div id="page-veil" aria-hidden="true"></div>
 
   <!-- ── NAV ── -->
   <nav class="cs-nav">
     <a href="./index.html" class="cs-nav-logo">
       <img src="./brand_assests/AaGuDianKeBenSongYouMoBan/NewNewNewLogo.png" alt="Xirui Hu" />
     </a>
-    <span class="cs-nav-label">Where Food Travels</span>
-    <a href="./index.html" class="cs-back">Exit</a>
+    <span class="cs-nav-label">Cultural Cooking App</span>
+    <a href="./index.html?skipIntro=1" class="cs-back">
+      <span class="cs-back-en">Exit</span>
+      <span class="cs-back-cn">退出</span>
+    </a>
   </nav>
 
   <div class="cs-layout">
@@ -27,7 +33,8 @@
   <!-- ── HERO ── -->
   <section class="cs-hero">
     <div class="cs-hero-text">
-      <h1 class="cs-hero-title">Where<br>Food Travels.</h1>
+      <img class="cs-hero-title-logo" src="brand_assests/COOKA Logo.png" alt="COOKA logo" />
+      <h1 class="cs-hero-title-text">Where Food Travels.</h1>
       <div class="cs-hero-sub">
         <p>COOKA started with a question: what happens to a recipe when you strip away its culture? This case study is our attempt to design that culture back in.</p>
       </div>
@@ -48,6 +55,10 @@
       <span class="meta-value">UI Design</span>
     </div>
     <div class="meta-item">
+      <span class="meta-label">Framework</span>
+      <span class="meta-value">Double Diamond</span>
+    </div>
+    <div class="meta-item">
       <span class="meta-label">Team</span>
       <span class="meta-value">3 Designers</span>
     </div>
@@ -57,10 +68,11 @@
     </div>
     <div class="meta-item">
       <span class="meta-label">Tools</span>
-      <span class="meta-value">Figma</span> 
+      <span class="meta-value">Figma</span>
       <span class="meta-value">Miro</span>
       <span class="meta-value">Chat GPT</span>
       <span class="meta-value">Google Gemini</span>
+      <span class="meta-value">Fireflies.ai</span>
     </div>
     <div class="meta-item">
       <span class="meta-label">Platforms</span>
@@ -72,70 +84,356 @@
     </div>
   </div>
 
-  <!-- ── 01 THE PROBLEM ── -->
-  <section class="cs-section cs-section--split" id="problem">
-    <div class="cs-split-content">
-      <span class="cs-tag">01 &nbsp;·&nbsp; Problem</span>
-      <h2 class="cs-h2">Who here doesn't cook?</h2>
-      <p class="section-intro">It started with a question our product owner, Steven, kept coming back to: when people from different countries meet, food is almost always the first thing they talk about, where you're from, what's authentic, who seasons their food "right." Food is how we talk about culture. But it made us wonder: could most of us actually cook the dishes we're so quick to debate?</p>
-      <p class="section-intro">For many people, the answer is no. Cooking can feel intimidating, confusing, and inaccessible. Most learning paths assume prior skill, strip out cultural context entirely, or bury the recipe itself under paragraphs of someone's childhood story, making it hard to cook something that actually feels personal or authentic.</p>
-
+  <!-- ── HERO MARQUEE ── -->
+  <div class="hero-marquee">
+    <div class="hero-marquee-track">
+      <img src="./brand_assests/Frame 170.png" alt="COOKA app screens: country explorer, recipe detail, home feed, learning article, and profile, flanked by a chopsticks-and-ramen photo" class="hero-marquee-img" />
+      <img src="./brand_assests/Frame 170.png" alt="" class="hero-marquee-img" aria-hidden="true" />
     </div>
+  </div>
 
-    <div class="cs-split-img">
-      <span class="decision-label">Initial Problem Statement</span>
-      <p class="problem-statement-quote">Home cooks are bored with eating the same food, they feel emotionally disconnected from their meals, and existing recipes sources prioritize quick recipes over cultural context, storytelling, and authenticity.</p>
+  <!-- ── 01 THE PROBLEM ── -->
+  <section class="cs-section cs-problem-compact" id="problem">
+    <span class="cs-tag">01 &nbsp;·&nbsp; Problem</span>
+    <div class="problem-row">
+      <div class="problem-row-text">
+        <h2 class="cs-h2">Who here doesn't cook?</h2>
+        <p class="section-intro">It started with a question our teammate, Steven, kept returning to: when people from different countries meet, food is almost always the first topic, where you're from, what's authentic, who cooks it "right." <strong>Food is how we talk about culture.</strong> But could most of us actually cook the dishes we debate so confidently?</p>
+        <p class="section-intro">For many, the answer is no. <strong>Cooking often feels routine and uninspired.</strong> Most learning paths assume prior skill, strip out cultural context, or bury the recipe under someone's childhood story, making it hard to cook something that feels personal or authentic.</p>
+        <p class="section-intro">That gap, between wanting to connect with culture through food and actually being equipped to cook it, became the starting point for our research.</p>
+      </div>
+
+      <div class="problem-statement-box">
+        <img src="brand_assests/Frame 171.png" alt="Fragmented recipe sources: Instagram, TikTok, YouTube, Good Food, and Pinch of Yum, each a separate app or site" class="problem-statement-img" />
+        <span class="img-credit">Screenshots via Instagram, TikTok, YouTube, goodfood.com.au, and Pinch of Yum</span>
+        <div class="problem-issues-grid">
+          <div class="problem-issue-card problem-issue-card--1">
+            <h4>Intimidation</h4>
+            <p>Recipes assume a baseline of skill that many home cooks don't have, turning curiosity into hesitation before they even start.</p>
+          </div>
+          <div class="problem-issue-card problem-issue-card--2">
+            <h4>Erasure</h4>
+            <p>Dishes get flattened into "hacks" and trends, losing the regional and historical roots that gave them meaning.</p>
+          </div>
+          <div class="problem-issue-card problem-issue-card--3">
+            <h4>Guesswork</h4>
+            <p>Without cultural context, home cooks can't tell what's authentic, adapted, or simply wrong, so they default to what's familiar.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ── 02 RESEARCH ── -->
   <section class="cs-section" id="research">
     <span class="cs-tag">02 &nbsp;·&nbsp; Research</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg is-active" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label is-active" aria-current="step">Discover</span>
+        <span class="dd-label">Define</span>
+        <span class="dd-label">Develop</span>
+        <span class="dd-label">Deliver</span>
+      </div>
+    </div>
     <h2 class="cs-h2">What we did to understand the problem.</h2>
 
     <div class="contribution-row">
-      <div class="contribution-block">
-        <span class="block-label">My contribution</span>
-        <p>I participated in user interviews and surveys, synthesised findings into themes, and led ideation around the editorial and design direction.</p>
-      </div>
-      <div class="contribution-block">
-        <span class="block-label">Team size</span>
-        <p>4 designers working across research, content strategy, interaction design, and visual design over 13 weeks.</p>
+      <div class="contribution-block contribution-card">
+        <span class="contribution-mark" aria-hidden="true">&rdquo;</span>
+        <span class="contribution-label">My contribution</span>
+        <p>We started with discovery: secondary research to orient the team and get familiar with the domain, its terminology, and the factors shaping it. We explored websites, publications, and case studies, then organized findings on our project board to guide the rest of the research.</p>
+        <p>My focus was on the competitive landscape, mapping out how existing cooking apps balance curation and convenience against depth and education, alongside refining the questions that shaped our stakeholder and user interviews.</p>
       </div>
     </div>
 
-    <div class="research-grid">
-      <div class="research-card">
-        <span class="research-num">01</span>
-        <h4>User Interviews</h4>
-        <p>In-depth conversations with home cooks and food enthusiasts to understand habits, frustrations, and cultural connections to food.</p>
+    <div class="research-board">
+      <div class="research-item">
+        <span class="sub-tag">Competitive Analysis</span>
+        <p class="research-item-tags">Tasty &nbsp;·&nbsp; Zest &nbsp;·&nbsp; Whisk (Samsung Food) &nbsp;·&nbsp; Feast by the Guardian</p>
+        <div class="research-item-media">
+          <div class="research-item-imgs">
+            <figure class="research-item-figure">
+              <img src="brand_assests/COOKA Comptetitive Analysis.png" alt="Competitive analysis mind map covering Zest, Kitchen Stories, Tasty, Masterclass, Paprika, SideChef, Sidekick, and Rouxbe" />
+              <figcaption class="photo-caption">Competitive landscape mind map, surveying direct and adjacent cooking platforms.</figcaption>
+            </figure>
+            <figure class="research-item-figure">
+              <img src="brand_assests/COOKA Competitive Positioning Map.png" alt="Competitor positioning map plotting cooking platforms on convenient-to-educational and random-to-culturally-curated axes" />
+              <figcaption class="photo-caption">Competitor Positioning Map, plotting each platform on curation vs. convenience and depth.</figcaption>
+            </figure>
+          </div>
+
+          <div class="pos-table-wrap">
+            <span class="pos-table-title">Insights</span>
+
+            <p class="pos-insight-lead">Three clusters emerged from the map:</p>
+            <div class="pos-insight-clusters">
+              <div class="pos-insight-cluster">
+                <span class="pos-insight-cluster-label">Entertainment &amp; Discovery</span>
+                <p>Instagram, YouTube, Tasty</p>
+              </div>
+              <div class="pos-insight-cluster">
+                <span class="pos-insight-cluster-label">Utility &amp; Convenience</span>
+                <p>HelloFresh, Instacart, Paprika, Sidekick</p>
+              </div>
+              <div class="pos-insight-cluster">
+                <span class="pos-insight-cluster-label">Education</span>
+                <p>Rouxbe, Kitchen Stories</p>
+              </div>
+            </div>
+
+            <div class="pos-insight-gap">
+              <span class="pos-insight-gap-tag">The Open Space</span>
+              <p class="pos-insight-gap-statement">Then COOKA sits in a relatively open space: <strong>high educational value + deeply culturally curated.</strong></p>
+            </div>
+
+            <p class="pos-insight-body">That whitespace tells a compelling story: users can already learn recipes, get groceries, or browse cooking videos, but there isn't a platform dedicated to helping them explore cultures through cooking in a cohesive, curated way.</p>
+          </div>
+        </div>
       </div>
-      <div class="research-card">
-        <span class="research-num">02</span>
-        <h4>Competitive Analysis</h4>
-        <p>Evaluated TikTok, YouTube, NYT Cooking and Tasty to map the existing landscape and identify gaps in cultural narrative.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">03</span>
+
+    </div>
+
+    <span class="sub-tag">What Else We Did</span>
+    <div class="research-row">
+      <div class="research-item">
         <h4>Content Research</h4>
-        <p>Analysed food content across social media to understand what formats resonated most with users and what feelings they triggered.</p>
+        <p class="research-item-tags">Scanned websites, publications, case studies to understand some of the nuances of the domain</p>
+        <div class="research-item-media">
+          <img src="brand_assests/COOKA Case Study.png" alt="Collected case studies and articles on cooking app design and culinary trends" />
+        </div>
       </div>
-      <div class="research-card">
-        <span class="research-num">04</span>
+
+      <div class="research-item">
         <h4>Cultural Research</h4>
-        <p>Explored the role of food in cultural identity across communities to inform the narrative and design direction.</p>
+        <p class="research-item-tags">Explored the role of food in cultural identity across communities to inform the narrative and design direction.</p>
+        <div class="research-item-media">
+          <img src="brand_assests/COOKA Cultural Learning.png" alt="Notes on the decolonizing-food movement and sustainable-tourism trends shaping cultural food narratives" />
+        </div>
       </div>
-      <div class="research-card">
-        <span class="research-num">05</span>
-        <h4>Field Study</h4>
-        <p>Observed cooking behaviour and grocery shopping patterns to uncover real-world friction points and moments of delight.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">06</span>
-        <h4>Theory Cluster</h4>
-        <p>Applied cultural identity and motivation theory to ground our design decisions in behavioural evidence and existing research.</p>
+
+      <div class="research-item">
+        <h4>Drafting Problem Statements</h4>
+        <p class="research-item-tags">Here we began drafting our first few problem statements to gain a sense of direction.</p>
+        <div class="research-item-media">
+          <img src="brand_assests/COOKA First Problem Statement.png" alt="Early draft problem statements written out to establish a sense of direction" />
+        </div>
       </div>
     </div>
+
+  </section>
+
+  <!-- ── 03 INTERVIEWS & SURVEYS ── -->
+  <section class="cs-section" id="interviews-surveys">
+    <span class="cs-tag">03 &nbsp;·&nbsp; Interviews &amp; Surveys</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg is-active" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label is-active" aria-current="step">Discover</span>
+        <span class="dd-label">Define</span>
+        <span class="dd-label">Develop</span>
+        <span class="dd-label">Deliver</span>
+      </div>
+    </div>
+    <h2 class="cs-h2">Designing the questions that shaped our research.</h2>
+    <p class="section-intro">Alongside the desk research, we drafted and refined the questions we'd bring to stakeholder and user interviews, then built a short survey to pressure-test our assumptions at a larger scale before we started designing.</p>
+
+    <span class="sub-tag">Preparation Work for Interview</span>
+    <p class="section-intro">As a team, we each contributed to preparation work that organically shaped our final interview questions. By extracting key words from our draft problem statements, we identified the target audiences most relevant to our research. From there, we asked ourselves what we actually wanted to learn from them, drafted interview questions, and fine-tuned them by layering in additional questions as gaps emerged.</p>
+    <div class="prep-sequence">
+      <div class="prep-step">
+        <span class="prep-step-num">01</span>
+        <h4 class="prep-step-label">Finding Key Words</h4>
+        <img src="brand_assests/COOKA Finding Key Words.png" alt="Brainstorming recurring keywords like authenticity, cultural connection, and ease to guide the interview questions" />
+      </div>
+      <div class="prep-arrow" aria-hidden="true">→</div>
+      <div class="prep-step">
+        <span class="prep-step-num">02</span>
+        <h4 class="prep-step-label">Target Audience</h4>
+        <img src="brand_assests/COOKA Target Audience.png" alt="Defining the target audience profile to recruit for interviews" />
+      </div>
+      <div class="prep-arrow" aria-hidden="true">→</div>
+      <div class="prep-step">
+        <span class="prep-step-num">03</span>
+        <h4 class="prep-step-label">What We Want to Know</h4>
+        <img src="brand_assests/COOKA What we want to know.png" alt="Outlining the core questions the team wanted answered from interviews" />
+      </div>
+      <div class="prep-break" aria-hidden="true"></div>
+      <div class="prep-arrow" aria-hidden="true">→</div>
+      <div class="prep-step prep-step--secondary">
+        <span class="prep-step-num">04</span>
+        <h4 class="prep-step-label">Draft Questions</h4>
+        <img src="brand_assests/COOKA Interview Draft Questions.png" alt="First draft of the interview questions written out for review" />
+      </div>
+      <div class="prep-arrow" aria-hidden="true">→</div>
+      <div class="prep-step prep-step--secondary prep-step--expanded">
+        <span class="prep-step-num">05</span>
+        <h4 class="prep-step-label">Additional Questions</h4>
+        <img src="brand_assests/COOKA Interview Additional Questions.png" alt="Additional follow-up questions added to probe deeper into recurring themes" />
+      </div>
+    </div>
+
+    <span class="sub-tag">Interview Overview</span>
+    <div class="stat-block">
+      <div class="overview-grid">
+        <div class="overview-card">
+          <span class="block-label">Target Audience</span>
+          <p>We focused on people who care about authentic cooking, <strong>especially immigrants and expats who use food to stay connected to home</strong>, and curious cooks who want to learn other cultures' food the right way, not watered down.</p>
+        </div>
+        <div class="overview-card">
+          <span class="block-label">Methodology</span>
+          <p>We conducted <strong>semi-structured interviews</strong>, which allowed us to ask consistent questions while still leaving room for personal stories, cultural context, and unexpected insights around authenticity, trust, and daily cooking habits.</p>
+        </div>
+        <div class="overview-card">
+          <span class="block-label">Who We Interviewed</span>
+          <p>We interviewed <strong>5 participants</strong>, ages 25 to 34, living in Vancouver, from diverse cultural backgrounds. They ranged from creatives and tech professionals to service workers, giving us a mix of emotional, practical, and efficiency-driven perspectives on cooking.</p>
+        </div>
+      </div>
+
+      <div class="stat-finding">
+        <span class="finding-tag">Refining Our Questions</span>
+        <p>We conducted two rounds of interviews. After the first interview, we realized that our initial questions weren't effectively addressing the problems we were trying to understand. We revisited and refined our questions to better uncover the <strong>underlying needs and core problems</strong> we wanted to explore.</p>
+
+      </div>
+    </div>
+
+    <span class="sub-tag">Designing the Survey</span>
+    <p class="section-intro">After the interviews, we had a clearer understanding of the <strong>assumptions and biases we needed to challenge and validate</strong> through our survey. As a team, we carefully reviewed each draft question, questioning its wording, intent, and perspective. We refined the questions through multiple rounds of discussion until we were confident that the survey would generate <strong>unbiased and meaningful insights</strong>.</p>
+
+    <div class="survey-thread">
+      <div class="survey-draft-card">
+        <span class="survey-draft-label">Draft &nbsp;·&nbsp; Cut</span>
+        <p class="survey-q survey-q--struck">How often do you feel "guilty" or "unsatisfied" because you chose a quick meal over a traditional/cultural one?</p>
+        <div class="survey-draft-options">
+          <span class="survey-draft-opt">Always</span>
+          <span class="survey-draft-opt">Often</span>
+          <span class="survey-draft-opt">Sometimes</span>
+          <span class="survey-draft-opt">Rarely</span>
+          <span class="survey-draft-opt">Never</span>
+        </div>
+        <div class="survey-draft-reason">
+          <span class="survey-draft-reason-tag">Why We Cut It</span>
+          <p>Our interviews taught us that people don't have the time or mental capacity to reflect on their cooking choices in the moment, the question assumed a level of self-reflection most participants didn't relate to.</p>
+        </div>
+      </div>
+
+      <div class="survey-thread-arrow" aria-hidden="true">↓</div>
+
+      <div class="survey-outcome">
+        <p class="survey-outcome-intro">Instead, we wanted to find out whether cultural connection meant something to people at all, so we built a dedicated section around it.</p>
+        <div class="survey-design-grid">
+          <span class="survey-group-label">Cultural Connection &amp; Identity</span>
+          <div class="survey-design-card is-featured">
+            <span class="note-tag">Scale &nbsp;·&nbsp; 1&ndash;5</span>
+            <p class="survey-q">How important is it for you to cook meals that reflect your cultural heritage?</p>
+            <div class="survey-scale">
+              <div class="survey-scale-track">
+                <span class="survey-scale-pt">1</span>
+                <span class="survey-scale-pt">2</span>
+                <span class="survey-scale-pt">3</span>
+                <span class="survey-scale-pt">4</span>
+                <span class="survey-scale-pt">5</span>
+              </div>
+              <div class="survey-scale-labels">
+                <span>Not at all</span>
+                <span>Extremely important</span>
+              </div>
+            </div>
+          </div>
+          <div class="survey-design-card is-featured">
+            <p class="survey-q">How often do you feel "homesick" or nostalgic for the specific flavours of your childhood or home country?</p>
+            <div class="survey-options">
+              <label class="survey-opt"><span class="survey-opt-dot"></span>Daily</label>
+              <label class="survey-opt"><span class="survey-opt-dot"></span>Weekly</label>
+              <label class="survey-opt"><span class="survey-opt-dot"></span>Monthly</label>
+              <label class="survey-opt"><span class="survey-opt-dot"></span>Rarely</label>
+              <label class="survey-opt"><span class="survey-opt-dot"></span>Never</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="survey-draft-reason">
+          <span class="survey-draft-reason-tag">AI-Assisted Refinement</span>
+          <p>We used ChatGPT to refine the response ranges we developed, making sure they were phrased and structured in a way that allowed respondents to answer comfortably and honestly.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── 04 INSIGHTS ── -->
+  <section class="cs-section cs-section--alt" id="insights">
+    <span class="cs-tag">04 &nbsp;·&nbsp; Synthesis</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg is-active" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label">Discover</span>
+        <span class="dd-label is-active" aria-current="step">Define</span>
+        <span class="dd-label">Develop</span>
+        <span class="dd-label">Deliver</span>
+      </div>
+    </div>
+    <h2 class="cs-h2">What the interview and survey actually told us.</h2>
+
+    <span class="sub-tag">Gathering Interview Insights</span>
+    <p class="section-intro">After talking to users and reviewing survey responses, we pulled everything into one place and looked for patterns rather than one-off opinions. A few common threads kept surfacing across the conversations, echoed by direct quotes that captured how people were experiencing the problem, not just what they said about it.</p>
+
+    <div class="insight-process">
+      <div class="insight-step">
+        <span class="insight-step-num">Step 1</span>
+        <img src="brand_assests/COOKA Rui Interview Summary.png" alt="Interview summary document summarizing and pulling out key opinions from user interviews" />
+        <p class="insight-step-label">Summarizing and pulling out key quotes that can help describe what issues or experiences the user is facing as evidence.</p>
+      </div>
+      <div class="insight-arrow" aria-hidden="true">→</div>
+      <div class="insight-step insight-step--group">
+        <span class="insight-step-num">Step 2</span>
+        <div class="insight-step-group-imgs">
+          <div class="insight-substep">
+            <img src="brand_assests/COOKA Interview Insight step 2-1.png" alt="Grouping interview quotes and responses into emerging themes" />
+            <p class="insight-substep-label">Grouping raw quotes and observations into early theme clusters.</p>
+          </div>
+          <div class="insight-arrow" aria-hidden="true">→</div>
+          <div class="insight-substep">
+            <img src="brand_assests/COOKA Interview Insights Step 2-2.png" alt="Refining theme groups to surface recurring threads across interviews" />
+            <p class="insight-substep-label">Refining the clusters to surface the strongest recurring threads.</p>
+          </div>
+          <div class="insight-arrow" aria-hidden="true">→</div>
+          <div class="insight-substep">
+            <img src="brand_assests/COOKA Interview Insighta Step2-3.png" alt="Finalized insight themes with supporting quotes from participants" />
+            <p class="insight-substep-label">Mapping each theme to primary motivations and key frustrations.</p>
+          </div>
+          <div class="insight-arrow" aria-hidden="true">→</div>
+          <div class="insight-substep">
+            <img src="brand_assests/COOKA interview insights step 2-4.png" alt="Recommendations grouped into Authenticity & Trust, Efficiency & Accessibility, and Cultural Connection & Enablement" />
+            <p class="insight-substep-label">Turning the synthesized themes into concrete product recommendations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="insight-arrow" aria-hidden="true">→</div>
+      <div class="insight-step insight-step--text">
+        <span class="insight-step-num">Step 3</span>
+        <span class="insight-step-title">User Interview Report</span>
+        <p class="section-intro">In the report, we organized our synthesized insights into <strong>Introduction</strong>, <strong>Participant Information</strong>, <strong>Methodology</strong>, <strong>Key Findings</strong>, <strong>Analysis</strong>, <strong>Recommendations</strong>, <strong>Conclusion</strong>, and <strong>Appendices</strong>, giving the whole team a shared, consistent structure to reference throughout the project.</p>
+      </div>
+    </div>
+
+    <span class="sub-tag">Survey Insights</span>
+    <p class="section-intro">By looking at the data from Google Form summary and Google Sheets, we learned some really important insights as well.</p>
 
     <!-- Survey chart — supports Problem 03: Fragmentation -->
     <div class="survey-chart">
@@ -161,59 +459,352 @@
         <span class="legend-dot legend-dot--social"></span><span class="legend-label">Digital / social platforms</span>
         <span class="legend-dot legend-dot--human"></span><span class="legend-label">Human / traditional sources</span>
       </div>
-      <p class="survey-note">Users pull from <strong>7+ separate platforms</strong> — none unified, none culturally contextual.</p>
+      <p class="survey-note"><strong>Instagram</strong> led as the most frequented platform for recipes at 64.5% of the vote, followed by <strong>Google</strong> (58.1%) and <strong>YouTube</strong> (48.4%), while dedicated recipe apps trailed at just <strong>3.2%</strong>.</p>
+    </div>
+
+    <span class="sub-tag">What Else Stood Out</span>
+    <div class="insights-grid insights-grid--3col">
+      <div class="insight-card">
+        <span class="insight-stat">50%+</span>
+        <p>chose <em>health and nutrition</em> as their top priority when picking a recipe.</p>
+      </div>
+      <div class="insight-card">
+        <span class="insight-stat">41.9%</span>
+        <p>said cooking meals that reflect their <em>cultural heritage</em> isn't important to them at all, cutting against a core assumption we walked in with.</p>
+      </div>
+      <div class="insight-card">
+        <p>described one specific cooking or learning experience, like a sushi-making class, that <em>permanently changed</em> how they cook. The decision to try it was almost always random.</p>
+      </div>
+    </div>
+
+    <span class="sub-tag">What We Learned</span>
+    <div class="learnings-block">
+      <div class="learning-item">
+        <span class="learning-num">01</span>
+        <div>
+          <h4 class="learning-title">Ingredient Flexibility</h4>
+          <p>Users' willingness to start or continue a recipe depends on how they handle missing ingredients.</p>
+        </div>
+      </div>
+      <div class="learning-item">
+        <span class="learning-num">02</span>
+        <div>
+          <h4 class="learning-title">Technology Use</h4>
+          <p>Users use TikTok and AI assistants to find recipes but struggle with screen interaction while cooking.</p>
+        </div>
+      </div>
+      <div class="learning-item">
+        <span class="learning-num">03</span>
+        <div>
+          <h4 class="learning-title">Recipe Credibility</h4>
+          <p>Users highly value recipe credibility: when a recipe fails to deliver expected results, it leads to frustration, wasted time, unnecessary expense, and a loss of trust in the cooking experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 EMPATHY MAPPING ── -->
+  <section class="cs-section" id="empathy-mapping">
+    <span class="cs-tag">05 &nbsp;·&nbsp; Making Sense of Our Findings</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg is-active" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label">Discover</span>
+        <span class="dd-label is-active" aria-current="step">Define</span>
+        <span class="dd-label">Develop</span>
+        <span class="dd-label">Deliver</span>
+      </div>
+    </div>
+    <h2 class="cs-h2">Stepping into our users' shoes.</h2>
+    <p class="section-intro">To make sense of everything we'd heard, we pulled our interview quotes, behaviours, and emotions onto a single empathy map, giving the whole team a shared, grounded picture of who we were designing for before we started defining a direction.</p>
+
+    <span class="sub-tag">From Sticky Notes to Structure</span>
+    <p class="section-intro">Before we could synthesize anything, we needed to see it all in one place. We printed transcripts, pulled every quote and observation onto stickies, and worked through two passes together as a team, first mapping empathy, then re-sorting the same notes into pain-point clusters.</p>
+    <div class="research-item-imgs">
+      <figure class="research-item-figure research-item-figure--framed">
+        <img src="brand_assests/COOKA empathy map (trimmed).png" alt="Physical empathy map built from interview sticky notes, organized into Says, Thinks, Does, and Feels" />
+        <figcaption class="photo-caption">Our working empathy map: Says, Thinks, Does, Feels, built directly from raw interview notes.</figcaption>
+      </figure>
+      <figure class="research-item-figure research-item-figure--framed">
+        <img src="brand_assests/Cooka pain-point clusters (trimmed).png" alt="Pain-point clusters sorted from the same interview sticky notes" />
+        <figcaption class="photo-caption">Re-sorting the same notes into pain-point clusters surfaced the threads we'd chase in affinity mapping.</figcaption>
+      </figure>
+    </div>
+
+    <span class="sub-tag">Affinity Mapping: Trust &amp; Authenticity</span>
+    <p class="section-intro">Trust and authenticity kept resurfacing as their own thread, so we gave it a dedicated affinity map, pulling every quote and note that touched on "is this real," "is this right," or "can I trust this" onto one board and looking for the shape underneath.</p>
+    <figure class="research-item-figure research-item-figure--contained">
+      <img src="brand_assests/COOKA Trust & Authenticity (trimmed).png" alt="Affinity map clustering raw quotes and notes around Trust &amp; Authenticity, centered on the question &quot;What do people say about Authenticity&quot;" />
+      <figcaption class="photo-caption">Affinity map: raw quotes and notes clustered around Trust &amp; Authenticity.</figcaption>
+    </figure>
+    <div class="survey-draft-reason">
+      <span class="survey-draft-reason-tag">Key Takeaway</span>
+      <p>People won't go out of their way to find the most authentic recipe out there, but they will know when it is not and be bothered by it.</p>
+    </div>
+
+    <span class="sub-tag">Value Proposition: Draft</span>
+    <p class="section-intro">With the pain points clustered, we drafted an early value proposition to pressure-test before moving into full product framing.</p>
+    <figure class="research-item-figure research-item-figure--contained">
+      <img src="brand_assests/COOKA Value Proposition.png" alt="Draft value proposition statement synthesized from the clustered pain points" />
+      <figcaption class="photo-caption">Early value proposition draft, pressure-tested before moving into full product framing.</figcaption>
+    </figure>
+
+    <span class="sub-tag">User Story Map</span>
+    <div class="contribution-row">
+      <div class="contribution-block contribution-card">
+        <span class="contribution-mark" aria-hidden="true">&rdquo;</span>
+        <span class="contribution-label">My contribution</span>
+        <p>To move from research insights to a defined feature set, I used story mapping to structure COOKA's functionality. This method was used to scope an MVP, plan releases, and align the team on what to build and in what order, turning a broad list of features into a prioritized, sequenced roadmap grounded in how users actually move through the product.</p>
+      </div>
+    </div>
+    <figure class="research-item-figure">
+      <img src="brand_assests/COOKA Story Mapping.png" alt="Story mapping board sequencing a first-time user's journey from craving to plate" />
+      <figcaption class="photo-caption">A user story map breaking down COOKA's core activities into detailed task steps, used to scope the MVP and sequence feature releases.</figcaption>
+    </figure>
+
+    <span class="sub-tag">Synthesizing Further</span>
+    <p class="section-intro">Pulling the empathy map, the affinity clusters, and the storyboard together, we distilled a second layer of insight, sharper and more specific than what we'd started with.</p>
+    <figure class="research-item-figure">
+      <div class="placeholder-media placeholder-media--wide" role="img" aria-label="Placeholder for synthesized insights board"><span>Image: synthesized insights board</span></div>
+      <figcaption class="photo-caption">Synthesized insights: pulling the empathy map, affinity clusters, and storyboard into a second layer of findings.</figcaption>
+    </figure>
+
+    <span class="sub-tag">Product Framing: Draft</span>
+    <p class="section-intro">With the research synthesized, we drafted a first framing of the product itself: what COOKA actually is, where its content comes from, and what problem it's really solving.</p>
+
+    <div class="process-photo process-photo--full">
+      <img src="brand_assests/COOKA Team Brainstorming on Product Framing.png" alt="Team brainstorming session on product framing" />
+      <p class="photo-caption">Drafting the first framing of the product: what COOKA is, where its content comes from, and the problem it's solving.</p>
+    </div>
+
+    <div class="hmw-block">
+      <span class="hmw-label">What Is COOKA?</span>
+      <p class="hmw-statement">COOKA is a <strong>culturally contextual recipe inspiration platform</strong> that organizes scattered culinary knowledge into meaningful, explorable clusters.</p>
+    </div>
+
+    <div class="framing-position">
+      <div class="framing-position-row">
+        <div class="framing-position-card">
+          <span class="framing-position-label">Social Media</span>
+          <p>→ discovery</p>
+        </div>
+        <span class="framing-position-between">sits between</span>
+        <div class="framing-position-card">
+          <span class="framing-position-label">Recipe Apps</span>
+          <p>→ execution</p>
+        </div>
+      </div>
+      <div class="framing-position-adds">
+        <span class="framing-position-adds-label">But adds</span>
+        <div class="pos-insight-clusters">
+          <div class="pos-insight-cluster">
+            <span class="pos-insight-cluster-label">Cultural context</span>
+          </div>
+          <div class="pos-insight-cluster">
+            <span class="pos-insight-cluster-label">Technique understanding</span>
+          </div>
+          <div class="pos-insight-cluster">
+            <span class="pos-insight-cluster-label">Community knowledge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="content-source-group">
+      <div class="stakeholder-quote">
+        <span class="stakeholder-quote-label">We Also asked</span>
+        <p>"Where Does the Content Come From?"</p>
+      </div>
+      <p class="section-intro">For MVP, content comes from three layers:</p>
+      <div class="insights-grid insights-grid--3col">
+        <div class="insight-card">
+          <p><em>Curated seed database</em>: a small internal recipe library, region-tagged (Japanese / Korean / Caribbean) and technique-tagged (knife style, fermentation, spice layering).</p>
+        </div>
+        <div class="insight-card">
+          <p><em>Community contributions</em>: variations, techniques, flavor swaps, and cultural notes added by users.</p>
+        </div>
+        <div class="insight-card">
+          <p><em>Existing social data</em>: Instagram / TikTok inspiration, not the content itself but the signal. AI clusters trends, identifies cultural lineage, and connects dishes to context.</p>
+        </div>
+      </div>
+    </div>
+
+    <span class="sub-tag">The Real Problem We're Solving</span>
+    <div class="pivot-grid">
+      <div class="pivot-card pivot-before">
+        <span class="pivot-col-label">Not just</span>
+        <p class="pivot-statement">"People want new recipes."</p>
+      </div>
+      <div class="pivot-card pivot-after">
+        <span class="pivot-col-label">But</span>
+        <p class="pivot-quote">People want new food experiences, with meaning.</p>
+      </div>
+    </div>
+
+    <span class="sub-tag">Core User Pain (from Persona)</span>
+    <div class="framing-pain-grid">
+      <div class="framing-pain-card">
+        <h4>Functional Pain</h4>
+        <ul class="dot-list">
+          <li>Doesn't know where to source ingredients</li>
+          <li>Recipes lack execution clarity</li>
+          <li>Platforms are fragmented</li>
+        </ul>
+      </div>
+      <div class="framing-pain-card">
+        <h4>Emotional Pain</h4>
+        <ul class="dot-list">
+          <li>Feels like she's missing the "why"</li>
+          <li>Wants authenticity without gatekeeping</li>
+          <li>Seeks novelty without randomness</li>
+        </ul>
+      </div>
+      <div class="framing-pain-card">
+        <h4>Motivations</h4>
+        <ul class="dot-list">
+          <li>Curiosity</li>
+          <li>Mastery</li>
+          <li>Sensory discovery</li>
+        </ul>
+      </div>
+    </div>
+
+    <span class="sub-tag">What Makes COOKA Different?</span>
+    <p class="section-intro">COOKA introduces <strong>Recipe Clusters</strong>: contextual exploration in place of random inspiration.</p>
+    <div class="pivot-grid">
+      <div class="pivot-card pivot-before">
+        <span class="pivot-col-label">Instead of</span>
+        <p class="pivot-statement">Random inspiration</p>
+      </div>
+      <div class="pivot-card pivot-after">
+        <span class="pivot-col-label">You get</span>
+        <p class="pivot-quote">Contextual exploration</p>
+      </div>
+    </div>
+    <div class="cluster-example">
+      <div class="cluster-example-tap">
+        <span class="cluster-example-label">User taps<br>"Korean Comfort Food"</span>
+      </div>
+      <span class="cluster-example-arrow" aria-hidden="true">→</span>
+      <ul class="dot-list cluster-example-list">
+        <li>5 core dishes</li>
+        <li>Technique notes</li>
+        <li>Flavor variations</li>
+        <li>Ingredient sourcing tips</li>
+        <li>Community insights</li>
+      </ul>
+    </div>
+
+    <span class="sub-tag">Ingredient Layer</span>
+    <div class="insights-grid">
+      <div class="insight-card">
+        <p><em>Substitutions</em>: flagging what can be swapped without losing the dish's character.</p>
+      </div>
+      <div class="insight-card">
+        <p><em>Where to find</em>: pointing to where harder-to-source ingredients are actually available.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 06 MARKET ANALYSIS ── -->
+  <section class="cs-section" id="market-analysis">
+    <span class="cs-tag">06 &nbsp;·&nbsp; Market Analysis</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg is-active" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label">Discover</span>
+        <span class="dd-label is-active" aria-current="step">Define</span>
+        <span class="dd-label">Develop</span>
+        <span class="dd-label">Deliver</span>
+      </div>
+    </div>
+    <h2 class="cs-h2">Sizing the opportunity.</h2>
+    <p class="section-intro">Alongside the qualitative research, we sized the market to make sure this wasn't just a personal itch: that demand for authentic, culturally-grounded cooking content is real, and growing.</p>
+
+    <span class="sub-tag">Market Opportunity (TAM / SAM / SOM)</span>
+    <div class="market-grid">
+      <div class="market-card">
+        <span class="market-card-label">TAM</span>
+        <span class="market-card-num">$32B+</span>
+        <p>Total addressable market for cultural food discovery and cooking content, globally.</p>
+      </div>
+      <div class="market-card">
+        <span class="market-card-label">SAM</span>
+        <span class="market-card-num">$9B to $10B</span>
+        <p>Digital cooking consumers in North America, Europe &amp; Australia who value cultural heritage content.</p>
+      </div>
+      <div class="market-card">
+        <span class="market-card-label">SOM</span>
+        <span class="market-card-num">10K to 400K users</span>
+        <p>Urban North America: expats and culturally curious home cooks (Years 1 to 2).</p>
+      </div>
     </div>
 
     <div class="process-photo">
       <img src="brand_assests/Maket Analysis.JPG" alt="Market analysis presentation" />
-      <p class="photo-caption">Presenting the market analysis — a $32B+ TAM with strong cultural food discovery demand globally.</p>
+      <p class="photo-caption">Presenting the market analysis: a $32B+ TAM with strong cultural food discovery demand globally.</p>
     </div>
 
-    <blockquote class="pull-quote">
-      "I wish I could recreate the soup I had in South Korea, but I wouldn't know where to start."
-    </blockquote>
-  </section>
-
-  <!-- ── 03 INSIGHTS ── -->
-  <section class="cs-section cs-section--alt" id="insights">
-    <span class="cs-tag">03 &nbsp;·&nbsp; Insights</span>
-    <h2 class="cs-h2">What the research actually told us.</h2>
-
-    <div class="insights-grid">
-      <div class="insight-card">
-        <span class="insight-stat">6–10</span>
-        <p>user interviews conducted to explore culinary routines and discover patterns in repetitive meal behaviour.</p>
-      </div>
-      <div class="insight-card">
-        <span class="insight-stat">↑</span>
-        <p>Strong desire to explore specific cultural contexts — connections ran deeper than just ingredients and recipes.</p>
-      </div>
-      <div class="insight-card">
-        <span class="insight-stat">↓</span>
-        <p>Recipe content is overwhelming. Users want support, inspiration, and narrative — not just step-by-step instructions.</p>
-      </div>
-      <div class="insight-card">
-        <span class="insight-stat">→</span>
-        <p>People want curated content and a sense of place — they want to <em>go somewhere</em> through food.</p>
+    <div class="contribution-row">
+      <div class="contribution-block contribution-card">
+        <span class="contribution-mark" aria-hidden="true">&rdquo;</span>
+        <span class="contribution-label">How We Framed It</span>
+        <p>Using the TAM-SAM-SOM framework from Aulet's Disciplined Entrepreneurship, we sized the opportunity. The total addressable market is huge: over thirty-two billion dollars in digital cooking resources. Our serviceable addressable market narrows that to people in developed markets who actively value cultural content: roughly nine to ten billion. And our realistic obtainable market for early traction is focused: urban centres in North America, particularly Vancouver and Toronto, targeting expats and culturally curious home cooks. We're starting focused and expanding from there.</p>
       </div>
     </div>
+
+    <p class="section-intro">This lines up with what we found in the competitive landscape earlier: most existing platforms optimize for either convenience or education, rarely both. That gap is exactly where COOKA sits: <strong>high educational value, deeply culturally curated.</strong></p>
   </section>
 
-  <!-- ── 04 THE PIVOT ── -->
+  <!-- ── 07 THE PIVOT ── -->
   <section class="cs-section" id="pivot">
-    <span class="cs-tag">04 &nbsp;·&nbsp; The Pivot</span>
+    <span class="cs-tag">07 &nbsp;·&nbsp; The Pivot</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg is-active" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label">Discover</span>
+        <span class="dd-label is-active" aria-current="step">Define</span>
+        <span class="dd-label">Develop</span>
+        <span class="dd-label">Deliver</span>
+      </div>
+    </div>
     <h2 class="pivot-title">The Pivot.</h2>
+    <p class="pivot-subtitle">Original problem statement vs. refined problem statement</p>
+
+    <div class="pivot-grid pivot-grid--statement">
+      <div class="pivot-card pivot-before">
+        <span class="pivot-col-label">Original problem statement</span>
+        <p class="pivot-statement">Home cooks are bored with eating the same food, they feel emotionally disconnected from their meals, and existing recipes sources prioritize quick recipes over cultural context, storytelling, and authenticity.</p>
+      </div>
+      <div class="pivot-card pivot-after">
+        <span class="pivot-col-label">Refined problem statement</span>
+        <p class="pivot-quote">Home cooks are outgrowing traditional recipe sources,
+they want an immersive gateway into the world's kitchens.</p>
+      </div>
+    </div>
+
     <p class="pivot-subtitle">Initial direction vs. where research took us</p>
 
     <div class="pivot-grid">
       <div class="pivot-card pivot-before">
         <span class="pivot-col-label">Initial direction</span>
-        <ul>
-          <li>Recipe organisation and smart bookmarking</li>
-          <li>Personalised dietary filters and preferences</li>
-          <li>Curated weekly meal planning tools</li>
-          <li>Shopping list and pantry integration</li>
-        </ul>
+        <p class="pivot-statement">People want to connect with their own culture through food that feels authentic to their palate.</p>
       </div>
       <div class="pivot-card pivot-after">
         <span class="pivot-col-label">Where research took us</span>
@@ -223,102 +814,294 @@
 
     <div class="decision-box">
       <span class="decision-label">Decision Point</span>
-      <p>Build an app that takes users on a culinary journey — not just a recipe library. Introduce different cultures and create connection through food. The shift was from utility to identity.</p>
+      <p>Build an app that takes users on a culinary journey, not just a recipe library. Introduce different cultures and create connection through food.</p>
     </div>
   </section>
 
-  <!-- ── 05 USER FLOW ── -->
+  <!-- ── 08 USER FLOW ── -->
   <section class="cs-section" id="user-flow">
-    <span class="cs-tag">05 &nbsp;·&nbsp; User Flow</span>
+    <span class="cs-tag">08 &nbsp;·&nbsp; User Flow</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg is-active" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label">Discover</span>
+        <span class="dd-label">Define</span>
+        <span class="dd-label is-active" aria-current="step">Develop</span>
+        <span class="dd-label">Deliver</span>
+      </div>
+    </div>
     <h2 class="cs-h2">Mapping the user journey.</h2>
-    <p class="section-intro">We mapped how users would navigate the app — from landing on a country to completing a recipe. The goal was to design a journey, not a search engine.</p>
+    <p class="section-intro">We put the main features on post it notes and roughed in the overall architecture on the whiteboard to define the information architecture. From there, we mapped the user flow in Figma, translating the information architecture into the step-by-step paths users would take through the app.</p>
 
-    <div class="process-photo process-photo--full">
-      <img src="brand_assests/UserFlow.png" alt="User flow whiteboard sketches" />
-      <p class="photo-caption">Early-stage user flow sketched on the whiteboard — mapping discovery paths from country exploration through to recipe completion.</p>
+    <span class="sub-tag">Information Architecture</span>
+    <div class="process-photo process-photo--contained">
+      <img src="brand_assests/COOKASiteMap.png" alt="Information architecture of the COOKA app" />
     </div>
 
-    <div class="flow-diagram">
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">01</span>
-        <span class="flow-step-label">Explore<br>Region</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">02</span>
-        <span class="flow-step-label">Read<br>Story</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">03</span>
-        <span class="flow-step-label">Find<br>Recipe</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">04</span>
-        <span class="flow-step-label">Gather<br>Ingredients</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-dot"></div>
-        <span class="flow-step-num">05</span>
-        <span class="flow-step-label">Cook<br>&amp; Share</span>
+    <span class="sub-tag">User Flow Mapping</span>
+    <div class="process-photo process-photo--contained">
+      <img src="brand_assests/COOKA User Flow Postit.png" alt="User flow mapping diagram" />
+    </div>
+
+    <span class="sub-tag">User Flow - MVP Features</span>
+    <div class="field-visit-marquee field-visit-marquee--userflow">
+      <div class="field-visit-track">
+        <figure class="field-visit-item">
+          <img src="brand_assests/COOKAUserFLowDiscovery.png" alt="User flow: discovery" />
+          <figcaption>Discovery</figcaption>
+        </figure>
+        <figure class="field-visit-item">
+          <img src="brand_assests/COOKAUserFlowRecipeExploration.png" alt="User flow: recipe exploration" />
+          <figcaption>Recipe exploration</figcaption>
+        </figure>
+        <figure class="field-visit-item">
+          <img src="brand_assests/COOKAUserFLowCooking&Retention.png" alt="User flow: cooking and retention" />
+          <figcaption>Cooking &amp; retention</figcaption>
+        </figure>
+        <figure class="field-visit-item" aria-hidden="true">
+          <img src="brand_assests/COOKAUserFLowDiscovery.png" alt="" />
+          <figcaption>Discovery</figcaption>
+        </figure>
+        <figure class="field-visit-item" aria-hidden="true">
+          <img src="brand_assests/COOKAUserFlowRecipeExploration.png" alt="" />
+          <figcaption>Recipe exploration</figcaption>
+        </figure>
+        <figure class="field-visit-item" aria-hidden="true">
+          <img src="brand_assests/COOKAUserFLowCooking&Retention.png" alt="" />
+          <figcaption>Cooking &amp; retention</figcaption>
+        </figure>
       </div>
     </div>
+
   </section>
 
-  <!-- ── 06 BRAND IDENTITY ── -->
-  <section class="cs-section cs-section--alt" id="brand">
-    <span class="cs-tag">06 &nbsp;·&nbsp; Brand Identity</span>
+  <!-- ── 09 BRAND IDENTITY ── -->
+  <section class="cs-section" id="brand">
+    <span class="cs-tag">09 &nbsp;·&nbsp; Brand Identity</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg is-active" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label">Discover</span>
+        <span class="dd-label">Define</span>
+        <span class="dd-label is-active" aria-current="step">Develop</span>
+        <span class="dd-label">Deliver</span>
+      </div>
+    </div>
     <h2 class="cs-h2">A brand rooted in warmth and culture.</h2>
 
-    <img src="brand_assests/brand-identity.png" alt="Cooka brand identity — logo, icons, and colour system" class="cs-full-img" />
+    <img src="brand_assests/COOKa Branding.png" alt="Cooka brand identity: logo, icons, and colour system" class="cs-full-img" />
+    <img src="brand_assests/Cooka brand color.png" alt="Cooka brand colour palette" class="cs-full-img" />
+    <img src="brand_assests/Cooka logo+icon.png" alt="Cooka logo and icon set" class="cs-full-img" />
+    <img src="brand_assests/cooka typography.png" alt="Cooka typography system" class="cs-full-img" />
   </section>
 
-  <!-- ── 07 WIREFRAMES ── -->
+  <!-- ── 10 WIREFRAMES ── -->
   <section class="cs-section" id="wireframes">
-    <span class="cs-tag">07 &nbsp;·&nbsp; Wireframes</span>
-    <h2 class="cs-h2">From sketch to screen.</h2>
-    <p class="section-intro">We started with low-fidelity sketches before moving into Figma. The wireframes focused on content hierarchy — making sure culture and story came before ingredients and steps.</p>
-
-    <div class="wireframe-split">
-      <div class="wireframe-photo">
-        <img src="brand_assests/Design Process2.JPG" alt="Wireframe sketches on whiteboard" />
+    <span class="cs-tag">10 &nbsp;·&nbsp; Wireframes</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg is-active" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label">Discover</span>
+        <span class="dd-label">Define</span>
+        <span class="dd-label is-active" aria-current="step">Develop</span>
+        <span class="dd-label">Deliver</span>
       </div>
-      <div class="wireframe-notes">
-        <div class="wireframe-note">
-          <span class="note-tag">Navigation</span>
-          <p>Explore, Saved, Shopping List and Profile — keeping discovery always one tap away.</p>
-        </div>
-        <div class="wireframe-note">
-          <span class="note-tag">Content Hierarchy</span>
-          <p>Article and cultural story first, then recipe steps. Narrative precedes instruction.</p>
-        </div>
-        <div class="wireframe-note">
-          <span class="note-tag">Region Hub</span>
-          <p>Each country has its own editorial hub — articles, street food spots and featured recipes.</p>
-        </div>
-        <div class="wireframe-note">
-          <span class="note-tag">Discovery Feed</span>
-          <p>Personalised based on prior exploration history, not just dietary preferences.</p>
+    </div>
+    <h2 class="cs-h2">From sketch to screen.</h2>
+    <p class="section-intro">We started with low-fidelity sketches before moving into Figma. The wireframes explored three key areas: <strong>recipe discovery, the cooking experience, and cultural learning.</strong> As a team, we iterated on different ways to solve each challenge and shape the overall experience.</p>
+
+    <span class="sub-tag">What we focused on</span>
+    <div class="pos-insight-clusters wireframe-focus-cards">
+      <div class="pos-insight-cluster">
+        <span class="pos-insight-cluster-label">Recipe Discovery</span>
+        <p>Exploration by region + finding recipes.</p>
+      </div>
+      <div class="pos-insight-cluster">
+        <span class="pos-insight-cluster-label">Recipe Experience</span>
+        <p>Recipe details + cooking steps.</p>
+      </div>
+      <div class="pos-insight-cluster">
+        <span class="pos-insight-cluster-label">Learning</span>
+        <p>Cultural/contextual learning around the recipe.</p>
+      </div>
+    </div>
+
+    <div class="wireframe-focus-photo">
+      <img src="brand_assests/Wireframing.jpg" alt="Wireframe sketches on whiteboard" class="wireframe-focus-img" />
+    </div>
+
+    <div class="wireframe-screens-groups">
+      <div class="field-visit-marquee field-visit-marquee--wireframe field-visit-marquee--wireframe-all">
+        <div class="field-visit-track">
+          <div class="field-visit-group field-visit-group--discovery">
+            <span class="sub-tag field-visit-group-label">Recipe Discovery</span>
+            <div class="field-visit-group-images">
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Recipe Discovery-tight.png" alt="Wireframe: recipe discovery screen" />
+                <figcaption>Recipe Discovery</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Map view:Region Discovery-tight.png" alt="Wireframe: map view for region discovery" />
+                <figcaption>Map View: Region Discovery</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Map view:Region Discovery2-tight.png" alt="Wireframe: map view for region discovery, alternate" />
+                <figcaption>Map View: Region Discovery (Alt)</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="field-visit-group field-visit-group--experience">
+            <span class="sub-tag field-visit-group-label">Recipe Experience</span>
+            <div class="field-visit-group-images">
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Recipe Experience-tight.png" alt="Wireframe: recipe experience screen" />
+                <figcaption>Recipe Experience</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Recipe Detail-tight.png" alt="Wireframe: recipe detail screen" />
+                <figcaption>Recipe Detail</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Recipe Detail2-tight.png" alt="Wireframe: recipe detail screen, alternate" />
+                <figcaption>Recipe Detail (Alt)</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="field-visit-group field-visit-group--learning">
+            <span class="sub-tag field-visit-group-label">Learning</span>
+            <div class="field-visit-group-images">
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Learning Discovery-tight.png" alt="Wireframe: learning discovery screen" />
+                <figcaption>Learning Discovery</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Learning1-tight.png" alt="Wireframe: learning detail page screen" />
+                <figcaption>Learning Detail Page</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Reading-tight.png" alt="Wireframe: audio integration screen" />
+                <figcaption>Audio Integration</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="field-visit-group field-visit-group--discovery" aria-hidden="true">
+            <span class="sub-tag field-visit-group-label">Recipe Discovery</span>
+            <div class="field-visit-group-images">
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Recipe Discovery-tight.png" alt="" />
+                <figcaption>Recipe Discovery</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Map view:Region Discovery-tight.png" alt="" />
+                <figcaption>Map View: Region Discovery</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Map view:Region Discovery2-tight.png" alt="" />
+                <figcaption>Map View: Region Discovery (Alt)</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="field-visit-group field-visit-group--experience" aria-hidden="true">
+            <span class="sub-tag field-visit-group-label">Recipe Experience</span>
+            <div class="field-visit-group-images">
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Recipe Experience-tight.png" alt="" />
+                <figcaption>Recipe Experience</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Recipe Detail-tight.png" alt="" />
+                <figcaption>Recipe Detail</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Recipe Detail2-tight.png" alt="" />
+                <figcaption>Recipe Detail (Alt)</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="field-visit-group field-visit-group--learning" aria-hidden="true">
+            <span class="sub-tag field-visit-group-label">Learning</span>
+            <div class="field-visit-group-images">
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Learning Discovery-tight.png" alt="" />
+                <figcaption>Learning Discovery</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Learning1-tight.png" alt="" />
+                <figcaption>Learning Detail Page</figcaption>
+              </figure>
+              <figure class="field-visit-item">
+                <img src="brand_assests/COOKA Reading-tight.png" alt="" />
+                <figcaption>Audio Integration</figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 08 PROTOTYPE ── -->
+  <!-- ── 11 PROTOTYPE ── -->
   <section class="cs-section cs-section--alt" id="prototype">
-    <span class="cs-tag">08 &nbsp;·&nbsp; Prototype</span>
+    <span class="cs-tag">11 &nbsp;·&nbsp; Prototype</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg is-active" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label">Discover</span>
+        <span class="dd-label">Define</span>
+        <span class="dd-label">Develop</span>
+        <span class="dd-label is-active" aria-current="step">Deliver</span>
+      </div>
+    </div>
     <h2 class="cs-h2">The hi-fi prototype.</h2>
     <p class="section-intro">After multiple rounds of usability testing and heuristic evaluation, we landed on a high-fidelity prototype that brings the cultural journey to life.</p>
 
+    <div class="wireframe-notes">
+      <div class="wireframe-note">
+        <span class="note-tag">Navigation</span>
+        <p>Explore, Saved, Shopping List and Profile, keeping discovery always one tap away.</p>
+      </div>
+      <div class="wireframe-note">
+        <span class="note-tag">Content Hierarchy</span>
+        <p>Article and cultural story first, then recipe steps. Narrative precedes instruction.</p>
+      </div>
+      <div class="wireframe-note">
+        <span class="note-tag">Region Hub</span>
+        <p>Each country has its own editorial hub: articles, street food spots and featured recipes.</p>
+      </div>
+      <div class="wireframe-note">
+        <span class="note-tag">Discovery Feed</span>
+        <p>Personalised based on prior exploration history, not just dietary preferences.</p>
+      </div>
+    </div>
+
     <div class="proto-layout">
       <div class="proto-phone-col">
-        <img src="brand_assests/Home Screen.png" alt="App — Explore screen" class="proto-phone-img" />
+        <img src="brand_assests/Home Screen.png" alt="App: Explore screen" class="proto-phone-img" />
         <div class="proto-caption">
           <strong>Explore</strong>
           <p>Regional hubs featuring highlighted articles, street food, and guided recipe paths.</p>
@@ -330,7 +1113,7 @@
       </div>
 
       <div class="proto-phone-col">
-        <img src="brand_assests/Recipe INGREDIENTS HIFI - Default.png" alt="App — Recipes screen" class="proto-phone-img" />
+        <img src="brand_assests/Recipe INGREDIENTS HIFI - Default.png" alt="App: Recipes screen" class="proto-phone-img" />
         <div class="proto-caption">
           <strong>Recipes</strong>
           <p>Newest and most popular recipes surfaced by region, with cultural context throughout.</p>
@@ -339,9 +1122,23 @@
     </div>
   </section>
 
-  <!-- ── 09 SOLUTION ── -->
+  <!-- ── 12 SOLUTION ── -->
   <section class="cs-section" id="solution">
-    <span class="cs-tag">09 &nbsp;·&nbsp; Solution</span>
+    <span class="cs-tag">12 &nbsp;·&nbsp; Solution</span>
+    <div class="dd-indicator">
+      <svg class="dd-diagram" viewBox="0 0 220 44" aria-hidden="true">
+        <polygon class="dd-seg" points="0,22 55,6 55,38" />
+        <polygon class="dd-seg" points="55,6 110,22 55,38" />
+        <polygon class="dd-seg" points="110,22 165,6 165,38" />
+        <polygon class="dd-seg is-active" points="165,6 220,22 165,38" />
+      </svg>
+      <div class="dd-labels">
+        <span class="dd-label">Discover</span>
+        <span class="dd-label">Define</span>
+        <span class="dd-label">Develop</span>
+        <span class="dd-label is-active" aria-current="step">Deliver</span>
+      </div>
+    </div>
     <h2 class="cs-h2">The Solution.</h2>
 
     <div class="solution-grid">
@@ -368,15 +1165,15 @@
     </div>
   </section>
 
-  <!-- ── 10 REFLECTION ── -->
+  <!-- ── 13 REFLECTION ── -->
   <section class="cs-section cs-section--alt" id="reflection">
-    <span class="cs-tag">10 &nbsp;·&nbsp; Reflection</span>
+    <span class="cs-tag">13 &nbsp;·&nbsp; Reflection</span>
     <h2 class="cs-h2">What I'd do differently.</h2>
 
     <div class="reflection-grid">
       <div class="reflection-card">
         <span class="reflection-label">More User Testing</span>
-        <p>We would have benefitted from recruiting a more diverse set of users — particularly people who had migrated and had deep emotional connections to specific cuisines.</p>
+        <p>We would have benefitted from recruiting a more diverse set of users, particularly people who had migrated and had deep emotional connections to specific cuisines.</p>
       </div>
       <div class="reflection-card">
         <span class="reflection-label">Earlier Prototyping</span>
@@ -384,38 +1181,51 @@
       </div>
       <div class="reflection-card">
         <span class="reflection-label">Content Strategy</span>
-        <p>The editorial content model needed more definition early on — how cultural articles and recipes relate to each other at scale required clearer structure.</p>
+        <p>The editorial content model needed more definition early on: how cultural articles and recipes relate to each other at scale required clearer structure.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
-  <footer class="cs-footer">
-    <div class="footer-item">
-      <span>Vancouver, Canada</span>
+  <!-- ── OTHER PROJECTS ── -->
+  <section class="cs-section other-projects" id="other-projects">
+    <span class="cs-tag">View Other Projects</span>
+    <div class="other-projects-grid">
+      <a href="./blink-box-case-study.html" class="other-project-card">
+        <img src="./brand_assests/Boxdex Cover Image.png" alt="Blink Box Tracking App cover" class="other-project-cover" />
+        <div class="other-project-body">
+          <span class="other-project-eyebrow">Mobile App</span>
+          <h3 class="other-project-title">Blink Box Tracking App</h3>
+          <p class="other-project-blurb">Track, trade and show your blind box collection effortlessly.</p>
+        </div>
+      </a>
+      <a href="./monetization-case-study.html" class="other-project-card">
+        <img src="./brand_assests/Home_Page01.png" alt="Monetization Transparency Research cover" class="other-project-cover" />
+        <div class="other-project-body">
+          <span class="other-project-eyebrow">Web Redesign</span>
+          <h3 class="other-project-title">Monetization Transparency Research</h3>
+          <p class="other-project-blurb">Untangling how monetization choices shape user trust.</p>
+        </div>
+      </a>
     </div>
-    <div class="footer-item">
-      <span>Let's build together</span>
-    </div>
-    <div class="footer-item">
-      <span>©2026 Xirui Hu</span>
-    </div>
-  </footer>
+  </section>
 
   </div>
 
   <!-- ── TOC SIDEBAR ── -->
   <nav class="toc-sidebar" aria-label="Page outline">
-    <a href="#problem"    class="toc-item"><span class="toc-num">01</span><span class="toc-label">Problem</span></a>
-    <a href="#research"   class="toc-item"><span class="toc-num">02</span><span class="toc-label">Research</span></a>
-    <a href="#insights"   class="toc-item"><span class="toc-num">03</span><span class="toc-label">Insights</span></a>
-    <a href="#pivot"      class="toc-item"><span class="toc-num">04</span><span class="toc-label">The Pivot</span></a>
-    <a href="#user-flow"  class="toc-item"><span class="toc-num">05</span><span class="toc-label">User Flow</span></a>
-    <a href="#brand"      class="toc-item"><span class="toc-num">06</span><span class="toc-label">Brand</span></a>
-    <a href="#wireframes" class="toc-item"><span class="toc-num">07</span><span class="toc-label">Wireframes</span></a>
-    <a href="#prototype"  class="toc-item"><span class="toc-num">08</span><span class="toc-label">Prototype</span></a>
-    <a href="#solution"   class="toc-item"><span class="toc-num">09</span><span class="toc-label">Solution</span></a>
-    <a href="#reflection" class="toc-item"><span class="toc-num">10</span><span class="toc-label">Reflection</span></a>
+    <a href="#problem"            class="toc-item"><span class="toc-num">01</span><span class="toc-label">Problem</span></a>
+    <a href="#research"           class="toc-item"><span class="toc-num">02</span><span class="toc-label">Research</span></a>
+    <a href="#interviews-surveys" class="toc-item"><span class="toc-num">03</span><span class="toc-label">Interviews &amp; Surveys</span></a>
+    <a href="#insights"           class="toc-item"><span class="toc-num">04</span><span class="toc-label">Synthesis</span></a>
+    <a href="#empathy-mapping"    class="toc-item"><span class="toc-num">05</span><span class="toc-label">Making Sense of Our Findings</span></a>
+    <a href="#market-analysis"    class="toc-item"><span class="toc-num">06</span><span class="toc-label">Market Analysis</span></a>
+    <a href="#pivot"              class="toc-item"><span class="toc-num">07</span><span class="toc-label">The Pivot</span></a>
+    <a href="#user-flow"          class="toc-item"><span class="toc-num">08</span><span class="toc-label">User Flow</span></a>
+    <a href="#brand"              class="toc-item"><span class="toc-num">09</span><span class="toc-label">Brand</span></a>
+    <a href="#wireframes"         class="toc-item"><span class="toc-num">10</span><span class="toc-label">Wireframes</span></a>
+    <a href="#prototype"          class="toc-item"><span class="toc-num">11</span><span class="toc-label">Prototype</span></a>
+    <a href="#solution"           class="toc-item"><span class="toc-num">12</span><span class="toc-label">Solution</span></a>
+    <a href="#reflection"         class="toc-item"><span class="toc-num">13</span><span class="toc-label">Reflection</span></a>
   </nav>
 
   </div>
@@ -431,7 +1241,7 @@
       }
 
       const tocItems = document.querySelectorAll('.toc-item');
-      const sectionIds = ['problem','research','insights','pivot','user-flow','brand','wireframes','prototype','solution','reflection'];
+      const sectionIds = ['problem','research','interviews-surveys','insights','empathy-mapping','market-analysis','pivot','user-flow','brand','wireframes','prototype','solution','reflection'];
       const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
       function update() {
@@ -456,7 +1266,28 @@
         }, { threshold: 0 });
         heroObserver.observe(hero);
       }
+
+      // Subsection reveal — each direct child of a .cs-section fades/slides
+      // in the first time it's scrolled into view, so a section's content
+      // surfaces piece by piece rather than all at once.
+      const revealSelector = '.cs-section > *, .research-board > *, .research-row > *';
+      if ('IntersectionObserver' in window) {
+        const revealTargets = document.querySelectorAll(revealSelector);
+        const revealObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+        revealTargets.forEach(el => revealObserver.observe(el));
+      } else {
+        document.querySelectorAll(revealSelector).forEach(el => el.classList.add('is-revealed'));
+      }
     })();
   </script>
+  <script src="lightbox.js"></script>
+  <script src="page-transitions.js"></script>
 </body>
 </html>

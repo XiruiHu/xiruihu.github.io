@@ -257,6 +257,87 @@ function initHeroOrder() {
   label.addEventListener('click', () => scrollToEl(menu));
 }
 
+// ── About: bowl of tool logos — scattered on load, draggable within
+// the oval afterward (clamped to the ellipse, not just its box) ──
+function initToolsBowl() {
+  const bowl = document.getElementById('tools-bowl');
+  if (!bowl) return;
+  const chips = Array.from(bowl.querySelectorAll('.tool-chip'));
+  if (!chips.length) return;
+
+  let scattered = false;
+
+  function ellipseClamp(xPct, yPct, chip) {
+    const rect = bowl.getBoundingClientRect();
+    if (!rect.width || !rect.height) return [xPct, yPct];
+    const rx = 50 - (chip.offsetWidth  / 2 / rect.width)  * 100;
+    const ry = 50 - (chip.offsetHeight / 2 / rect.height) * 100;
+    const dx = xPct - 50, dy = yPct - 50;
+    const norm = Math.sqrt((dx * dx) / (rx * rx) + (dy * dy) / (ry * ry));
+    if (norm > 1) {
+      xPct = 50 + dx / norm;
+      yPct = 50 + dy / norm;
+    }
+    return [xPct, yPct];
+  }
+
+  function place(chip, xPct, yPct) {
+    chip.style.left = xPct + '%';
+    chip.style.top  = yPct + '%';
+  }
+
+  function randomScatter() {
+    const rect = bowl.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    chips.forEach(chip => {
+      const angle = Math.random() * Math.PI * 2;
+      const r     = Math.sqrt(Math.random()) * 0.85;
+      let xPct = 50 + Math.cos(angle) * r * 42;
+      let yPct = 50 + Math.sin(angle) * r * 42;
+      [xPct, yPct] = ellipseClamp(xPct, yPct, chip);
+      place(chip, xPct, yPct);
+    });
+    scattered = true;
+  }
+
+  randomScatter();
+
+  // the bowl is hidden (display:none) below the desktop breakpoint, so
+  // it has no size to scatter into until it first becomes visible
+  const mq = window.matchMedia('(min-width: 768px)');
+  const tryScatter = () => { if (!scattered) randomScatter(); };
+  mq.addEventListener('change', tryScatter);
+  window.addEventListener('load', tryScatter);
+
+  let active = null, offsetX = 0, offsetY = 0;
+
+  chips.forEach(chip => {
+    chip.addEventListener('pointerdown', (e) => {
+      active = chip;
+      chip.setPointerCapture(e.pointerId);
+      chip.classList.add('is-dragging');
+      const chipRect = chip.getBoundingClientRect();
+      offsetX = e.clientX - (chipRect.left + chipRect.width  / 2);
+      offsetY = e.clientY - (chipRect.top  + chipRect.height / 2);
+      e.preventDefault();
+    });
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (!active) return;
+    const rect = bowl.getBoundingClientRect();
+    let xPct = ((e.clientX - offsetX - rect.left) / rect.width)  * 100;
+    let yPct = ((e.clientY - offsetY - rect.top)  / rect.height) * 100;
+    [xPct, yPct] = ellipseClamp(xPct, yPct, active);
+    place(active, xPct, yPct);
+  });
+
+  window.addEventListener('pointerup', () => {
+    if (active) active.classList.remove('is-dragging');
+    active = null;
+  });
+}
+
 // ── Init ──────────────────────────────────────────────────────
 buildNav();
 
@@ -271,3 +352,4 @@ initHamburger();
 initFooter();
 initNavLinks();
 initHeroOrder();
+initToolsBowl();

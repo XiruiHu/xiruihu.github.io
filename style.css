@@ -48,6 +48,38 @@ body {
 }
 #curtain-canvas { position: absolute; top: 0; left: 0; }
 
+/* ── PAGE TRANSITION VEIL (every page) ────────────────────────
+   a plain cream veil used for cross-page navigation. the reveal-on-
+   load fade is done as a pure CSS animation (fill-mode forwards) so
+   it works even if page-transitions.js fails to load — JS only adds
+   .is-covering right before navigating away, as an enhancement. index
+   .html opts out of the on-load reveal (no .veil-active on its body)
+   since its own bead curtain already covers that initial reveal. */
+#page-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #E6DACA;
+  opacity: 0;
+  pointer-events: none;
+}
+body.veil-active #page-veil {
+  animation: page-veil-reveal 0.5s ease forwards;
+}
+@keyframes page-veil-reveal {
+  0%   { opacity: 1; pointer-events: all; }
+  100% { opacity: 0; pointer-events: none; }
+}
+#page-veil.is-covering {
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.4s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.veil-active #page-veil { animation: none; opacity: 0; }
+  #page-veil.is-covering { transition: none; }
+}
+
 /* ── NAV ───────────────────────────────────────────────────── */
 #nav {
   position: fixed;
@@ -208,6 +240,161 @@ body {
 .hero-sticker       { left: 84.80%; top: 10.48vw; width:  7.94%; }
 .hero-table-r       { left: 72.23%; top: 15.28vw; width: 19.75%; }
 
+/* .hero-table-r is now a wrapper div (not an <img>) so the LinkedIn
+   sign can be its own hoverable layer on top of the plain table
+   illustration. it still inherits position/height/pointer-events:none
+   from .hero-img above — pointer-events is re-enabled only on the
+   hotspot itself below. */
+.hero-table-r-base { display: block; width: 100%; height: auto; }
+
+/* positioned to match exactly where the sign sits in the original
+   flattened illustration: bbox (163,51,381,415) on the 1310×1510
+   table canvas → 12.44% / 3.38% / 16.64% of the table image's box */
+.hero-linkedin-hotspot {
+  position: absolute;
+  left: 12.44%;
+  top: 3.38%;
+  width: 16.64%;
+  display: block;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 2;
+  text-decoration: none;
+}
+
+.hero-linkedin-hotspot img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 50% 100%;
+  animation: hero-linkedin-sway 7s ease-in-out infinite;
+}
+
+/* tiny idle sway — pivots from the base of the sign, like it's
+   wobbling on the table, to catch the eye before the visitor hovers.
+   the wiggle itself is a slow rock through the first ~2s of a 7s
+   cycle, then rests at 0deg until the next burst, so it reads as
+   intermittent rather than a constant back-and-forth. */
+@keyframes hero-linkedin-sway {
+  0%, 100% { transform: rotate(0deg); }
+  7%       { transform: rotate(-3deg); }
+  16%      { transform: rotate(3deg); }
+  23%      { transform: rotate(-3deg); }
+  29%      { transform: rotate(0deg); }
+}
+
+.hero-linkedin-hotspot:hover img,
+.hero-linkedin-hotspot:focus-visible img {
+  animation: hero-linkedin-hover-swing 0.5s ease-in-out;
+}
+
+/* a quick little swing on hover/focus, replacing the idle sway rather
+   than just freezing it flat — settles back upright once it's done. */
+@keyframes hero-linkedin-hover-swing {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-6deg); }
+  55%  { transform: rotate(5deg); }
+  80%  { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* glass-like glint — a single, slow diagonal streak of light drifting
+   across the sign, clipped to its own silhouette (via mask-image using
+   the same artwork) so it looks like a reflection catching the card
+   rather than a rectangle floating over it. a clip-path further limits
+   it to the rectangle of the card face itself (the top ~85.2% of the
+   asset, per the pixel scan of Linkedin2x@2x.png's alpha channel),
+   excluding the wooden base/stand below. one slow pass per cycle, then
+   it rests before the next one — never a continuous shimmer. */
+.hero-linkedin-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-mask-image: url('./brand_assests/Assets/Linkedin2x@2x.png');
+  mask-image: url('./brand_assests/Assets/Linkedin2x@2x.png');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-clip-path: inset(0 0 14.84% 0);
+  clip-path: inset(0 0 14.84% 0);
+  background: linear-gradient(115deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.55) 46%,
+    #fff 50%,
+    rgba(255, 255, 255, 0.55) 54%,
+    transparent 62%);
+  background-size: 300% 300%;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  animation: hero-linkedin-shine 10s linear infinite;
+}
+
+/* most of the travel range is "dead" (band fully off the sign, either
+   side) — those stretches are covered quickly so the time budget goes
+   into a slow, multi-second crawl through the part where the band is
+   actually crossing the artwork. the 50%->51% reset uses a step (not
+   linear) timing function, otherwise it interpolates backwards through
+   220%->-140% in 0.1s, which drags the band back across the visible
+   zone for an instant and reads as a twitch right as the sweep ends. */
+@keyframes hero-linkedin-shine {
+  0%          { background-position: -140% -140%; }
+  5%          { background-position:    0%    0%; }
+  45%         { background-position:   80%   80%; }
+  50%         { background-position:  220%  220%; animation-timing-function: step-end; }
+  51%, 100%   { background-position: -140% -140%; }
+}
+
+.hero-linkedin-hotspot:hover .hero-linkedin-shine,
+.hero-linkedin-hotspot:focus-visible .hero-linkedin-shine {
+  animation-play-state: paused;
+  background-position: -140% -140%;
+}
+
+.hero-linkedin-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: 10px;
+  transform: translate(-50%, 6px);
+  white-space: nowrap;
+  background: #b62824;
+  color: #FAEFE0;
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(9px, 0.78vw, 13px);
+  letter-spacing: 0.06em;
+  padding: 6px 12px;
+  border-radius: 3px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 3;
+}
+.hero-linkedin-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #b62824;
+}
+
+.hero-linkedin-hotspot:hover .hero-linkedin-tooltip,
+.hero-linkedin-hotspot:focus-visible .hero-linkedin-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-linkedin-hotspot img { animation: none; }
+  .hero-linkedin-shine { animation: none; background-position: -140% -140%; }
+}
+
 .hero-order-label {
   position: absolute;
   left: 50%;
@@ -216,7 +403,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 20px;
   cursor: pointer;
 }
 
@@ -250,7 +437,7 @@ body {
 .about-inner {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: calc(1200px - 40px);
   background: #E6DACA;
   border: 2px solid #b62824;
   padding: 36px 24px;
@@ -260,16 +447,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.about-eyebrow {
-  font-family: 'EB Garamond', serif;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.32em;
-  padding-left: 0.32em;
-  text-transform: uppercase;
-  color: rgba(182,40,36,0.55);
 }
 
 .about-title {
@@ -287,6 +464,100 @@ body {
   line-height: 1.65;
   color: #2A3A2A;
 }
+
+.about-header-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* a little bowl of tools sitting beside the intro copy — hidden on
+   mobile, there's no room for it there. the wrap holds both layers:
+   the oval opening (rim, on top) and the bowl body (behind, overlapping
+   the oval's lower half so the two read as one vessel). */
+.about-tools-bowl-wrap {
+  display: none;
+  position: relative;
+}
+
+.about-tools-bowl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.about-tools-bowl-rim {
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 239, 224, 0.35);
+  pointer-events: none;
+}
+
+.about-tools-bowl-body {
+  position: absolute;
+  top: 37.5%;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+.tool-chip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-family: 'EB Garamond', serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: #FAEFE0;
+  cursor: grab;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.2);
+  transform: translate(-50%, -50%);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: box-shadow 0.15s ease;
+}
+
+.tool-chip:hover { box-shadow: 0 6px 14px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.25); }
+
+.tool-chip.is-dragging {
+  cursor: grabbing;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  z-index: 5;
+  transition: none;
+}
+
+.tool-chip:focus-visible {
+  outline: 2px solid #FAEFE0;
+  outline-offset: 2px;
+}
+
+.tool-chip--figma { background: #FAEFE0; }
+.tool-chip--ae    { background: linear-gradient(160deg, #1F0A3C, #8B5CF6); }
+.tool-chip--code  { background: linear-gradient(160deg, #1c1c1c, #3a3a3a); font-family: 'Menlo', 'Courier New', monospace; font-size: 15px; }
+.tool-chip--ai    { background: linear-gradient(160deg, #3B1D0A, #FF7A18); }
+.tool-chip--ps    { background: linear-gradient(160deg, #001E36, #2AA9FF); }
 
 .about-cta {
   display: inline-block;
@@ -344,7 +615,9 @@ body {
 #menu {
   position: relative;
   z-index: 2;
-  padding: 72px 20px 60px;
+  padding-top: clamp(40px, 10vw, 120px);
+  padding-inline: 20px;
+  padding-bottom: 60px;
 }
 
 .menu-card {
@@ -357,7 +630,7 @@ body {
 .menu-row-special {
   background: #b62824;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   margin: 0 20px;
   padding: 20px;
@@ -373,29 +646,13 @@ body {
   z-index: 2;
 }
 
-.menu-cover-special {
-  flex: 0 0 34%;
-  width: 34%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  display: block;
-  margin: 24px 0 22px 20px;
-}
-
-.menu-special-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0 28px 0 28px;
-}
-
 .menu-today-header {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 14px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 24px 0 48px;
+  text-align: center;
 }
 
 .menu-today-label {
@@ -406,18 +663,24 @@ body {
   color: #FAEFE0;
 }
 
-.menu-today-underline {
+.menu-special-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu-cover-special {
   width: 100%;
-  height: 1px;
-  background: rgba(242,230,214,0.40);
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
 }
 
 .menu-special-bottom {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 4px 8px 20px;
 }
 
 .menu-project-body {
@@ -507,7 +770,12 @@ body {
   font-style: italic;
   font-size: 22px;
   color: #FAEFE0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
+
+.menu-price svg { display: block; flex-shrink: 0; }
 
 .menu-order-btn {
   background: #FAEFE0;
@@ -529,12 +797,12 @@ body {
 /* ── CHECKOUT ──────────────────────────────────────────────── */
 #checkout {
   position: relative;
-  padding: 0 20px 80px;
+  padding: 80px 20px 180px;
   overflow: visible;
 }
 
 .checkout-inner {
-  max-width: 1200px;
+  max-width: calc(1200px - 40px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -768,16 +1036,40 @@ body {
 
   /* About */
   #about { padding: 120px 40px 80px; }
-  .about-inner { padding: 64px 80px; }
+  .about-inner { padding: 64px 80px; max-width: calc(1200px - 160px); }
   .about-skills-grid { gap: 52px; }
   .about-body { font-size: 20px; }
   .about-skill-list li { font-size: 19px; }
 
+  .about-header-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .about-copy { flex: 1 1 60%; }
+  .about-tools-bowl-wrap {
+    display: block;
+    flex: 0 0 auto;
+    width: clamp(220px, 26vw, 300px);
+    aspect-ratio: 1 / 1;
+  }
+  .about-tools-bowl {
+    aspect-ratio: 4 / 3;
+    border-radius: 50%;
+    background: #b62824;
+    border: 3px solid #b62824;
+  }
+
   /* Menu */
-  #menu { padding: 120px 40px 80px; }
-  .menu-row-special { margin: 0 80px; padding: 36px; }
-  .menu-cover-special { flex: 0 0 34%; width: 34%; margin: 28px 0 24px 28px; }
-  .menu-special-text { padding: 0 36px 0 32px; }
+  #menu { padding-inline: 40px; padding-bottom: 80px; }
+  .menu-row-special {
+    margin: 0 80px;
+    padding: 36px;
+  }
+  .menu-special-content { flex-direction: row; align-items: stretch; gap: 40px; }
+  .menu-cover-special { flex: 0 0 55%; width: 55%; }
+  .menu-special-bottom { flex: 1; justify-content: space-between; min-width: 0; padding: 4px 0 4px; }
   .menu-row-special::before { inset: 16px; }
   .menu-row-divider { height: 72px; }
   .menu-row-side {
@@ -793,8 +1085,8 @@ body {
   }
 
   /* Checkout */
-  #checkout { padding: 0 40px 120px; }
-  .checkout-inner { flex-direction: row; align-items: stretch; gap: 60px; }
+  #checkout { padding: 120px 40px 240px; }
+  .checkout-inner { max-width: calc(1200px - 160px); flex-direction: row; align-items: stretch; gap: 60px; }
   .checkout-form-col { flex: 0 0 40%; }
   .checkout-field--last { margin-bottom: 40px; }
   .checkout-img-col { display: flex; flex: 1; align-items: stretch; }

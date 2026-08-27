@@ -10,7 +10,10 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="cooking-case-study.css" />
 </head>
-<body class="cs-theme-mono">
+<body class="cs-theme-mono veil-active">
+
+  <!-- ── PAGE TRANSITION VEIL ── -->
+  <div id="page-veil" aria-hidden="true"></div>
 
   <!-- ── NAV ── -->
   <nav class="cs-nav">
@@ -18,7 +21,10 @@
       <img src="./brand_assests/AaGuDianKeBenSongYouMoBan/NewNewNewLogo.png" alt="Xirui Hu" />
     </a>
     <span class="cs-nav-label">Monetization Transparency Research</span>
-    <a href="./index.html" class="cs-back">Exit</a>
+    <a href="./index.html?skipIntro=1" class="cs-back">
+      <span class="cs-back-en">Exit</span>
+      <span class="cs-back-cn">退出</span>
+    </a>
   </nav>
 
   <div class="cs-layout">
@@ -389,5 +395,6 @@
       update();
     })();
   </script>
+  <script src="page-transitions.js"></script>
 </body>
 </html>

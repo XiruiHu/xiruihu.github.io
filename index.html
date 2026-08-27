@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<!-- ── PAGE TRANSITION VEIL (outbound nav only — the bead curtain
+     below already handles this page's own reveal) ── -->
+<div id="page-veil" aria-hidden="true"></div>
+
 <!-- ── BEAD CURTAIN OVERLAY ── -->
 <div id="curtain-overlay">
   <canvas id="curtain-canvas"></canvas>
@@ -50,14 +54,31 @@
     <img class="hero-img hero-no-smoking"    src="./brand_assests/Assets/No%20Smoking%20Sign@2x.png"                         alt="" data-parallax="shrink">
     <img class="hero-img hero-table-l"       src="./brand_assests/Assets/Left%20Side%20Table%20and%20Chairs@2x.png"          alt="" data-parallax="shrink">
     <img class="hero-img hero-sticker"       src="./brand_assests/Assets/Portfolio%20Sticker@2x.png"                         alt="" data-parallax="shrink">
-    <img class="hero-img hero-table-r"       src="./brand_assests/Assets/Right%20side%20Table%20and%20Chairs@2x.png"         alt="" data-parallax="shrink">
+    <div class="hero-img hero-table-r" data-parallax="shrink">
+      <img class="hero-table-r-base" src="./brand_assests/Assets/right%20table2x@2x.png" alt="">
+      <a class="hero-linkedin-hotspot" href="https://www.linkedin.com/in/xirui-hu-185546170/" target="_blank" rel="noopener" aria-label="Connect with Xirui on LinkedIn">
+        <img class="hero-linkedin-sign" src="./brand_assests/Assets/Linkedin2x@2x.png" alt="">
+        <span class="hero-linkedin-shine" aria-hidden="true"></span>
+        <span class="hero-linkedin-tooltip">Connect on LinkedIn ↗</span>
+      </a>
+    </div>
 
     <div class="hero-order-label" id="hero-order">
       <span class="hero-order-text">Check out my UX menu</span>
       <span class="hero-arrow">
-        <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
-          <line x1="7" y1="0" x2="7" y2="15" stroke="#b62824" stroke-width="1.5" stroke-linecap="round"/>
-          <polyline points="2,10 7,16 12,10" fill="none" stroke="#b62824" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg width="18" height="26" viewBox="0 0 18 26" fill="none">
+          <!-- thread, echoing the bead-curtain strands -->
+          <line x1="9" y1="0"    x2="9" y2="1.4"  stroke="#2a1a18" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="9" y1="6.6"  x2="9" y2="9"    stroke="#2a1a18" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="9" y1="15"   x2="9" y2="16.5" stroke="#2a1a18" stroke-width="1.3" stroke-linecap="round"/>
+          <!-- bead 1 -->
+          <circle cx="9"    cy="4"    r="2.6"  fill="#b62824"/>
+          <circle cx="8.27" cy="3.27" r="0.73" fill="rgba(255,255,255,0.55)"/>
+          <!-- bead 2 -->
+          <circle cx="9"    cy="12"   r="3"    fill="#b62824"/>
+          <circle cx="8.16" cy="11.16" r="0.84" fill="rgba(255,255,255,0.55)"/>
+          <!-- chevron tip -->
+          <polyline points="5,17 9,24 13,17" fill="none" stroke="#b62824" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </span>
     </div>
@@ -71,12 +92,11 @@
 
     <!-- Row 1: Today's Special -->
     <div class="menu-row-special">
-      <img class="menu-cover-special" src="./brand_assests/Home_Page04.png" alt="Where Food Travels">
-      <div class="menu-special-text">
-        <div class="menu-today-header">
-          <div class="menu-today-label">TODAY'S SPECIAL</div>
-          <div class="menu-today-underline"></div>
-        </div>
+      <div class="menu-today-header">
+        <div class="menu-today-label">TODAY'S SPECIAL</div>
+      </div>
+      <div class="menu-special-content">
+        <img class="menu-cover-special" src="./brand_assests/COOKA New Cover.png" alt="Where Food Travels">
         <div class="menu-special-bottom">
           <div class="menu-project-body">
             <span class="menu-eyebrow">MOBILE APP</span>
@@ -84,8 +104,20 @@
             <p class="menu-blurb">Discover the origin stories of dishes around the world.</p>
           </div>
           <div class="menu-action-row">
-            <span class="menu-price">Free Sample →</span>
-            <a href="./cooking-case-study.html" class="menu-order-btn">View Ingredients</a>
+            <span class="menu-price">
+              Free Sample
+              <svg width="26" height="18" viewBox="0 0 26 18" fill="none">
+                <line x1="0"    y1="9" x2="1.4"  y2="9" stroke="#FAEFE0" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="6.6"  y1="9" x2="9"    y2="9" stroke="#FAEFE0" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="15"   y1="9" x2="16.5" y2="9" stroke="#FAEFE0" stroke-width="1.3" stroke-linecap="round"/>
+                <circle cx="4"     cy="9"    r="2.6"  fill="#FAEFE0"/>
+                <circle cx="3.27"  cy="8.27" r="0.73" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="12"    cy="9"    r="3"    fill="#FAEFE0"/>
+                <circle cx="11.16" cy="8.16" r="0.84" fill="rgba(255,255,255,0.6)"/>
+                <polyline points="17,5 24,9 17,13" fill="none" stroke="#FAEFE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <a href="./cooking-case-study.html" class="menu-order-btn">Order</a>
           </div>
         </div>
       </div>
@@ -102,8 +134,20 @@
           <h3 class="menu-proj-title menu-proj-title--sm">Blink Box Tracking App</h3>
           <p class="menu-blurb">Track, trade and show your blind box collection effortlessly.</p>
           <div class="menu-action-row">
-            <span class="menu-price">Free Sample →</span>
-            <a href="./blink-box-case-study.html" class="menu-order-btn">View Ingredients</a>
+            <span class="menu-price">
+              Free Sample
+              <svg width="26" height="18" viewBox="0 0 26 18" fill="none">
+                <line x1="0"    y1="9" x2="1.4"  y2="9" stroke="#2a1a18" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="6.6"  y1="9" x2="9"    y2="9" stroke="#2a1a18" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="15"   y1="9" x2="16.5" y2="9" stroke="#2a1a18" stroke-width="1.3" stroke-linecap="round"/>
+                <circle cx="4"     cy="9"    r="2.6"  fill="#b62824"/>
+                <circle cx="3.27"  cy="8.27" r="0.73" fill="rgba(255,255,255,0.55)"/>
+                <circle cx="12"    cy="9"    r="3"    fill="#b62824"/>
+                <circle cx="11.16" cy="8.16" r="0.84" fill="rgba(255,255,255,0.55)"/>
+                <polyline points="17,5 24,9 17,13" fill="none" stroke="#b62824" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <a href="./blink-box-case-study.html" class="menu-order-btn">Order</a>
           </div>
         </div>
       </div>
@@ -117,8 +161,20 @@
           <h3 class="menu-proj-title menu-proj-title--sm">Monetization Transparency Research</h3>
           <p class="menu-blurb">Untangling how monetization choices shape user trust.</p>
           <div class="menu-action-row">
-            <span class="menu-price">Free Sample →</span>
-            <a href="./monetization-case-study.html" class="menu-order-btn">View Ingredients</a>
+            <span class="menu-price">
+              Free Sample
+              <svg width="26" height="18" viewBox="0 0 26 18" fill="none">
+                <line x1="0"    y1="9" x2="1.4"  y2="9" stroke="#2a1a18" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="6.6"  y1="9" x2="9"    y2="9" stroke="#2a1a18" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="15"   y1="9" x2="16.5" y2="9" stroke="#2a1a18" stroke-width="1.3" stroke-linecap="round"/>
+                <circle cx="4"     cy="9"    r="2.6"  fill="#b62824"/>
+                <circle cx="3.27"  cy="8.27" r="0.73" fill="rgba(255,255,255,0.55)"/>
+                <circle cx="12"    cy="9"    r="3"    fill="#b62824"/>
+                <circle cx="11.16" cy="8.16" r="0.84" fill="rgba(255,255,255,0.55)"/>
+                <polyline points="17,5 24,9 17,13" fill="none" stroke="#b62824" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <a href="./monetization-case-study.html" class="menu-order-btn">Order</a>
           </div>
         </div>
       </div>
@@ -131,14 +187,39 @@
 <section id="about">
   <div class="about-inner">
     <div class="about-text-col">
-      <div class="about-eyebrow">About</div>
-      <h2 class="about-title">A little<br>about me.</h2>
-      <p class="about-body">
-        A visual designer working at the intersection of Chinese visual
-        heritage and contemporary brand-making — with a love for cultural
-        depth, a playful creative process and storytelling that makes a difference.
-      </p>
-      <p class="about-body">Currently open to freelance and full-time opportunities.</p>
+      <div class="about-header-row">
+        <div class="about-copy">
+          <h2 class="about-title">A little<br>about me.</h2>
+          <p class="about-body">
+            A visual designer working at the intersection of Chinese visual
+            heritage and contemporary brand-making — with a love for cultural
+            depth, a playful creative process and storytelling that makes a difference.
+          </p>
+          <p class="about-body">Currently open to freelance and full-time opportunities.</p>
+        </div>
+
+        <!-- a bowl of tools — drag the logos around inside it -->
+        <div class="about-tools-bowl-wrap">
+          <div class="about-tools-bowl" id="tools-bowl">
+            <div class="about-tools-bowl-rim" aria-hidden="true"></div>
+            <button type="button" class="tool-chip tool-chip--figma" data-tool="figma" aria-label="Figma" title="Figma">
+              <svg viewBox="0 0 24 24" width="60%" height="60%">
+                <path d="M9 1a4 4 0 0 0 0 8h3V1H9z" fill="#F24E1E"/>
+                <path d="M3 13a4 4 0 0 1 4-4h2v8H7a4 4 0 0 1-4-4z" fill="#A259FF"/>
+                <path d="M3 21a4 4 0 0 1 4-4h2v4a4 4 0 1 1-6 0z" fill="#0ACF83"/>
+                <path d="M12 9h3a4 4 0 1 1 0 8h-3V9z" fill="#1ABCFE"/>
+                <path d="M9 9a4 4 0 1 0 0 8h3V9H9z" fill="#FF7262"/>
+              </svg>
+            </button>
+            <button type="button" class="tool-chip tool-chip--ae" data-tool="after-effects" aria-label="After Effects" title="After Effects">Ae</button>
+            <button type="button" class="tool-chip tool-chip--code" data-tool="code" aria-label="HTML, CSS and JavaScript" title="HTML / CSS / JS">&lt;/&gt;</button>
+            <button type="button" class="tool-chip tool-chip--ai" data-tool="illustrator" aria-label="Illustrator" title="Illustrator">Ai</button>
+            <button type="button" class="tool-chip tool-chip--ps" data-tool="photoshop" aria-label="Photoshop" title="Photoshop">Ps</button>
+          </div>
+          <img class="about-tools-bowl-body" src="./brand_assests/Assets/Bowl bottom@2x.png" alt="" aria-hidden="true">
+        </div>
+      </div>
+
       <div class="about-skills-outer">
         <div class="about-skills-grid">
           <div class="about-skill-col">
@@ -212,6 +293,13 @@
 <script>
 (function () {
   const overlay = document.getElementById('curtain-overlay');
+
+  if (new URLSearchParams(location.search).has('skipIntro')) {
+    overlay.style.display = 'none';
+    history.replaceState(null, '', location.pathname + location.hash);
+    return;
+  }
+
   const canvas  = document.getElementById('curtain-canvas');
   const ctx     = canvas.getContext('2d');
 
@@ -362,5 +450,6 @@
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <script src="main.js"></script>
+<script src="page-transitions.js"></script>
 </body>
 </html>
