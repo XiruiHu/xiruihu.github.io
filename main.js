@@ -226,6 +226,52 @@ function initNavScroll() {
   }, { passive: true });
 }
 
+// ── Nav contrast: cream-out when overlapping a red section ─────
+// The nav is transparent and all its parts (logo, links, beads,
+// hamburger) are the same red as the "Today's Special" block, so
+// they vanish red-on-red whenever the nav sits over it. Sample what's
+// actually painted under the nav strip on scroll and toggle
+// .nav-on-red, which flips every nav element to cream in CSS.
+function initNavContrast() {
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+
+  const RED = 'rgb(182, 40, 36)'; // #b62824
+  const TRANSPARENT = ['rgba(0, 0, 0, 0)', 'transparent'];
+  let ticking = false;
+
+  function isOnRed() {
+    const h = nav.getBoundingClientRect().height || 56;
+    const y = h / 2;
+    const w = window.innerWidth;
+    const xs = [16, w * 0.25, w * 0.5, w * 0.75, w - 16];
+
+    for (const x of xs) {
+      for (const el of document.elementsFromPoint(x, y)) {
+        if (el === nav || nav.contains(el)) continue;
+        const bg = getComputedStyle(el).backgroundColor;
+        if (bg === RED) return true;
+        // first element with a solid fill wins — stop before we reach
+        // anything red sitting further back behind it
+        if (!TRANSPARENT.includes(bg)) break;
+      }
+    }
+    return false;
+  }
+
+  function update() {
+    nav.classList.toggle('nav-on-red', isOnRed());
+  }
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { update(); ticking = false; });
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+}
+
 // ── Footer visibility ─────────────────────────────────────────
 function initFooter() {
   const footer = document.getElementById('footer');
@@ -346,6 +392,7 @@ gsap.registerPlugin(ScrollTrigger);
 requestAnimationFrame(() => {
   initNavAnimations(); // no-op on mobile
   initNavScroll();
+  initNavContrast();
 });
 
 initHamburger();

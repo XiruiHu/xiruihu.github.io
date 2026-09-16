@@ -16,7 +16,7 @@
   <div id="page-veil" aria-hidden="true"></div>
 
   <!-- ── NAV ── -->
-  <nav class="cs-nav">
+  <nav class="cs-nav" id="top">
     <a href="./index.html" class="cs-nav-logo">
       <img src="./brand_assests/AaGuDianKeBenSongYouMoBan/NewNewNewLogo.png" alt="Xirui Hu" />
     </a>
@@ -473,7 +473,8 @@
         <p>said cooking meals that reflect their <em>cultural heritage</em> isn't important to them at all, cutting against a core assumption we walked in with.</p>
       </div>
       <div class="insight-card">
-        <p>described one specific cooking or learning experience, like a sushi-making class, that <em>permanently changed</em> how they cook. The decision to try it was almost always random.</p>
+        <span class="insight-stat">1 in 4</span>
+        <p>described a specific class or immersive experience, often a cooking class taken while travelling, that <em>permanently changed</em> how they cook. It was rarely a planned decision.</p>
       </div>
     </div>
 
@@ -548,10 +549,9 @@
     </div>
 
     <span class="sub-tag">Value Proposition: Draft</span>
-    <p class="section-intro">With the pain points clustered, we drafted an early value proposition to pressure-test before moving into full product framing.</p>
+    <p class="section-intro">With the pain points clustered, we drafted an early value proposition to refine before moving into full product framing.</p>
     <figure class="research-item-figure research-item-figure--contained">
       <img src="brand_assests/COOKA Value Proposition.png" alt="Draft value proposition statement synthesized from the clustered pain points" />
-      <figcaption class="photo-caption">Early value proposition draft, pressure-tested before moving into full product framing.</figcaption>
     </figure>
 
     <span class="sub-tag">User Story Map</span>
@@ -567,11 +567,10 @@
       <figcaption class="photo-caption">A user story map breaking down COOKA's core activities into detailed task steps, used to scope the MVP and sequence feature releases.</figcaption>
     </figure>
 
-    <span class="sub-tag">Synthesizing Further</span>
-    <p class="section-intro">Pulling the empathy map, the affinity clusters, and the storyboard together, we distilled a second layer of insight, sharper and more specific than what we'd started with.</p>
+    <span class="sub-tag">Bucket Method</span>
+    <p class="section-intro">We ran a bucket exercise on the full list of features and ideas, sorting each one into <strong>must have</strong>, <strong>nice to have</strong>, or <strong>not needed</strong>, so the MVP scope was explicit and shared before we moved into product framing.</p>
     <figure class="research-item-figure">
-      <div class="placeholder-media placeholder-media--wide" role="img" aria-label="Placeholder for synthesized insights board"><span>Image: synthesized insights board</span></div>
-      <figcaption class="photo-caption">Synthesized insights: pulling the empathy map, affinity clusters, and storyboard into a second layer of findings.</figcaption>
+      <img src="brand_assests/Cooka Bucket Method.png" alt="Bucket method board sorting every feature onto sticky notes under three columns: must have, nice to have, and not needed" />
     </figure>
 
     <span class="sub-tag">Product Framing: Draft</span>
@@ -584,7 +583,7 @@
 
     <div class="hmw-block">
       <span class="hmw-label">What Is COOKA?</span>
-      <p class="hmw-statement">COOKA is a <strong>culturally contextual recipe inspiration platform</strong> that organizes scattered culinary knowledge into meaningful, explorable clusters.</p>
+      <p class="hmw-statement">COOKA is an <strong>immersive gateway into the world's kitchens</strong> that pairs every recipe with the cultural story, heritage, and context behind it, so cooking becomes a journey somewhere, not just a dish to make.</p>
     </div>
 
     <div class="framing-position">
@@ -647,7 +646,7 @@
       </div>
     </div>
 
-    <span class="sub-tag">Core User Pain (from Persona)</span>
+    <span class="sub-tag">Core User Pain Points (from Persona)</span>
     <div class="framing-pain-grid">
       <div class="framing-pain-card">
         <h4>Functional Pain</h4>
@@ -660,7 +659,7 @@
       <div class="framing-pain-card">
         <h4>Emotional Pain</h4>
         <ul class="dot-list">
-          <li>Feels like she's missing the "why"</li>
+          <li>Can follow the recipe but never learns what it means</li>
           <li>Wants authenticity without gatekeeping</li>
           <li>Seeks novelty without randomness</li>
         </ul>
@@ -687,28 +686,18 @@
         <p class="pivot-quote">Contextual exploration</p>
       </div>
     </div>
-    <div class="cluster-example">
-      <div class="cluster-example-tap">
-        <span class="cluster-example-label">User taps<br>"Korean Comfort Food"</span>
+    <div class="cluster-unfold">
+      <div class="cluster-unfold-head">
+        <span class="cluster-unfold-tap-label">User taps</span>
+        <span class="cluster-unfold-tap">"Korean Comfort Food"</span>
       </div>
-      <span class="cluster-example-arrow" aria-hidden="true">→</span>
-      <ul class="dot-list cluster-example-list">
+      <ol class="cluster-unfold-list">
         <li>5 core dishes</li>
         <li>Technique notes</li>
         <li>Flavor variations</li>
         <li>Ingredient sourcing tips</li>
         <li>Community insights</li>
-      </ul>
-    </div>
-
-    <span class="sub-tag">Ingredient Layer</span>
-    <div class="insights-grid">
-      <div class="insight-card">
-        <p><em>Substitutions</em>: flagging what can be swapped without losing the dish's character.</p>
-      </div>
-      <div class="insight-card">
-        <p><em>Where to find</em>: pointing to where harder-to-source ingredients are actually available.</p>
-      </div>
+      </ol>
     </div>
   </section>
 
@@ -1099,26 +1088,185 @@ they want an immersive gateway into the world's kitchens.</p>
       </div>
     </div>
 
-    <div class="proto-layout">
-      <div class="proto-phone-col">
-        <img src="brand_assests/Home Screen.png" alt="App: Explore screen" class="proto-phone-img" />
-        <div class="proto-caption">
-          <strong>Explore</strong>
-          <p>Regional hubs featuring highlighted articles, street food, and guided recipe paths.</p>
+    <!-- how we locked in the hi-fi visual style — reuses the Step → Step
+         flow pattern from the Synthesis section (.insight-process) -->
+    <div class="style-evolution">
+      <span class="sub-tag">Locking the visual style</span>
+      <p class="section-intro">Getting to this system wasn't linear. We widened the visual range with AI, put colour directions to a team vote, then committed to one language across every screen.</p>
+
+      <div class="insight-process">
+        <div class="insight-step insight-step--group">
+          <span class="insight-step-num">Step 1 &nbsp;·&nbsp; Explore with AI</span>
+          <img src="brand_assests/Cooka%20High-fi%20style%20explopre.png" alt="AI-generated hi-fi style exploration board: a spread of COOKA screen concepts across different layouts, type pairings and moods" loading="lazy" />
+          <p class="insight-step-label">Generated a wide spread of screen concepts with AI — different layouts, type pairings and moods — so we could react to real options fast instead of arguing in the abstract.</p>
+        </div>
+
+        <div class="insight-arrow" aria-hidden="true">→</div>
+
+        <div class="insight-step insight-step--group">
+          <span class="insight-step-num">Step 2 &nbsp;·&nbsp; Vote on colour</span>
+          <img src="brand_assests/Cooka%20Vote%20on%20colour.png" alt="Four COOKA home-screen colour directions lined up for a team vote" loading="lazy" />
+          <p class="insight-step-label">Narrowed to four home-screen treatments and ran a team vote, weighing each on legibility, warmth, and how editorial it felt against real content.</p>
+        </div>
+
+        <div class="insight-arrow" aria-hidden="true">→</div>
+
+        <div class="insight-step insight-step--group">
+          <span class="insight-step-num">Step 3 &nbsp;·&nbsp; Final screen iterations</span>
+          <img src="brand_assests/Cooka%20high-fi%20iterations.png" alt="Board of high-fidelity COOKA screen iterations, refining layout, type and components toward the final system" loading="lazy" />
+          <p class="insight-step-label">Iterated on the map design and navigation, the Cook/Learn tab toggle, card design, and other key UI elements to improve clarity and usability.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="hifi-final-heading">Final Product</h3>
+
+    <div class="hifi-final-strip">
+      <figure class="hifi-final-strip-item">
+        <img src="brand_assests/Final%20Screens.png" alt="The full set of final COOKA high-fidelity screens laid out edge to edge" loading="lazy" />
+      </figure>
+    </div>
+
+    <div class="hifi-gallery">
+
+      <div class="hifi-group">
+        <span class="sub-tag hifi-group-label">Explore &amp; Learn</span>
+        <div class="hifi-row">
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/Home%20Page%20HIFI%20-%20Default.png" alt="COOKA hi-fi: global explore screen with world map" loading="lazy" />
+            <figcaption>
+              <strong>Global Explore</strong>
+              <span>Search by country or culture, a “3/195 countries explored” progress counter, and an interactive world map with a region selected and a View Recipe pin.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen hifi-screen--tall">
+            <div class="hifi-screen-frame">
+              <img src="brand_assests/Cooka%20High-fi%20screens/Japan%20Home%20Screen.png" alt="COOKA hi-fi: region hub, Cook tab" loading="lazy" />
+            </div>
+            <figcaption>
+              <strong>Region Hub — Cook</strong>
+              <span>Country wordmark, region-scoped search and a Cook / Learn toggle, with Newest and Most Popular recipe carousels tagged by diet and difficulty.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen hifi-screen--tall">
+            <div class="hifi-screen-frame">
+              <img src="brand_assests/Cooka%20High-fi%20screens/Japan%20Home%20Learn.png" alt="COOKA hi-fi: region hub, Learn tab" loading="lazy" />
+            </div>
+            <figcaption>
+              <strong>Region Hub — Learn</strong>
+              <span>The editorial side of a region: a highlighted long-read article with a read time, plus an “On the Streets” carousel of street-food stories.</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
 
-      <div class="proto-food-col">
-        <img src="brand_assests/Learn Page.png" alt="Learn page" class="proto-food-img" />
-      </div>
-
-      <div class="proto-phone-col">
-        <img src="brand_assests/Recipe INGREDIENTS HIFI - Default.png" alt="App: Recipes screen" class="proto-phone-img" />
-        <div class="proto-caption">
-          <strong>Recipes</strong>
-          <p>Newest and most popular recipes surfaced by region, with cultural context throughout.</p>
+      <div class="hifi-group">
+        <span class="sub-tag hifi-group-label">Recipe &amp; Cook Mode</span>
+        <div class="hifi-row">
+          <figure class="hifi-screen hifi-screen--tall">
+            <div class="hifi-screen-frame">
+              <img src="brand_assests/Cooka%20High-fi%20screens/Recipe%20INGREDIENTS%20HIFI%20-%20Default%20%E2%80%93%20A.png" alt="COOKA hi-fi: recipe detail, Ingredients tab" loading="lazy" />
+            </div>
+            <figcaption>
+              <strong>Ingredients</strong>
+              <span>Full-bleed dish photo with a floating Cook Mode button, meta row (time, servings, difficulty), a collapsible cultural intro, and ingredients grouped by component with checkboxes.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen hifi-screen--tall">
+            <div class="hifi-screen-frame">
+              <img src="brand_assests/Cooka%20High-fi%20screens/Recipe%20STEPS%20HIFI%20-%20Default.png" alt="COOKA hi-fi: recipe detail, Method tab" loading="lazy" />
+            </div>
+            <figcaption>
+              <strong>Method</strong>
+              <span>A Tips block up top, then five numbered steps — each checkable — and a Mark as Cooked action.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/Cook%20Mode%201%20HIFI%20-%20Default%20%E2%80%93%20A.png" alt="COOKA hi-fi: Cook Mode step 1" loading="lazy" />
+            <figcaption>
+              <strong>Step 1 — Prepare the Dashi</strong>
+              <span>Distraction-free step view: step counter, only this step’s ingredients and method, one large Next button.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/Cook%20Mode%201%20HIFI%20-%20Default%20%E2%80%93%20B.png" alt="COOKA hi-fi: Cook Mode ‘while you wait’ interstitial" loading="lazy" />
+            <figcaption>
+              <strong>“While You Wait…”</strong>
+              <span>Fills idle cooking time with cultural content — a street-vendor interview and a podcast — plus a dismissible ad slot for the free tier.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/Cook%20Mode%202%20HIFI%20-%20Default.png" alt="COOKA hi-fi: Cook Mode step 2" loading="lazy" />
+            <figcaption>
+              <strong>Step 2 — Prepare the Tare</strong>
+              <span>This step’s seasoning ingredients and method, with Back and Next.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/Cook%20Mode%203%20HIFI%20-%20Default.png" alt="COOKA hi-fi: Cook Mode step 3" loading="lazy" />
+            <figcaption>
+              <strong>Step 3 — Noodle Time</strong>
+              <span>A single-ingredient step, pared back to just what matters at the stove.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/Cook%20Mode%204%20HIFI%20-%20Default.png" alt="COOKA hi-fi: Cook Mode step 4" loading="lazy" />
+            <figcaption>
+              <strong>Step 4 — Emulsify the Base</strong>
+              <span>Method card plus a contextual Tip card, referencing the dashi carried over from Step 1.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/Cook%20Mode%205%20HIFI%20-%20Default.png" alt="COOKA hi-fi: Cook Mode step 5" loading="lazy" />
+            <figcaption>
+              <strong>Step 5 — The Fold &amp; Garnish</strong>
+              <span>The toppings list and final plating method, ending in Finish.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/Cook%20Mode%206%20HIFI%20-%20Default%20%E2%80%93%20A.png" alt="COOKA hi-fi: Cook Mode completion" loading="lazy" />
+            <figcaption>
+              <strong>Complete — “Well Done, Chef!”</strong>
+              <span>A finished-dish card with a Capture &amp; Share prompt, social icons and a Made with COOKA badge; the tab bar returns.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/Cook%20Mode%206%20HIFI%20-%20Default%20%E2%80%93%20B.png" alt="COOKA hi-fi: Cook Mode completion with podcast modal" loading="lazy" />
+            <figcaption>
+              <strong>Complete — Podcast Upsell</strong>
+              <span>Same completion screen with a modal offering to continue a related podcast while you eat.</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
+
+      <div class="hifi-group">
+        <span class="sub-tag hifi-group-label">Capture, Share &amp; Profile</span>
+        <div class="hifi-row">
+          <figure class="hifi-screen">
+            <img src="brand_assests/Camera%20Mode%206%20HIFI%20-%20Default.png" alt="COOKA hi-fi: in-app camera" loading="lazy" />
+            <figcaption>
+              <strong>In-App Camera</strong>
+              <span>A live viewfinder over the plated dish with framing guides, flash toggle, gallery thumbnail and flip camera — opened from the Cook Mode completion.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Camera%20Mode%206%20HIFI%20-%20Default-1.png" alt="COOKA hi-fi: share sheet over a generated recipe card" loading="lazy" />
+            <figcaption>
+              <strong>Share Sheet</strong>
+              <span>The native share sheet over an auto-generated recipe card — AirDrop, Messages, and the social apps.</span>
+            </figcaption>
+          </figure>
+          <figure class="hifi-screen">
+            <img src="brand_assests/Cooka%20High-fi%20screens/PROFILE%20PAGE%20-%20Default.png" alt="COOKA hi-fi: user profile" loading="lazy" />
+            <figcaption>
+              <strong>User Profile</strong>
+              <span>Name wordmark and avatar, location, dietary pills, and Activity / Submit tabs over a Cooked carousel and a Continue Learning row.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1226,6 +1374,7 @@ they want an immersive gateway into the world's kitchens.</p>
     <a href="#prototype"          class="toc-item"><span class="toc-num">11</span><span class="toc-label">Prototype</span></a>
     <a href="#solution"           class="toc-item"><span class="toc-num">12</span><span class="toc-label">Solution</span></a>
     <a href="#reflection"         class="toc-item"><span class="toc-num">13</span><span class="toc-label">Reflection</span></a>
+    <a href="#top"                class="toc-item toc-top"><span class="toc-num" aria-hidden="true">↑</span><span class="toc-label">Back to top</span></a>
   </nav>
 
   </div>

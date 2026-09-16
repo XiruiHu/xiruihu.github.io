@@ -89,8 +89,8 @@ body {
 }
 
 .cs-back {
-  font-family: 'Angela', serif;
-  font-weight: 400;
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
   font-size: 15px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -366,7 +366,7 @@ body.cs-centered-layout .cs-hero-sub {
    border instead of just a bottom divider) */
 body.cs-centered-layout .meta-bar {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   margin: 0;
   padding: 40px 32px;
   gap: 32px 10px;
@@ -502,7 +502,9 @@ body.cs-centered-layout .meta-item {
    study's split-layout #problem section, which shares this
    stylesheet, is unaffected */
 .cs-problem-compact {
-  padding: 56px var(--px) 48px;
+  /* bottom padding matches the 80px on every other .cs-section so the
+     gap into 02 Research is the same as every other section break */
+  padding: 56px var(--px) 80px;
 }
 .problem-row {
   display: flex;
@@ -563,7 +565,7 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
   position: relative;
   flex: 0 0 540px;
   max-width: 540px;
-  min-height: 630px;
+  min-height: 520px;
 }
 .problem-statement-box .decision-label {
   color: var(--text-red);
@@ -580,7 +582,7 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
    reads as a footnote rather than competing with the case study copy */
 .img-credit {
   display: block;
-  margin-top: 95px;
+  margin-top: 28px;
   font-family: var(--font-body);
   font-size: 12px;
   font-style: italic;
@@ -904,6 +906,23 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
 .field-visit-marquee--userflow .field-visit-item:nth-child(3n+1) { width: 774px; }
 .field-visit-marquee--userflow .field-visit-item:nth-child(3n+2) { width: 885px; }
 .field-visit-marquee--userflow .field-visit-item:nth-child(3n)   { width: 983px; }
+
+/* User-flow row: no marquee — plain horizontal scroll instead. The
+   duplicate aria-hidden items only exist to loop the animation, so
+   drop them here and let the three real diagrams scroll. */
+.field-visit-marquee--userflow {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 10px;
+}
+.field-visit-marquee--userflow .field-visit-track {
+  animation: none;
+}
+.field-visit-marquee--userflow .field-visit-item[aria-hidden="true"] {
+  display: none;
+}
 
 @keyframes field-visit-scroll {
   from { transform: translateX(0); }
@@ -1570,7 +1589,7 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
 
 .survey-thread {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 28px;
   margin: 8px 0 48px;
 }
@@ -2048,7 +2067,6 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
 
 .stakeholder-quote {
   background: var(--card);
-  border-left: 3px solid var(--text-red);
   padding: 18px 24px;
   margin-bottom: 28px;
 }
@@ -2203,44 +2221,65 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
   .framing-pain-grid { grid-template-columns: 1fr; }
 }
 
-.cluster-example {
-  display: flex;
-  align-items: center;
-  gap: 28px;
+.cluster-unfold {
   background: var(--card);
   border: 1px solid var(--border);
-  padding: 32px 36px;
+  padding: 4px 34px;
   margin-bottom: 40px;
-  flex-wrap: wrap;
 }
-.cluster-example-tap {
+.cluster-unfold-head {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-  width: 150px;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 26px 0 22px;
+  border-bottom: 1px solid var(--border);
 }
-.cluster-example-label {
+.cluster-unfold-tap-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-red);
+}
+.cluster-unfold-tap {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 400;
-  line-height: 1.3;
   color: var(--text);
-  text-align: center;
 }
-.cluster-example-arrow {
+.cluster-unfold-list {
+  list-style: none;
+  counter-reset: cluster;
+  margin: 0;
+  padding: 0;
+}
+.cluster-unfold-list li {
+  counter-increment: cluster;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.cluster-unfold-list li:last-child {
+  border-bottom: none;
+}
+.cluster-unfold-list li::before {
+  content: counter(cluster, decimal-leading-zero);
   flex-shrink: 0;
-  font-size: 22px;
-  color: var(--muted-lo);
-}
-.cluster-example-list {
-  flex: 1;
-  min-width: 200px;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--text) 42%, transparent);
 }
 @media (max-width: 640px) {
-  .cluster-example { padding: 24px; }
-  .cluster-example-arrow { transform: rotate(90deg); }
+  .cluster-unfold { padding: 4px 22px; }
 }
 
 /* ─────────────────────────────────────────
@@ -2663,6 +2702,23 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
 .field-visit-marquee--wireframe .field-visit-track { align-items: flex-start; gap: 40px; }
 .field-visit-marquee--wireframe .field-visit-item img { height: 420px; }
 
+/* Wireframes row: no marquee — plain horizontal scroll instead. The
+   duplicate aria-hidden groups only exist to loop the animation, so
+   drop them here and let the three real groups scroll. */
+.field-visit-marquee--wireframe {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 10px;
+}
+.field-visit-marquee--wireframe .field-visit-track {
+  animation: none;
+}
+.field-visit-marquee--wireframe .field-visit-group[aria-hidden="true"] {
+  display: none;
+}
+
 .field-visit-group {
   display: flex;
   flex-direction: column;
@@ -2739,45 +2795,166 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
 }
 
 /* ─────────────────────────────────────────
-   08 — PROTOTYPE (alt)
+   08 — PROTOTYPE (alt) — visual-style flow
+   Reuses the Step → Step → Step flow pattern
+   from #insights (.insight-process); each step
+   here carries a single wide board image.
 ───────────────────────────────────────── */
-.proto-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
-  align-items: end;
+.style-evolution {
+  margin-bottom: 8px;
+}
+.style-evolution .section-intro {
+  margin-bottom: 24px;
 }
 
-.proto-phone-col {
+.hifi-final-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--text-red);
+  border-top: 1px solid var(--border);
+  padding-top: 40px;
+  margin: 56px 0 44px;
+}
+
+/* full strip of every final screen — one wide image kept at its native
+   ratio and scrolled horizontally, same mechanism as the
+   User Flow - MVP Features row (.field-visit-marquee--userflow) */
+.hifi-final-strip {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 10px;
+  margin-bottom: 44px;
+}
+.hifi-final-strip-item {
+  margin: 0;
+  width: max-content;
+}
+.hifi-final-strip-item img {
+  display: block;
+  height: 460px;
+  width: auto;
+  max-width: none;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 900px) {
+  .hifi-final-strip-item img { height: 320px; }
+}
+
+/* ─────────────────────────────────────────
+   08 — PROTOTYPE (alt) — hi-fi screen gallery
+   Grouped by feature area; each group is its own
+   horizontally scrollable row of captioned screens.
+───────────────────────────────────────── */
+.hifi-gallery {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 44px;
 }
 
-.proto-phone-img {
-  width: 100%;
+.hifi-group-label {
+  margin: 0 0 52px;
+  text-align: left;
+}
+
+.hifi-row {
+  display: flex;
+  gap: 22px;
+  justify-content: safe center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scroll-snap-type: x proximity;
+  padding-bottom: 14px;
+}
+
+.hifi-screen {
+  flex: 0 0 auto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* centered; still won't stretch the image */
+  text-align: center;
+  gap: 14px;
+  scroll-snap-align: start;
+}
+
+.hifi-screen img {
+  height: 460px;
+  width: auto;
+  max-width: none;
+  align-self: center;
   display: block;
-  border-radius: 28px;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.40);
+  border-radius: 24px;
+  box-shadow: 0 28px 70px rgba(0,0,0,0.42);
+  background: rgba(0,0,0,0.14);
 }
 
-.proto-caption strong {
+/* Tall screens (full recipe detail): show a phone-width slice in a
+   fixed-height frame that scrolls vertically, at native resolution,
+   instead of scaling the whole screen down. */
+.hifi-screen--tall .hifi-screen-frame {
+  height: 460px;
+  width: 212px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  /* hide the scrollbar so it doesn't eat into the image width — the
+     frame still scrolls by wheel / trackpad / drag */
+  scrollbar-width: none;
+  border-radius: 24px;
+  box-shadow: 0 28px 70px rgba(0,0,0,0.42);
+  background: rgba(0,0,0,0.14);
+}
+.hifi-screen--tall .hifi-screen-frame::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.hifi-screen--tall .hifi-screen-frame img {
+  height: auto;
+  width: 212px;
+  max-width: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+}
+
+.hifi-screen figcaption {
+  max-width: 260px;
+}
+.hifi-screen figcaption strong {
   display: block;
   font-family: var(--font-accent);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
   color: #FAEFE0;
   margin-bottom: 6px;
 }
-.proto-caption p {
+.hifi-screen figcaption span {
+  display: block;
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.6;
   color: rgba(250,239,224,0.58);
 }
 
-.proto-food-col { overflow: hidden; align-self: stretch; }
-.proto-food-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 900px) {
+  .hifi-gallery { gap: 36px; }
+  .hifi-screen img { height: 380px; }
+  .hifi-screen--tall .hifi-screen-frame { height: 380px; }
+  .hifi-screen figcaption { max-width: 220px; }
+}
+
+@media (max-width: 640px) {
+  .hifi-screen img { height: 340px; }
+  .hifi-screen--tall .hifi-screen-frame { height: 340px; }
+}
 
 /* ─────────────────────────────────────────
    09 — SOLUTION
@@ -2966,7 +3143,7 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
   transition: border-color 0.18s;
 }
 
-.toc-item:hover { border-left-color: rgba(42, 58, 42, 0.22); }
+.toc-item:hover { border-left-color: var(--text-red); }
 
 .toc-num {
   font-family: var(--font-body);
@@ -2988,8 +3165,20 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
   line-height: 1.3;
 }
 
-.toc-item:hover .toc-num  { color: rgba(42, 58, 42, 0.75); }
-.toc-item:hover .toc-label { color: rgba(42, 58, 42, 0.95); }
+.toc-item:hover .toc-num  { color: var(--text-red); }
+.toc-item:hover .toc-label { color: var(--text-red); }
+
+/* utility "back to top" link — sits below the last section entry with a
+   divider so it reads as an action, not another section */
+.toc-top {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(42, 58, 42, 0.12);
+}
+.toc-top .toc-num { font-size: 13px; letter-spacing: 0; }
 
 /* hide on narrow viewports where the sidebar would crowd the layout */
 @media (max-width: 900px) {
@@ -3018,9 +3207,17 @@ body.cs-centered-layout .toc-sidebar {
 body.cs-centered-layout .toc-item {
   padding: 6px 10px;
 }
+body.cs-centered-layout .toc-top {
+  padding: 12px 10px 0;
+  margin-top: 6px;
+}
 body.cs-centered-layout .toc-num {
   font-size: 9px;
   letter-spacing: 0.15em;
+}
+body.cs-centered-layout .toc-top .toc-num {
+  font-size: 11px;
+  letter-spacing: 0;
 }
 body.cs-centered-layout .toc-label {
   font-size: 11px;
