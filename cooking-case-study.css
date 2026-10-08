@@ -23,12 +23,13 @@ html, body { width: 100%; }
 }
 
 /* ─────────────────────────────────────────
-   MONOCHROME THEME — red accent removed
+   BLUE THEME — red accent swapped for a muted
+   navy (monetization page only)
 ───────────────────────────────────────── */
 body.cs-theme-mono {
-  --bg-red:   #2A3A2A;
-  --text-red: #2A3A2A;
-  --accent-rgb: 42, 58, 42;
+  --bg-red:   #2C3E5C;
+  --text-red: #2C3E5C;
+  --accent-rgb: 44, 62, 92;
 }
 
 body {
@@ -142,6 +143,25 @@ body {
   justify-content: flex-end;
 }
 
+/* monetization page only — full-viewport hero, everything centered
+   instead of bottom/left-aligned */
+body.cs-theme-mono .cs-hero {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+body.cs-theme-mono .cs-hero-text {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body.cs-theme-mono .cs-hero-sub {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
 .cs-tag {
   display: inline-block;
   font-family: var(--font-body);
@@ -221,8 +241,8 @@ body {
 }
 
 .cs-hero-title {
-  font-family: var(--font-accent);
-  font-size: 76px;
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 9vw, 76px);
   font-weight: 400;
   line-height: 0.94;
   color: var(--text-red);
@@ -361,6 +381,34 @@ body.cs-centered-layout .cs-hero-sub {
   border-bottom: 1px solid var(--border);
 }
 
+/* monetization page only — meta-bar folded into the centered hero as
+   a bordered card (blink-box's .cs-hero-text .meta-bar treatment)
+   instead of a separate full-width bar below the hero */
+body.cs-theme-mono .cs-hero-text .meta-bar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: start;
+  width: 100%;
+  max-width: 1080px;
+  margin: 52px auto 0;
+  padding: 40px 32px;
+  gap: 28px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+body.cs-theme-mono .cs-hero-text .meta-item {
+  padding: 0;
+  min-width: 0;
+}
+body.cs-theme-mono .cs-hero-text .meta-label {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+}
+@media (max-width: 900px) {
+  body.cs-theme-mono .cs-hero-text .meta-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* boxdex-style background card for the meta-bar — same treatment as
    .cs-hero-text .meta-bar on the boxdex page (card background + full
    border instead of just a bottom divider) */
@@ -451,21 +499,24 @@ body.cs-centered-layout .meta-item {
    individually like every other section. */
 .cs-section > *,
 .research-board > *,
-.research-row > * {
+.research-row > *,
+.design-concept > * {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .cs-section > *.is-revealed,
 .research-board > *.is-revealed,
-.research-row > *.is-revealed {
+.research-row > *.is-revealed,
+.design-concept > *.is-revealed {
   opacity: 1;
   transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce) {
   .cs-section > *,
   .research-board > *,
-  .research-row > * {
+  .research-row > *,
+  .design-concept > * {
     opacity: 1;
     transform: none;
     transition: none;
@@ -556,6 +607,11 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
   font-size: 15px;
   font-style: italic;
   color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .cs-section--split { grid-template-columns: 1fr; }
+  .cs-split-content { border-right: none; border-bottom: 1px solid var(--border); }
 }
 
 #problem .cs-split-img {
@@ -746,6 +802,46 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
   color: var(--text);
   width: 100%;
 }
+.stat-finding .dot-list { margin-top: 4px; }
+
+/* full data comparison tables — testing results broken down by
+   condition/question rather than collapsed to a single headline
+   number, so .table-wrap scrolls horizontally on narrow screens
+   instead of squeezing columns unreadably thin */
+.table-wrap {
+  overflow-x: auto;
+  margin-bottom: 28px;
+}
+.data-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+}
+.data-table th,
+.data-table td {
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--muted);
+}
+.data-table th {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-lo);
+}
+.data-table th:first-child,
+.data-table td:first-child {
+  text-align: left;
+}
+.data-table td:first-child { color: var(--text); }
+.data-table td.is-winner {
+  color: var(--text-red);
+  font-weight: 700;
+}
 
 .overview-card .block-label { margin-bottom: 14px; }
 .gap-icon {
@@ -841,6 +937,28 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
 .cs-h2 + .sub-tag,
 .section-intro + .sub-tag {
   margin-top: 0;
+}
+
+/* one of several concepts grouped under a single numbered section
+   (05 Design Proposal) — sits below the concept's .sub-tag label at a
+   lighter weight than .cs-h2 since it introduces one concept, not the
+   whole section */
+.sub-tag + .concept-heading {
+  margin-top: 0;
+}
+.concept-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.design-concept + .design-concept {
+  margin-top: 64px;
+  padding-top: 56px;
+  border-top: 1px solid var(--border);
 }
 
 .contribution-block p {
@@ -986,6 +1104,131 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
 
 @media (max-width: 900px) {
   .research-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ─────────────────────────────────────────
+   MONETIZATION PAGE ONLY — 3-up problem cards
+   editorial treatment: numerals in the accent
+   display face, no card fill, thin rules
+   between columns instead of boxed tiles —
+   distinct from the boxed .research-card
+   language used by every later section, since
+   this is the section that opens the case study
+───────────────────────────────────────── */
+.problems-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  margin-bottom: 40px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.problem-card {
+  padding: 36px 32px;
+  border-left: 1px solid var(--border);
+  transition: background 0.25s ease;
+}
+.problem-card:first-child { border-left: none; }
+.problem-card:hover { background: var(--card); }
+
+.problem-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text-red);
+  margin-bottom: 18px;
+}
+
+.problem-card h3 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.problem-card p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .problems-grid { grid-template-columns: 1fr; border-top: none; }
+  .problem-card {
+    padding: 28px 0;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+  .problem-card:first-child { border-top: none; }
+}
+
+/* inline text links inside prose — body copy has no link styling of
+   its own anywhere else on this page, so give one the brand-red
+   underline treatment used for links elsewhere on the site */
+.section-intro a,
+.contribution-block a {
+  color: var(--text-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.section-intro a:hover,
+.contribution-block a:hover { opacity: 0.7; }
+
+/* two-up before/after screenshot comparison — used by each design
+   iteration on the monetization page */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 8px 0 40px;
+}
+.compare-item img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--border);
+}
+.compare-label {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted-lo);
+}
+@media (max-width: 900px) {
+  .compare-grid { grid-template-columns: 1fr; }
+}
+
+/* numeric metric grid inside a .stat-block — completes the
+   .stat-card/.stat-finding/.finding-tag components (monetization,
+   blink-box) which had no grid layout or value styling defined */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+}
+.stat-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  color: var(--text);
+  line-height: 1;
+  margin: 10px 0;
+}
+.stat-value small {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--muted-lo);
+}
+@media (max-width: 900px) {
+  .stat-grid { grid-template-columns: 1fr 1fr; }
 }
 
 .research-board {
@@ -1280,6 +1523,16 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
   font-style: italic;
   color: var(--muted);
   margin-top: 12px;
+}
+
+.process-photo--contained + .photo-caption {
+  max-width: calc(50% - 6px);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .process-photo--contained + .photo-caption { max-width: 100%; }
 }
 
 /* ─────────────────────────────────────────
@@ -1688,14 +1941,37 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
 }
 
 .pull-quote {
-  border-left: 2px solid var(--text-red);
-  padding: 20px 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 32px 36px;
   font-family: var(--font-body);
-  font-size: 24px;
+  font-size: 22px;
   font-style: italic;
   line-height: 1.55;
   color: var(--text);
-  max-width: 620px;
+  max-width: 680px;
+}
+.pull-quote cite {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted-lo);
+}
+
+/* two pull-quotes side by side */
+.quote-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.quote-grid .pull-quote { max-width: none; }
+@media (max-width: 900px) {
+  .quote-grid { grid-template-columns: 1fr; }
 }
 
 /* ─────────────────────────────────────────
@@ -1867,6 +2143,7 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
 }
 
 @media (max-width: 900px) {
+  .insights-grid { grid-template-columns: 1fr; }
   .insights-grid--3col { grid-template-columns: 1fr; }
 }
 
@@ -2965,11 +3242,24 @@ body.cs-centered-layout .section-intro { font-size: 16px; }
   gap: 8px;
 }
 
+/* 3-up variant — outcomes/deliverables lists that land on exactly
+   three cards instead of four */
+.solution-grid--3col { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) {
+  .solution-grid--3col { grid-template-columns: 1fr; }
+}
+
 .solution-card { padding: 32px; }
 .solution-card:nth-child(1) { background: #662C59; }
 .solution-card:nth-child(2) { background: #4A7FA5; }
 .solution-card:nth-child(3) { background: var(--bg-red); }
 .solution-card:nth-child(4) { background: #2E6B4F; }
+
+/* on the monochrome theme, --bg-red is redefined to the same dark
+   green as .cs-section--alt's background, so card 3 would otherwise
+   vanish into the section behind it — swap in a neutral tone that
+   keeps the 4-card palette distinct without reintroducing red */
+body.cs-theme-mono .solution-card:nth-child(3) { background: #6B5842; }
 
 .sol-num {
   display: block;

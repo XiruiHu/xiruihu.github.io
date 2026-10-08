@@ -16,11 +16,11 @@
   <div id="page-veil" aria-hidden="true"></div>
 
   <!-- ── NAV ── -->
-  <nav class="cs-nav">
+  <nav class="cs-nav" id="top">
     <a href="./index.html" class="cs-nav-logo">
       <img src="./brand_assests/AaGuDianKeBenSongYouMoBan/NewNewNewLogo.png" alt="Xirui Hu" />
     </a>
-    <span class="cs-nav-label">Monetization Transparency Research</span>
+    <span class="cs-nav-label">Prime Video &middot; Monetization Transparency</span>
     <a href="./index.html?skipIntro=1" class="cs-back">
       <span class="cs-back-en">Exit</span>
       <span class="cs-back-cn">退出</span>
@@ -33,343 +33,394 @@
   <!-- ── HERO ── -->
   <section class="cs-hero">
     <div class="cs-hero-text">
-      <span class="cs-tag">Research &nbsp;·&nbsp; Web Redesign &nbsp;·&nbsp; UX Research &nbsp;·&nbsp; 8 Weeks</span>
+      <span class="cs-tag">Research &nbsp;·&nbsp; UI Redesign &nbsp;·&nbsp; Usability Testing</span>
       <h1 class="cs-hero-title">Monetization<br>Transparency<br>Research.</h1>
       <div class="cs-hero-sub">
-        <p>An 8-week research project investigating how monetization choices — ads, subscriptions, paywalls, and sponsored content — shape how users perceive and trust digital products.</p>
-        <p>When money enters the picture, trust becomes fragile. This project untangles how design decisions either protect or erode that trust, and proposes a set of transparency principles for ethical monetization.</p>
+        <p>This case study is a research-led exploration of how streaming platforms can be clearer about what a subscription actually covers, using Amazon Prime Video as the test case. Working alongside Ashley Sinclair and Armando Troisi, I helped lead the research, design three independent interface concepts, and test each one with real users.</p>
+        <p>Each concept approached the same goal — making included and paid content easier to tell apart — through a different usability lens. We measured all three against user feedback and Prime Video's own business goals before recommending a direction.</p>
+      </div>
+
+      <!-- ── META BAR ── -->
+      <div class="meta-bar">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">UX Researcher &amp; Designer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Responsibilities</span>
+          <span class="meta-value">Research</span>
+          <span class="meta-value">Usability Testing</span>
+          <span class="meta-value">UI Design</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Team</span>
+          <span class="meta-value">3 Designers</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Project Type</span>
+          <span class="meta-value">University Group Project</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Tools</span>
+          <span class="meta-value">Figma</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Platforms</span>
+          <span class="meta-value">Web</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Constraints</span>
+          <span class="meta-value">Small user sample (4–5 participants per round)</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── META BAR ── -->
-  <div class="meta-bar">
-    <div class="meta-item">
-      <span class="meta-label">Role</span>
-      <span class="meta-value">UX Researcher &amp; Designer</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Responsibilities</span>
-      <span class="meta-value">Research · Analysis · Web Redesign</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Project Type</span>
-      <span class="meta-value">Research + Redesign</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Tools</span>
-      <span class="meta-value">Figma &nbsp;·&nbsp; Miro &nbsp;·&nbsp; Notion</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Platforms</span>
-      <span class="meta-value">Web</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Timeline</span>
-      <span class="meta-value">8 Weeks</span>
-    </div>
-    <div class="meta-divider"></div>
-    <div class="meta-item">
-      <span class="meta-label">Constraints</span>
-      <span class="meta-value">No primary data from companies</span>
-    </div>
-  </div>
-
   <!-- ── 01 THE PROBLEM ── -->
-  <section class="cs-section cs-section--split" id="problem">
-    <div class="cs-split-content">
-      <span class="cs-tag">01 &nbsp;·&nbsp; Problem</span>
-      <h2 class="cs-h2">Three ways money breaks trust.</h2>
+  <section class="cs-section" id="problem">
+    <span class="cs-tag">01 &nbsp;·&nbsp; Problem</span>
+    <h2 class="cs-h2">An impressive catalogue, wrapped in confusion.</h2>
+    <p class="section-intro">Spending time investigating the platform firsthand, we found that Amazon Prime Video offers an impressive variety of shows and movies — but it's genuinely unclear what's included in the subscription price, and what isn't.</p>
 
-      <div class="problems-grid">
-        <div class="problem-card">
-          <span class="problem-num">01</span>
-          <h3>Hidden Agendas</h3>
-          <p>Sponsored content, affiliate links, and algorithmic bias are rarely disclosed clearly — users sense something is off but can't name what it is.</p>
-        </div>
-        <div class="problem-card">
-          <span class="problem-num">02</span>
-          <h3>Dark Patterns</h3>
-          <p>Subscription traps, misleading upgrade prompts, and artificial urgency erode user confidence and breed a culture of distrust.</p>
-        </div>
-        <div class="problem-card">
-          <span class="problem-num">03</span>
-          <h3>No Language for It</h3>
-          <p>Users struggle to articulate why certain products feel manipulative — there is no shared vocabulary for monetization harm.</p>
-        </div>
+    <div class="problems-grid">
+      <div class="problem-card">
+        <h3>Content Fragmentation</h3>
+        <p>A mix of free-with-Prime, rental, and purchase titles sit side by side in the same rows, making it hard to tell what's included without clicking in — frustrating, and sometimes costly.</p>
       </div>
-
-      <div class="insight-bar">
-        Users are not struggling to <em>avoid</em> bad products — they are struggling to <em>recognise</em> them.
+      <div class="problem-card">
+        <h3>Intrusive Ads &amp; Upselling</h3>
+        <p>Ads and prompts to buy or rent content interrupt viewing, blurring the line between what the subscription already covers and what costs extra.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Poor Search &amp; Discovery</h3>
+        <p>Search results often lack clarity, and the overall browsing flow feels disorganized next to competitors like Netflix.</p>
       </div>
     </div>
 
-    <div class="cs-split-img">
-      <img src="brand_assests/Home_Page01.png" alt="Monetization transparency research" />
-      <span class="cs-split-caption">Trust is not lost in one moment — it erodes through a thousand small design decisions.</span>
+    <div class="process-photo process-photo--contained">
+      <img src="brand_assests/Prime Monetization/Problem Screenshot.jpg" alt="Illustrative mockup of a mid-browse upsell prompt reading 'Add [Service Name] to your Prime Membership, access more hits, exclusive shows, and movies'" />
     </div>
+    <p class="photo-caption">The kind of mid-browse upsell prompt users described as confusing and easy to stop trusting.</p>
   </section>
 
   <!-- ── 02 RESEARCH ── -->
-  <section class="cs-section" id="research">
-    <span class="cs-tag">02 &nbsp;·&nbsp; Research</span>
-    <h2 class="cs-h2">How we studied the relationship between money and trust.</h2>
+  <section class="cs-section cs-section--alt" id="research">
+    <span class="cs-tag">02 &nbsp;·&nbsp; Primary Research</span>
+    <h2 class="cs-h2">Grounding the redesign in how people actually use Prime Video.</h2>
 
     <div class="contribution-row">
       <div class="contribution-block">
         <span class="block-label">My contribution</span>
-        <p>I led the research design, conducted user interviews and surveys, performed the competitive audit, and synthesised findings into a transparency framework and redesign proposal.</p>
+        <p>I worked alongside Ashley Sinclair and Armando Troisi through every phase of this project — desk research, user interviews, usability testing, and designing the three competing fixes we tested against Prime Video's real interface.</p>
       </div>
       <div class="contribution-block">
         <span class="block-label">Project scope</span>
-        <p>Research-led redesign — combining user research, dark pattern auditing, and heuristic analysis to propose evidence-based design changes across three product categories.</p>
+        <p>Audit Prime Video's existing paywall and subscription patterns, design independent fixes grounded in different usability heuristics, and test each one with real users before recommending a direction.</p>
       </div>
     </div>
 
-    <div class="research-grid">
-      <div class="research-card">
-        <span class="research-num">01</span>
-        <h4>User Interviews</h4>
-        <p>In-depth conversations exploring how users perceive monetization, what triggers distrust, and what transparency would look like to them.</p>
+    <div class="research-row">
+      <div class="research-item">
+        <h4>Desk</h4>
+        <div class="research-item-media">
+          <img src="brand_assests/Prime Monetization/Research Desk.jpg" alt="Illustration of a researcher reviewing notes at a laptop" />
+        </div>
+        <p class="research-item-tags">Researched existing Prime Video monetization case studies to see how the platform's paywalls and subscription upsells had already been studied and criticised.</p>
       </div>
-      <div class="research-card">
-        <span class="research-num">02</span>
-        <h4>Dark Pattern Audit</h4>
-        <p>Systematically audited 12 digital products across news, social media, and SaaS categories using established dark pattern taxonomies.</p>
+      <div class="research-item">
+        <h4>Interviews</h4>
+        <div class="research-item-media">
+          <img src="brand_assests/Prime Monetization/Research Interviews.jpg" alt="Illustration of two people talking, one asking 'What are your initial thoughts on this interface?'" />
+        </div>
+        <p class="research-item-tags">Interviewed five Prime Video users about their first reactions to the homepage, and where the mix of included and paid content confused them.</p>
       </div>
-      <div class="research-card">
-        <span class="research-num">03</span>
-        <h4>Survey</h4>
-        <p>Surveyed 45 participants on their awareness of and reactions to common monetization practices to quantify perception gaps.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">04</span>
-        <h4>Competitive Analysis</h4>
-        <p>Evaluated best-in-class examples of transparent monetization from independent media, open-source tools, and ethical SaaS products.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">05</span>
-        <h4>Secondary Research</h4>
-        <p>Reviewed academic literature on persuasion, dark patterns, and digital trust to ground findings in established theory and evidence.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">06</span>
-        <h4>Heuristic Evaluation</h4>
-        <p>Applied Nielsen's heuristics alongside a custom monetization-transparency rubric to evaluate interface-level trust signals.</p>
+      <div class="research-item">
+        <h4>Testing</h4>
+        <div class="research-item-media">
+          <img src="brand_assests/Prime Monetization/Research Testing.jpg" alt="Illustration of two people at a laptop, one saying 'Let's see, I need to click here...'" />
+        </div>
+        <p class="research-item-tags">Ran usability testing sessions with five users across our three competing concepts, scoring each one against the same clarity and control metrics.</p>
       </div>
     </div>
-
-    <div class="process-photo">
-      <img src="brand_assests/Maket Analysis.JPG" alt="Research synthesis" />
-      <p class="photo-caption">Affinity mapping across 45 interview codes — clustering around four core trust dimensions: disclosure, control, fairness, and consistency.</p>
-    </div>
-
-    <blockquote class="pull-quote">
-      "I don't even read the sponsored labels anymore. I just assume everything might be paid for."
-    </blockquote>
   </section>
 
   <!-- ── 03 INSIGHTS ── -->
-  <section class="cs-section cs-section--alt" id="insights">
+  <section class="cs-section" id="insights">
     <span class="cs-tag">03 &nbsp;·&nbsp; Insights</span>
     <h2 class="cs-h2">What users actually told us.</h2>
 
     <div class="insights-grid">
       <div class="insight-card">
-        <span class="insight-stat">45</span>
-        <p>survey respondents across age groups and digital literacy levels — revealing how perception of monetization harm varies widely by experience.</p>
+        <span class="note-tag">Visibility of System Status</span>
+        <p>"Users feel the UI hides information."</p>
       </div>
       <div class="insight-card">
-        <span class="insight-stat">↑</span>
-        <p>Transparency about <em>how</em> a product makes money consistently increased trust — even when the model itself (ads, subscriptions) was unchanged.</p>
+        <span class="note-tag">Consistency and Standards</span>
+        <p>"Users are confused about what is included."</p>
       </div>
       <div class="insight-card">
-        <span class="insight-stat">↓</span>
-        <p>Dark patterns that users couldn't name still damaged trust — the harm was felt even when the mechanism was invisible.</p>
+        <span class="note-tag">Consistency and Standards</span>
+        <p>"Users feel paywalls are unexpected, and poorly explained."</p>
       </div>
       <div class="insight-card">
-        <span class="insight-stat">→</span>
-        <p>Users want agency over the exchange — <em>tell me what you get from me, and let me choose whether that's fair.</em></p>
+        <span class="note-tag">Freedom and Control</span>
+        <p>"Users don't feel in control of the system."</p>
       </div>
     </div>
   </section>
 
-  <!-- ── 04 PATTERNS ── -->
-  <section class="cs-section" id="patterns">
-    <span class="cs-tag">04 &nbsp;·&nbsp; Dark Patterns Found</span>
-    <h2 class="cs-h2">The audit findings.</h2>
-    <p class="section-intro">Across 12 products audited, we identified recurring patterns that erode trust without users being able to clearly articulate why.</p>
+  <!-- ── 04 BUSINESS GOALS ── -->
+  <section class="cs-section cs-section--alt" id="business-goals">
+    <span class="cs-tag">04 &nbsp;·&nbsp; Business Goals</span>
+    <h2 class="cs-h2">Clarity has to survive contact with the business model.</h2>
+    <p class="section-intro">Prime Video's own merchandising logic points the other way on some of these patterns — any fix we proposed had to hold up against goals the platform is already optimising for.</p>
 
-    <div class="research-grid">
-      <div class="research-card">
-        <span class="research-num">P1</span>
-        <h4>Disguised Ads</h4>
-        <p>Sponsored content styled to look editorial — same typeface, same layout, same card format. Disclosure labels were small, grey, and easily missed.</p>
+    <div class="problems-grid">
+      <div class="problem-card">
+        <span class="problem-num">01</span>
+        <h3>Mixed Content</h3>
+        <p>Users tend to spend more when paid and free content are shown side by side in the same row.</p>
       </div>
-      <div class="research-card">
-        <span class="research-num">P2</span>
-        <h4>Roach Motel</h4>
-        <p>Subscription sign-up flows that took one click. Cancellation flows that required navigating five screens, a confirmation email, and a phone call.</p>
+      <div class="problem-card">
+        <span class="problem-num">02</span>
+        <h3>Okay with Ugly</h3>
+        <p>Denser, option-heavy pages can increase conversion for certain customer segments — clarity and conversion don't always pull in the same direction.</p>
       </div>
-      <div class="research-card">
-        <span class="research-num">P3</span>
-        <h4>Hidden Costs</h4>
-        <p>Pricing shown without taxes or add-ons until the final checkout step — a deliberate friction strategy to capitalise on sunk cost bias.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">P4</span>
-        <h4>Forced Continuity</h4>
-        <p>Free trials that auto-converted to paid without meaningful pre-billing notification — relying on user forgetting rather than genuine value.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">P5</span>
-        <h4>Misdirection</h4>
-        <p>Visual hierarchy designed to draw attention away from the cheaper option — colour, scale, and animation all nudging toward higher-revenue choices.</p>
-      </div>
-      <div class="research-card">
-        <span class="research-num">P6</span>
-        <h4>Confirmshaming</h4>
-        <p>"No thanks, I don't want to save money" — decline options written to make opting out feel socially costly or personally embarrassing.</p>
+      <div class="problem-card">
+        <span class="problem-num">03</span>
+        <h3>One-Way Doors</h3>
+        <p>Removing back buttons at monetization decision points keeps users from second-guessing their way out of a purchase.</p>
       </div>
     </div>
+
+    <blockquote class="pull-quote">
+      How might we improve clarity among Prime-included, subscription, and pay-per-title content — while still aligning with Prime Video's business goals?
+    </blockquote>
   </section>
 
-  <!-- ── 05 FRAMEWORK ── -->
-  <section class="cs-section cs-section--alt" id="framework">
-    <span class="cs-tag">05 &nbsp;·&nbsp; Transparency Framework</span>
-    <h2 class="cs-h2">Four principles for ethical monetization design.</h2>
+  <!-- ── 05 DESIGN PROPOSAL ── -->
+  <section class="cs-section" id="design-proposals">
+    <span class="cs-tag">05 &nbsp;·&nbsp; Design Proposal</span>
+    <h2 class="cs-h2">Three concepts, three usability lenses.</h2>
+    <p class="section-intro">We translated the research and business goals into three independent interface concepts — each solving the same transparency problem through a different heuristic. We prototyped and tested all three with real users before recommending a direction.</p>
 
-    <div class="insights-grid">
-      <div class="insight-card">
-        <span class="insight-stat">01</span>
-        <p><strong style="display:block; font-family:'AlternateGothic',sans-serif; font-size:22px; margin-bottom:8px; color:var(--text);">Disclose the Exchange</strong>Tell users clearly and early what they are giving up — attention, data, or money — in exchange for the product's value.</p>
-      </div>
-      <div class="insight-card">
-        <span class="insight-stat">02</span>
-        <p><strong style="display:block; font-family:'AlternateGothic',sans-serif; font-size:22px; margin-bottom:8px; color:var(--text);">Make Opting Out Easy</strong>If users can opt in with one click, they should be able to opt out with one click. Friction asymmetry is a trust signal — and not a good one.</p>
-      </div>
-      <div class="insight-card">
-        <span class="insight-stat">03</span>
-        <p><strong style="display:block; font-family:'AlternateGothic',sans-serif; font-size:22px; margin-bottom:8px; color:var(--text);">Label Consistently</strong>Sponsored, promoted, and paid content should look visually distinct — not blended in to look organic. Consistency in labelling builds recognition over time.</p>
-      </div>
-      <div class="insight-card">
-        <span class="insight-stat">04</span>
-        <p><strong style="display:block; font-family:'AlternateGothic',sans-serif; font-size:22px; margin-bottom:8px; color:var(--text);">Price Honestly</strong>Show the real price upfront. Taxes, fees, and add-ons should appear at first encounter — not as a reveal at checkout.</p>
-      </div>
-    </div>
-  </section>
+    <div class="design-concept" id="blackout">
+      <span class="sub-tag">Concept 1 &nbsp;·&nbsp; Blackout</span>
+      <h3 class="concept-heading">Make the unavailable look unavailable.</h3>
+      <span class="note-tag">Visibility of System Status</span>
+      <p class="section-intro">Every row on Prime Video's homepage mixes titles you already have with titles you'd need another subscription to watch — with no visual difference between the two until you tap in. We dimmed unsubscribed cards with a scrim to signal they're currently unavailable, then added a centered service badge to telegraph exactly which paywall is waiting behind the tap.</p>
 
-  <!-- ── 06 REDESIGN ── -->
-  <section class="cs-section" id="redesign">
-    <span class="cs-tag">06 &nbsp;·&nbsp; Redesign Proposal</span>
-    <h2 class="cs-h2">Applying the framework.</h2>
-    <p class="section-intro">The framework was applied to one of the audited products — a news platform — to demonstrate how small, principled design changes can meaningfully shift user trust without disrupting the business model.</p>
-
-    <div class="wireframe-split">
-      <div class="wireframe-photo">
-        <img src="brand_assests/Home_Page01.png" alt="Redesign proposal" />
-      </div>
-      <div class="wireframe-notes">
-        <div class="wireframe-note">
-          <span class="note-tag">Ad Labelling</span>
-          <p>Sponsored content given a persistent, visually distinct label with a one-tap explanation of what "sponsored" means on this platform.</p>
+      <div class="compare-grid">
+        <div class="compare-item">
+          <img src="brand_assests/Prime Monetization/Blackout Before.jpg" alt="Apple TV+ exclusive Hijack shown at full brightness among Prime Video's regular homepage rows" />
+          <span class="compare-label">Before</span>
         </div>
-        <div class="wireframe-note">
-          <span class="note-tag">Subscription Flow</span>
-          <p>Cancellation made as accessible as sign-up — same number of steps, same visual weight, same screen level in the navigation.</p>
-        </div>
-        <div class="wireframe-note">
-          <span class="note-tag">Pricing Page</span>
-          <p>All-in pricing shown from the first card — taxes and fees included, no asterisks, no "plus applicable taxes" in 10pt grey text.</p>
-        </div>
-        <div class="wireframe-note">
-          <span class="note-tag">Data Disclosure</span>
-          <p>A plain-language "how we make money" page linked from the footer and onboarding — written for readers, not lawyers.</p>
+        <div class="compare-item">
+          <img src="brand_assests/Prime Monetization/Blackout After.jpg" alt="The same title dimmed with a scrim and a centered Apple TV app badge marking it as outside the Prime subscription" />
+          <span class="compare-label">After</span>
         </div>
       </div>
+
+      <span class="sub-tag">Testing Results — 90% / 75% / 50% Opacity</span>
+      <p class="section-intro">We tested the scrim at three opacity levels with five users, scoring each on a 1–5 scale across four metrics.</p>
+      <div class="stat-block">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>90% Opacity</th>
+                <th>75% Opacity</th>
+                <th>50% Opacity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Clarity of Prime membership inclusion</td>
+                <td>4</td>
+                <td>4.33</td>
+                <td class="is-winner">4.67</td>
+              </tr>
+              <tr>
+                <td>Understanding show identity (pre-hover)</td>
+                <td>3</td>
+                <td>3.67</td>
+                <td class="is-winner">4.67</td>
+              </tr>
+              <tr>
+                <td>Did you expect the paywall?</td>
+                <td class="is-winner">4.67</td>
+                <td class="is-winner">4.67</td>
+                <td>4.33</td>
+              </tr>
+              <tr>
+                <td>Sense of control in purchase decision</td>
+                <td class="is-winner">5</td>
+                <td class="is-winner">5</td>
+                <td class="is-winner">5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="stat-finding">
+          <span class="finding-tag">Why 50% Opacity</span>
+          <p>50% won outright on clarity and show identity, and tied every condition on sense of control — with only a slightly lower score on whether users expected the paywall at all. We chose it as the strongest overall balance.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="design-concept" id="card-banner">
+      <span class="sub-tag">Concept 2 &nbsp;·&nbsp; Card Banner</span>
+      <h3 class="concept-heading">Label the paywall instead of hiding it.</h3>
+      <span class="note-tag">Visibility of System Status</span>
+      <p class="section-intro">Where Blackout subtracts information from unsubscribed cards, Card Banner adds it — a consistent coloured banner under every poster naming which service a title actually belongs to, standardised in colour, icon placement, and position across the whole grid.</p>
+
+      <div class="compare-grid">
+        <div class="compare-item">
+          <img src="brand_assests/Prime Monetization/Card Banner Before.jpg" alt="Homepage rows showing Prime and Crave titles with inconsistent branding treatment" />
+          <span class="compare-label">Before</span>
+        </div>
+        <div class="compare-item">
+          <img src="brand_assests/Prime Monetization/Card Banner After.jpg" alt="The same rows with a unified Paramount+ or Crave banner applied under every non-Prime title" />
+          <span class="compare-label">After</span>
+        </div>
+      </div>
+
+      <span class="sub-tag">Testing Results — 4 Statements, 1–5 Scale</span>
+      <div class="stat-block">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Statement</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>It was clear what was included, and what wasn't.</td>
+                <td class="is-winner">Agree – Strongly Agree</td>
+              </tr>
+              <tr>
+                <td>The hover state double-confirmed my understanding.</td>
+                <td class="is-winner">Agree – Strongly Agree</td>
+              </tr>
+              <tr>
+                <td>Icon choices are aligned with my understanding.</td>
+                <td class="is-winner">Agree – Strongly Agree</td>
+              </tr>
+              <tr>
+                <td>The banner colours are not distracting.</td>
+                <td class="is-winner">Agree – Strongly Agree</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="stat-finding">
+          <span class="finding-tag">Open Feedback</span>
+          <ul class="dot-list">
+            <li>Preferred Blackout's subtractive approach over Card Banner's additive one, on principle.</li>
+            <li>Visually clearer to see what was included and what wasn't.</li>
+            <li>The banner itself went largely unnoticed.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="design-concept" id="toggle">
+      <span class="sub-tag">Concept 3 &nbsp;·&nbsp; Toggle</span>
+      <h3 class="concept-heading">Surface the filter nobody noticed.</h3>
+      <span class="note-tag">User Control and Freedom</span>
+      <p class="section-intro">Prime Video's interface already lets viewers filter between Prime-included and subscription content — but none of the people we interviewed knew the controls existed. We redesigned it as a single, brightly coloured toggle fixed in the main navigation.</p>
+
+      <div class="compare-grid">
+        <div class="compare-item">
+          <img src="brand_assests/Prime Monetization/Toggle Before.jpg" alt="Existing Prime Video navigation with the subscription filter tucked away as small icons in the top right" />
+          <span class="compare-label">Before</span>
+        </div>
+        <div class="compare-item">
+          <img src="brand_assests/Prime Monetization/Toggle After.jpg" alt="Redesigned navigation with a high-contrast blue toggle switch between Prime and Subscriptions" />
+          <span class="compare-label">After</span>
+        </div>
+      </div>
+
+      <span class="sub-tag">Testing Results</span>
+      <ul class="dot-list">
+        <li>3 of 4 users still struggled to notice the toggle on first look.</li>
+        <li>Once they noticed it and understood what it did, users appreciated having an explicit way to sort Prime-included from additional content.</li>
+      </ul>
+
+      <div class="quote-grid">
+        <blockquote class="pull-quote">
+          "I was looking at the page and I didn't notice the toggle at first."
+          <cite>User 1</cite>
+        </blockquote>
+        <blockquote class="pull-quote">
+          "It took me a while to see the toggle, I am used to looking for the icons."
+          <cite>User 4</cite>
+        </blockquote>
+      </div>
     </div>
   </section>
 
-  <!-- ── 07 SOLUTION ── -->
-  <section class="cs-section cs-section--alt" id="solution">
-    <span class="cs-tag">07 &nbsp;·&nbsp; Solution</span>
-    <h2 class="cs-h2">The deliverables.</h2>
+  <!-- ── 06 OUTCOMES ── -->
+  <section class="cs-section cs-section--alt" id="outcomes">
+    <span class="cs-tag">06 &nbsp;·&nbsp; Outcomes &amp; Next Steps</span>
+    <h2 class="cs-h2">One concept validated, two with a clear next move.</h2>
+    <p class="section-intro">We tested all three concepts against an interactive <a href="https://www.figma.com/proto/MvmRwtP6545SdRxFs7tSwy/Prime-Video-blackout-testing" target="_blank" rel="noopener">Figma prototype ↗</a>.</p>
 
-    <div class="solution-grid">
+    <div class="solution-grid solution-grid--3col">
       <div class="solution-card">
-        <span class="sol-num">01</span>
-        <h4>Transparency Framework</h4>
-        <p>A four-principle framework for ethical monetization design — actionable enough to apply to any digital product, grounded in user research and dark pattern theory.</p>
+        <span class="sol-num">Blackout</span>
+        <h4>Validated</h4>
+        <p>Scored highest across the usability metrics we tracked. Next: test it against Prime Video's actual conversion and engagement data, not just usability scores.</p>
       </div>
       <div class="solution-card">
-        <span class="sol-num">02</span>
-        <h4>Dark Pattern Audit Tool</h4>
-        <p>A structured evaluation rubric teams can use to self-audit their products for monetization practices that damage trust, with severity ratings and remediation guidance.</p>
+        <span class="sol-num">Card Banner</span>
+        <h4>Inconclusive</h4>
+        <p>Tested just as clearly as Blackout, but users preferred a subtractive approach on principle. Next: redesign and retest the visual language before ruling it out.</p>
       </div>
       <div class="solution-card">
-        <span class="sol-num">03</span>
-        <h4>Redesign Proposal</h4>
-        <p>A high-fidelity redesign of a news platform applying all four framework principles — demonstrating transparent monetization is compatible with business viability.</p>
-      </div>
-      <div class="solution-card">
-        <span class="sol-num">04</span>
-        <h4>Research Report</h4>
-        <p>A full research report combining user findings, audit results, and design recommendations — written for both designers and product decision-makers.</p>
+        <span class="sol-num">Toggle</span>
+        <h4>Needs Iteration</h4>
+        <p>3 of 4 users missed it entirely on first look. Next: iterate on placement and visual weight, then test again.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── 08 REFLECTION ── -->
+  <!-- ── 09 REFLECTION ── -->
   <section class="cs-section" id="reflection">
-    <span class="cs-tag">08 &nbsp;·&nbsp; Reflection</span>
+    <span class="cs-tag">07 &nbsp;·&nbsp; Reflection</span>
     <h2 class="cs-h2">What I'd do differently.</h2>
 
     <div class="reflection-grid">
       <div class="reflection-card">
-        <span class="reflection-label">Business Perspective</span>
-        <p>Including business stakeholder interviews — even informally — would have strengthened the framework by acknowledging the genuine constraints designers work under when building monetization features.</p>
+        <span class="reflection-label">Test Discoverability Earlier</span>
+        <p>3 of 4 users missed the Toggle in testing. A quick round of guerrilla testing on the icon alone, before building the full flow around it, would have caught that earlier and cheaper.</p>
       </div>
       <div class="reflection-card">
-        <span class="reflection-label">Longitudinal Trust</span>
-        <p>Trust changes over time. A one-time survey captures a snapshot — a longitudinal study would have revealed how transparency interventions compound or decay over repeated product exposure.</p>
+        <span class="reflection-label">Additive Isn't Always the Answer</span>
+        <p>Card Banner tested just as clearly as Blackout on paper, but informal feedback favoured Blackout's subtractive approach — a reminder that clarity sometimes comes from removing signal, not adding more of it.</p>
       </div>
       <div class="reflection-card">
-        <span class="reflection-label">Testing the Redesign</span>
-        <p>The redesign proposal was validated heuristically, not with users. A usability study on the redesigned flows would have produced stronger evidence for the framework's effectiveness.</p>
+        <span class="reflection-label">Test Against the Business, Not Just the User</span>
+        <p>We validated Blackout with users but haven't yet tested it against Prime Video's actual conversion goals — the gap we flagged for ourselves going into the next round.</p>
       </div>
     </div>
   </section>
-
-  <!-- ── FOOTER ── -->
-  <footer class="cs-footer">
-    <div class="footer-item">
-      <span>Vancouver, Canada</span>
-    </div>
-    <div class="footer-item">
-      <span>Let's build together</span>
-    </div>
-    <div class="footer-item">
-      <span>©2026 Xirui Hu</span>
-    </div>
-  </footer>
 
   </div>
 
   <!-- ── TOC SIDEBAR ── -->
   <nav class="toc-sidebar" aria-label="Page outline">
-    <a href="#problem"    class="toc-item"><span class="toc-num">01</span><span class="toc-label">Problem</span></a>
-    <a href="#research"   class="toc-item"><span class="toc-num">02</span><span class="toc-label">Research</span></a>
-    <a href="#insights"   class="toc-item"><span class="toc-num">03</span><span class="toc-label">Insights</span></a>
-    <a href="#patterns"   class="toc-item"><span class="toc-num">04</span><span class="toc-label">Patterns</span></a>
-    <a href="#framework"  class="toc-item"><span class="toc-num">05</span><span class="toc-label">Framework</span></a>
-    <a href="#redesign"   class="toc-item"><span class="toc-num">06</span><span class="toc-label">Redesign</span></a>
-    <a href="#solution"   class="toc-item"><span class="toc-num">07</span><span class="toc-label">Solution</span></a>
-    <a href="#reflection" class="toc-item"><span class="toc-num">08</span><span class="toc-label">Reflection</span></a>
+    <a href="#problem"        class="toc-item"><span class="toc-num">01</span><span class="toc-label">Problem</span></a>
+    <a href="#research"       class="toc-item"><span class="toc-num">02</span><span class="toc-label">Research</span></a>
+    <a href="#insights"       class="toc-item"><span class="toc-num">03</span><span class="toc-label">Insights</span></a>
+    <a href="#business-goals" class="toc-item"><span class="toc-num">04</span><span class="toc-label">Business Goals</span></a>
+    <a href="#design-proposals" class="toc-item"><span class="toc-num">05</span><span class="toc-label">Design Proposal</span></a>
+    <a href="#outcomes"       class="toc-item"><span class="toc-num">06</span><span class="toc-label">Outcomes</span></a>
+    <a href="#reflection"     class="toc-item"><span class="toc-num">07</span><span class="toc-label">Reflection</span></a>
+    <a href="#top"            class="toc-item toc-top"><span class="toc-num" aria-hidden="true">↑</span><span class="toc-label">Back to top</span></a>
   </nav>
 
   </div>
@@ -377,7 +428,7 @@
   <script>
     (function () {
       const tocItems = document.querySelectorAll('.toc-item');
-      const sectionIds = ['problem','research','insights','patterns','framework','redesign','solution','reflection'];
+      const sectionIds = ['problem','research','insights','business-goals','design-proposals','outcomes','reflection'];
       const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
       function update() {
@@ -393,8 +444,37 @@
 
       window.addEventListener('scroll', update, { passive: true });
       update();
+
+      const hero = document.querySelector('.cs-hero');
+      const tocSidebar = document.querySelector('.toc-sidebar');
+      if (hero && tocSidebar && 'IntersectionObserver' in window) {
+        const heroObserver = new IntersectionObserver(([entry]) => {
+          tocSidebar.classList.toggle('toc-visible', !entry.isIntersecting);
+        }, { threshold: 0 });
+        heroObserver.observe(hero);
+      }
+
+      // Subsection reveal — each direct child of a .cs-section fades/slides
+      // in the first time it's scrolled into view, so a section's content
+      // surfaces piece by piece rather than all at once.
+      const revealSelector = '.cs-section > *, .research-board > *, .research-row > *, .design-concept > *';
+      if ('IntersectionObserver' in window) {
+        const revealTargets = document.querySelectorAll(revealSelector);
+        const revealObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+        revealTargets.forEach(el => revealObserver.observe(el));
+      } else {
+        document.querySelectorAll(revealSelector).forEach(el => el.classList.add('is-revealed'));
+      }
     })();
   </script>
+  <script src="lightbox.js"></script>
   <script src="page-transitions.js"></script>
 </body>
 </html>
